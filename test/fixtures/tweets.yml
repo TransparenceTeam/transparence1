@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  content: MyText
+  hashtag: MyString
+  date: 2021-02-13 13:13:29
+  politician: one
+
+two:
+  username: MyString
+  content: MyText
+  hashtag: MyString
+  date: 2021-02-13 13:13:29
+  politician: two
