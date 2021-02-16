@@ -1,0 +1,6 @@
+<% if policy(politician).show? %>
+  <%= @politician.first_name %>
+  <%= @politician.last_name %>
+  <%= @politician.bio %>
+  <%= @politician.role %>
+<% end %>

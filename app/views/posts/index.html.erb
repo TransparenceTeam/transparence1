@@ -1,3 +1,17 @@
-<% @tweets.each do |tweet| %>
-  <%= tweet.content %>
+<% @posts.each do |post| %>
+  <% @tweets.each do |tweet| %>
+    <%  if post.tweet_id == tweet.id%>
+      <%= tweet.username %>
+      <%= tweet.content %>
+      <%= tweet.hashtag %>
+      <% @politicians.each do |politician| %>
+        <% if tweet.politician_id  == politician.id %>
+          <%= politician.first_name %>
+          <%= politician.last_name  %>
+        <% end %>
+      <% end  %>
+    <% end %>
+  <% end %>
 <% end %>
+
+
