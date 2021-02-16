@@ -1,7 +1,8 @@
 require "time"
+require 'faker'
 
 puts "cleaning up Db"
-Tweet.destroy_all
+
 puts "Db is clean"
 
 10.times do
@@ -21,8 +22,29 @@ end
     content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     hashtag: ["economy", "environment", "technology", "culture", "sport"].sample,
     date: Date.today,
-    politician_id: rand(1..10)
+    politician_id: rand(20..40)
     )
   puts "Tweet #{tweet.id} is created"
 end
 
+4.times do
+  user = User.create!(
+    email: Faker::Internet.email,
+    first_name: ["olga", "baptiste", "victor", "gaurav"].sample,
+    username: ["olga", "baptiste", "victor", "gaurav"].sample,
+    last_name: ["gabbet", "klocker", "la fur", "lewagon"].sample,
+    password: "123456",
+    is_contributer: [true, false].sample
+    )
+  puts "User #{user.id} is created"
+end
+
+3.times do
+  post = Post.create!(
+    tag: ["economy", "Gaurav", "Baptiste"].sample,
+    policy_area: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    tweet_id: rand(70..80),
+    user_id: rand(1..15)
+    )
+  puts "Post #{post.id} is created"
+end
