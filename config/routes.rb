@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :user_posts, only: [:index, :new, :create]
   end
 
-  resources :politicians, only: [:show]
+  resources :politicians, only:[:show]
+
+  resources :users, only: [:show]
 
   resources :posts, only: [:destroy]
 end
