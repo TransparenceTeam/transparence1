@@ -1,6 +1,11 @@
-<% if policy(politician).show? %>
+<%= link_to "index posts", posts_path %>
+<h1>first name</h1>
   <%= @politician.first_name %>
-  <%= @politician.last_name %>
-  <%= @politician.bio %>
-  <%= @politician.role %>
-<% end %>
+<h1>last name</h1>
+<%= @politician.last_name %>
+<h1>twitter_username</h1>
+<%= @politician.twitter_username %>
+<h1>bio</h1>
+<%= @politician.bio %>
+<h1>role</h1>
+<%= @politician.role %>

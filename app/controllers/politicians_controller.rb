@@ -6,4 +6,5 @@ class PoliticiansController < ApplicationController
     authorize @politician
     # @tweet = @politician.tweet_id
   end
+
 end

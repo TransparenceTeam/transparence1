@@ -1,17 +1,27 @@
 <% @posts.each do |post| %>
   <% @tweets.each do |tweet| %>
     <%  if post.tweet_id == tweet.id%>
+      <h1>tweet username</h1>
       <%= tweet.username %>
+      <h1>tweet content</h1>
       <%= tweet.content %>
+      <h1>tweet hashtag</h1>
       <%= tweet.hashtag %>
       <% @politicians.each do |politician| %>
         <% if tweet.politician_id  == politician.id %>
+          <h1>politician first name</h1>
           <%= politician.first_name %>
+          <h1>politician last name</h1>
           <%= politician.last_name  %>
+          <%= link_to "politician page", politician_path(politician) %>
         <% end %>
       <% end  %>
+    <h1>#################################################</h1>
     <% end %>
+
   <% end %>
 <% end %>
+
+
 
 
