@@ -5,6 +5,7 @@ class ProjectLawsController < ApplicationController
     @project_laws = policy_scope(ProjectLaw)
     @votes = policy_scope(Vote)
     @deputies = policy_scope(Deputy)
+    @political_groups = policy_scope(PoliticalGroup)
   end
 
 end
