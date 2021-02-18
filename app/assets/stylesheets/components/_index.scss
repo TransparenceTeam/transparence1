@@ -8,3 +8,13 @@
 @import "banner";
 @import "card";
 @import "grid";
+
+.main-container-index {
+  display: grid;
+  grid-template-columns: 3fr 6fr 3fr;
+  grid-gap: 32px;
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-top: 32px;
+  text-align: center;
+}
