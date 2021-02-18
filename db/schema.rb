@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_154731) do
+ActiveRecord::Schema.define(version: 2021_02_18_153237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "deputies", force: :cascade do |t|
+    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "url_description"
+    t.bigint "political_group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["political_group_id"], name: "index_deputies_on_political_group_id"
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.string "favoritable_type", null: false
@@ -32,6 +43,13 @@ ActiveRecord::Schema.define(version: 2021_02_13_154731) do
     t.index ["scope"], name: "index_favorites_on_scope"
   end
 
+  create_table "political_groups", force: :cascade do |t|
+    t.string "ref"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "politicians", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -40,6 +58,8 @@ ActiveRecord::Schema.define(version: 2021_02_13_154731) do
     t.string "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "political_group_id", null: false
+    t.index ["political_group_id"], name: "index_politicians_on_political_group_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -51,6 +71,14 @@ ActiveRecord::Schema.define(version: 2021_02_13_154731) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tweet_id"], name: "index_posts_on_tweet_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "project_laws", force: :cascade do |t|
+    t.integer "scrutin"
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -91,9 +119,23 @@ ActiveRecord::Schema.define(version: 2021_02_13_154731) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "deputy_id", null: false
+    t.bigint "project_law_id", null: false
+    t.string "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deputy_id"], name: "index_votes_on_deputy_id"
+    t.index ["project_law_id"], name: "index_votes_on_project_law_id"
+  end
+
+  add_foreign_key "deputies", "political_groups"
+  add_foreign_key "politicians", "political_groups"
   add_foreign_key "posts", "tweets"
   add_foreign_key "posts", "users"
   add_foreign_key "tweets", "politicians"
   add_foreign_key "user_posts", "posts"
   add_foreign_key "user_posts", "users"
+  add_foreign_key "votes", "deputies"
+  add_foreign_key "votes", "project_laws"
 end
