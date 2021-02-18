@@ -1,0 +1,32 @@
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+
+
+<% @project_laws.each do |project_law| %>
+  <h1>scrutin:</h1>
+  <%= project_law.scrutin %>
+  <h1>title:</h1>
+  <%= project_law.name %>
+
+  <% deputies_list = [] %>
+
+  <% @votes.each do |vote| %>
+    <% if vote.position == "contre" %>
+      <% @deputies.each do |deputy| %>
+        <% deputies_list << deputy %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <h1> <%= deputies_list.length() %> </h1>
+
+
+
+
+  <h1>url:</h1>
+  <%= project_law.url%>
+  <h1>##########################################</h1>
+<% end %>

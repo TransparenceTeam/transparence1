@@ -4,7 +4,6 @@ class PoliticiansController < ApplicationController
   def show
     @politician = Politician.find(params[:id])
     authorize @politician
-    # @tweet = @politician.tweet_id
   end
 
 end
