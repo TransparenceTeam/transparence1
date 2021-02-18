@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scrutin: 1
+  name: MyString
+  url: MyString
+
+two:
+  scrutin: 1
+  name: MyString
+  url: MyString
