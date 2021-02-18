@@ -17,16 +17,20 @@
   <% @votes.each do |vote| %>
     <% if vote.position == "contre" %>
       <% @deputies.each do |deputy| %>
-        <% deputies_list << deputy %>
+        <% @political_groups.each do |political_group| %>
+          <% if deputy.political_group_id == political_group.id %>
+            <% if political_group.ref == "LREM"  %>
+              <%= deputies_list << deputy %>
+            <% end %>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
+    <h1>Deputies from LREM</h1>
+    <%= deputies_list.length() %>
+
+    <h1>url:</h1>
+    <%= project_law.url%>
+    <h1>##########################################</h1>
   <% end %>
-  <h1> <%= deputies_list.length() %> </h1>
-
-
-
-
-  <h1>url:</h1>
-  <%= project_law.url%>
-  <h1>##########################################</h1>
 <% end %>
