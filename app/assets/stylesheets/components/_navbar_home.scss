@@ -1,12 +1,22 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: $eggshell;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+.navbar-collapse {
+  margin-left: 32px;
+  margin-right: 16px;
+}
+
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.title {
+  font-family: 'Abril Fatface', cursive;
+  color: $green;
 }
