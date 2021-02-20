@@ -1,0 +1,27 @@
+.card-post {
+  background-color: $eggshell;
+  border-radius: 16px;
+  width: 600px;
+  height: 400px;
+  align-items: center;
+}
+
+.card-header {
+  background-color: $ivory;
+  height: 40px;
+  margin: 4px;
+  border-radius: 8px;
+}
+
+.tweet-container {
+  height: 75px;
+  margin: 4px;
+  border-radius: 8px;
+}
+
+.law-container {
+  background-color: $ivory;
+  height: 75px;
+  margin: 4px;
+  border-radius: 8px;
+}
