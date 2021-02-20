@@ -1,15 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
   background-color: $eggshell;
+  padding-left: 40px;
+  padding-right: 24px;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-}
-
-.navbar-collapse {
-  margin-left: 40px;
-  margin-right: 24px;
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -19,4 +16,5 @@
 .title {
   font-family: 'Abril Fatface', cursive;
   color: $green;
+  font-style: bold;
 }
