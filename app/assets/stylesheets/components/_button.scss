@@ -34,3 +34,17 @@
   background: #1BCB7F;
   color: white;
 }
+
+.btn-flat-red-1 {
+  color: white;
+  padding: 1px 4px;
+  border-radius: 8px;
+  background: $red;
+  transition: background 0.3s ease;
+  height: 32px;
+  width: 200px;
+
+  text-align: center;
+
+
+}

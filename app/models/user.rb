@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :user_posts, dependent: :destroy
   has_many :posts, dependent: :destroy
 
+  acts_as_favoritor
 end
