@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ref: MyString
+  sum_members: 1
+  avatar: MyString
+  website_url: MyString
+  political_group: one
+
+two:
+  name: MyString
+  ref: MyString
+  sum_members: 1
+  avatar: MyString
+  website_url: MyString
+  political_group: two
