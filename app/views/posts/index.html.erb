@@ -1,34 +1,8 @@
-<% @posts.each do |post| %>
-  <% @tweets.each do |tweet| %>
-    <%  if post.tweet_id == tweet.id%>
-      <h1>tweet username</h1>
-      <%= tweet.username %>
-      <h1>tweet content</h1>
-      <%= tweet.content %>
-      <h1>tweet hashtag</h1>
-      <%= tweet.hashtag %>
-      <% @politicians.each do |politician| %>
-        <% if tweet.politician_id  == politician.id %>
-          <h1>politician first name</h1>
-          <%= politician.first_name %>
-          <h1>politician last name</h1>
-          <%= politician.last_name  %>
-          <%= link_to "politician page", politician_path(politician) %>
-        <% end %>
-      <% end  %>
-    <h1>#################################################</h1>
-    <% end %>
+<div class="main-container-index ">
 
-  <% end %>
-<% end %>
-
-
-<div class="main-container-index">
-
-  <div class="container-filter">
-      <h1>Card-filter</h1>
+  <div class="container-filter ">
     <div class="card-filter">
-      <h2>Filters</h2>
+      <p2>Filters</p>
       <div class="category-list">
         <p>category</p>
       </div>
@@ -36,13 +10,13 @@
 
   </div>
 
-  <div class="feed-container">
+  <div class="feed-container w-auto ">
       <%= render 'components/card_post' %>
   </div>
 
-  <div class="suggestions-container">
+  <div class="suggestions-container ">
     <div class="card-suggestion">
-      <h1>suggestion</h1>
+      <p>suggestion</p>
     </div>
 
   </div>
