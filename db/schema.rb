@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_18_153237) do
+ActiveRecord::Schema.define(version: 2021_02_20_160358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,28 +43,59 @@ ActiveRecord::Schema.define(version: 2021_02_18_153237) do
     t.index ["scope"], name: "index_favorites_on_scope"
   end
 
+  create_table "matches", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "policy_area_id", null: false
+    t.bigint "project_law_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["policy_area_id"], name: "index_matches_on_policy_area_id"
+    t.index ["post_id"], name: "index_matches_on_post_id"
+    t.index ["project_law_id"], name: "index_matches_on_project_law_id"
+  end
+
+  create_table "policy_areas", force: :cascade do |t|
+    t.string "category"
+    t.string "subcategory"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "political_groups", force: :cascade do |t|
     t.string "ref"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "sum_members"
+    t.string "avatar"
+  end
+
+  create_table "political_parties", force: :cascade do |t|
+    t.string "name"
+    t.string "ref"
+    t.integer "sum_members"
+    t.string "avatar"
+    t.string "website_url"
+    t.bigint "political_group_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["political_group_id"], name: "index_political_parties_on_political_group_id"
   end
 
   create_table "politicians", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
     t.string "twitter_username"
     t.text "bio"
     t.string "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "political_group_id", null: false
-    t.index ["political_group_id"], name: "index_politicians_on_political_group_id"
+    t.string "name"
+    t.string "wikipedia_url"
+    t.string "linkedin_url"
+    t.bigint "political_party_id"
+    t.index ["political_party_id"], name: "index_politicians_on_political_party_id"
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "tag"
-    t.string "policy_area"
     t.bigint "tweet_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -89,6 +120,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_153237) do
     t.bigint "politician_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "ref"
     t.index ["politician_id"], name: "index_tweets_on_politician_id"
   end
 
@@ -130,7 +162,11 @@ ActiveRecord::Schema.define(version: 2021_02_18_153237) do
   end
 
   add_foreign_key "deputies", "political_groups"
-  add_foreign_key "politicians", "political_groups"
+  add_foreign_key "matches", "policy_areas"
+  add_foreign_key "matches", "posts"
+  add_foreign_key "matches", "project_laws"
+  add_foreign_key "political_parties", "political_groups"
+  add_foreign_key "politicians", "political_parties"
   add_foreign_key "posts", "tweets"
   add_foreign_key "posts", "users"
   add_foreign_key "tweets", "politicians"

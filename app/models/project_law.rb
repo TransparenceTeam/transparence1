@@ -3,4 +3,5 @@ class ProjectLaw < ApplicationRecord
   validates :name, presence: true
   validates :url, presence: true
   has_many :votes
+  has_many :matches
 end
