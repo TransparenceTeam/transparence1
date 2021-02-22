@@ -4,6 +4,7 @@ namespace :db do
     require 'open-uri'
     require 'json'
     require "i18n"
+    require_relative 'results_api'
 
     #puts "cleaning db"
     #Vote.destroy_all
@@ -12,6 +13,9 @@ namespace :db do
     #PoliticalGroup.destroy_all
     #Vote.destroy_all
     #puts "db cleaned"
+
+    api_results = VoteResults.new
+    api_results.execute
 
     deputies_url = 'https://www.nosdeputes.fr/deputes/json'
 
