@@ -7,7 +7,6 @@ class ProjectLawsController < ApplicationController
     @deputies = policy_scope(Deputy)
     @political_groups = policy_scope(PoliticalGroup)
   end
-
 end
 
 
