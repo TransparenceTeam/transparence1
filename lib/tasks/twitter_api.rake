@@ -1,13 +1,11 @@
 require 'oauth'
 require 'json'
 
-
 namespace :db do
   desc "tweets injection"
   task fetch_api_twitter: :environment do
 
     class ApiTwitter
-
       CONSUMER_KEY = 'FXT0aPogM3d34gdcQuvspRunJ'
       CONSUMER_SECRET = 'BJ73hI7TvkBY3njtEgOMKoQNW5HlXKmDNzHNUEGhogSAAIBOot'
 
@@ -23,16 +21,13 @@ namespace :db do
       end
 
       def home_line option = nil
-        JSON.parse(@access_token.request(:get, "#{BASE_URI}search/tweets.json?q=MLP_officiel").body)
+        JSON.parse(@access_token.request(:get, "#{BASE_URI}search/tweets.json?q=EmmanuelMacron").body)
       end
     end
     api = ApiTwitter.new
     user_list = api.home_line
     user_list.each do |user|
       puts user
-
-
-
     end
   end
 end

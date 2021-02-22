@@ -1,3 +1,26 @@
 .search-bg{
   background-color: $eggshell;
 }
+input {
+ background-color: $ivory;
+ border-radius: 8px;
+ width: 500px;
+}
+
+.form-inline {
+ background-color: $ivory;
+ border-radius: 8px;
+}
+
+.form-control {
+  background-color: $ivory;
+  border-radius: 8px;
+  border-style: none;
+}
+
+.form-inline .form-control {
+  width: 500px;
+}
+
+
+

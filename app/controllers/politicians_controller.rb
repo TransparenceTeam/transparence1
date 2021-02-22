@@ -5,5 +5,4 @@ class PoliticiansController < ApplicationController
     @politician = Politician.find(params[:id])
     authorize @politician
   end
-
 end
