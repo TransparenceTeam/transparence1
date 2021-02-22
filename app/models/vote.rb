@@ -4,5 +4,4 @@ class Vote < ApplicationRecord
   validates :position, presence: true
   belongs_to :deputy
   belongs_to :project_law
-  belongs_to :policy_area
 end

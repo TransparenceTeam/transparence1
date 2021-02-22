@@ -6,16 +6,6 @@ namespace :db do
     require "i18n"
     require_relative 'results_api'
 
-    #puts "cleaning db"
-    #Vote.destroy_all
-    #Deputy.destroy_all
-    #ProjectLaw.destroy_all
-    #PoliticalGroup.destroy_all
-    #Vote.destroy_all
-    #puts "db cleaned"
-
-    api_results = VoteResults.new
-    api_results.execute
 
     deputies_url = 'https://www.nosdeputes.fr/deputes/json'
 
@@ -99,7 +89,13 @@ namespace :db do
               new_project_law = ProjectLaw.create!(
                 scrutin: deputy_vote['vote']['scrutin']['numero'],
                 name: deputy_vote['vote']['scrutin']['titre'],
-                url: deputy_vote['vote']['scrutin']['url_nosdeputes_api']
+                url: deputy_vote['vote']['scrutin']['url_nosdeputes_api'],
+                date: deputy_vote['vote']['scrutin']['date'],
+                #sum: deputy_vote['vote']['scrutin']['nombre_votants'],
+                sum_for: deputy_vote['vote']['scrutin']['nombre_pours'],
+                sum_against: deputy_vote['vote']['scrutin']['nombre_contres'],
+                sum_abstention: deputy_vote['vote']['scrutin']['nombre_abstentions'],
+                owner: deputy_vote['vote']['scrutin']['demandeurs'][0]['demandeur']
               )
               puts "scrutin nb  #{new_project_law.scrutin} (id #{new_project_law.id}) has been created"
             end
@@ -146,5 +142,9 @@ namespace :db do
       end
     end
     puts "step 4 done"
+
+    api_results = VoteResults.new
+    api_results.execute
+    puts "step 5 done"
   end
 end
