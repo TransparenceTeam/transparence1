@@ -28,7 +28,7 @@ political_party2 = PoliticalParty.create!(
   website_url: 'https://en-marche.fr/',
   political_group_id: 1
 )
-puts "political party #{political_party1.id} has been created"
+puts "political party #{political_party2.id} has been created"
 
 political_party3 = PoliticalParty.create!(
   name: 'La France Insoumise',
@@ -38,7 +38,7 @@ political_party3 = PoliticalParty.create!(
   website_url: 'https://lafranceinsoumise.fr/',
   political_group_id: 3
 )
-puts "political party #{political_party1.id} has been created"
+puts "political party #{political_party3.id} has been created"
 
 
 politician1 = Politician.create!(
@@ -50,7 +50,7 @@ politician1 = Politician.create!(
   wikipedia_url: "https://en.wikipedia.org/wiki/Jean-Luc_M%C3%A9lenchon",
   political_party_id: 3
 )
-puts "political party #{political_party1.id} has been created"
+puts "politician #{politician1.id} has been created"
 
 
 politician2 = Politician.create!(
@@ -62,7 +62,7 @@ politician2 = Politician.create!(
   wikipedia_url: "https://en.wikipedia.org/wiki/Emmanuel_Macron",
   political_party_id: 1
 )
-puts "political party #{political_party1.id} has been created"
+puts "politician #{politician2.id} has been created"
 
 
 politician3 = Politician.create!(
@@ -72,9 +72,9 @@ politician3 = Politician.create!(
   bio: "Nicolas Paul Stéphane Sarközy de Nagy-Bocsa (/sɑːrˈkoʊzi/; French: [nikɔla pɔl stefan saʁkɔzi də naʒi bɔksa] (About this soundlisten); born 28 January 1955) is a retired French politician who served as President of France and ex officio Co-Prince of Andorra from 16 May 2007 until 15 May 2012.",
   linkedin_url: 'https://www.linkedin.com/in/nicolassarkozy/',
   wikipedia_url: "https://en.wikipedia.org/wiki/Nicolas_Sarkozy",
-  political_party_id: 4
+  political_party_id: 3
 )
-puts "political party #{political_party1.id} has been created"
+puts "politician #{politician3.id} has been created"
 
 
 tweet1 = Tweet.create!(
