@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_20_160358) do
+ActiveRecord::Schema.define(version: 2021_02_21_170541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(version: 2021_02_20_160358) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "policy_area_id"
+    t.index ["policy_area_id"], name: "index_posts_on_policy_area_id"
     t.index ["tweet_id"], name: "index_posts_on_tweet_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -110,6 +112,21 @@ ActiveRecord::Schema.define(version: 2021_02_20_160358) do
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "date"
+    t.integer "sum_for"
+    t.integer "sum_against"
+    t.integer "sum_abstention"
+    t.string "owner"
+    t.string "LREM_positions"
+    t.string "MODEM_positions"
+    t.string "SOC_positions"
+    t.string "LR_positions"
+    t.string "GDR_positions"
+    t.string "LT_positions"
+    t.string "AE_positions"
+    t.string "UDI_positions"
+    t.string "NI_positions"
+    t.string "LFI_positions"
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -167,6 +184,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_160358) do
   add_foreign_key "matches", "project_laws"
   add_foreign_key "political_parties", "political_groups"
   add_foreign_key "politicians", "political_parties"
+  add_foreign_key "posts", "policy_areas"
   add_foreign_key "posts", "tweets"
   add_foreign_key "posts", "users"
   add_foreign_key "tweets", "politicians"
