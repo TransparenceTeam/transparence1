@@ -151,5 +151,3 @@ end
   )
   puts "match #{matche.id} has been created"
 end
-
-

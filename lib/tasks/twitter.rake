@@ -26,6 +26,7 @@ namespace :db do
     #   puts tweet_user
     # tweet_follow = client.follow('EmmanuelMacron')
     #   puts tweet_user
+    # Tweet.create! > save to the database
     tweets.each {|tweet| puts tweet.full_text}
     tweets.each {|tweet| puts tweet.uri}
     tweets.each {|tweet| puts tweet.text}
