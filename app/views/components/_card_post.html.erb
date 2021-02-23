@@ -145,14 +145,27 @@
                                         <img class="avatar-small" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani"/>
                                       </div>
                                       <div class="political-group-name ml-2">
-                                        <p>La Republique en Marche</p>
+                                        <p><%= political_party.ref %></p>
                                       </div>
                                     </div>
                                     <div class="political-group-votes d-flex">
                                       <div class="votes d-flex">
-                                        <div><i class="fas fa-check-square"></i></div>
-                                        <div class="ml-2">34 voted against (94%)</div>
+                                        <% votes_for = law.LREM_positions.split("-")[0].to_i%>
+                                        <% votes_against = law.LREM_positions.split("-")[1].to_i %>
+                                        <% votes_abstained = law.LREM_positions.split("-")[2].to_i %>
+                                        <% if votes_for > votes_against && votes_for > votes_abstained %>
+                                        <div class="votes_for"><i class="fas fa-check-square"></i></div>
+                                        <div class="votes_for ml-2"><%= votes_for%> voted for the law</div>
+                                        <% elsif votes_against > votes_for && votes_against > votes_abstained %>
+                                        <div class="votes_against"><i class="fas fa-ban"></i></div>
+                                        <div class="votes_against ml-2"><%= votes_against%> voted against the law</div>
+                                        <% else votes_abstained %>
+                                        <div class="votes_abstained"><i class="fas fa-ban"></i></div>
+                                        <div class="votes_abstained ml-2"><%= votes_abstained%> abstained</div>
+                                      <% end %>
                                       </div>
+
+
                                     </div>
                                       <div class="political-group-dropdown d-flex">
                                         <div class="political-group-subcard"><i class="far fa-plus-square"></i></div>

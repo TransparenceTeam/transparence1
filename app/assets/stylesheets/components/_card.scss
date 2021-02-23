@@ -185,3 +185,14 @@
   font-size: 18px;
 }
 
+.votes_for {
+  color: $green;
+}
+
+.votes_against {
+  color: $red;
+}
+
+.votes_abstained {
+  color: $lighter-green;
+}
