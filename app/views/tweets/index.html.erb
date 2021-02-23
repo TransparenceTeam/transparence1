@@ -1,4 +1,4 @@
-<div class="main-container-index ">
+<div class="main-container-index">
 
  <!--  <div class="container-filter ">
     <div class="card-filter">
@@ -11,8 +11,11 @@
   </div> -->
 
   <div class="feed-container w-auto ">
-      <%= render 'components/card_tweet' %>
+      <div>
+        <%= render 'components/card_tweet' %>
+      </div>
   </div>
+
 
   <!-- <div class="suggestions-container ">
     <div class="card-suggestion">
@@ -21,3 +24,11 @@
 
   </div> -->
 </div>
+        <div>
+          <% @tweets.each do |tweet| %>
+            <%= tweet.username %>
+            <%= tweet.content %>
+            <%= tweet.date %>
+            <%= tweet.politician_id %>
+          <% end %>
+        </div>
