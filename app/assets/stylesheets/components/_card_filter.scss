@@ -1,0 +1,52 @@
+
+.card-filter {
+  background-color: $eggshell;
+  border-radius: 16px;
+  align-items: center;
+  padding:4px;
+  text-align:left;
+  max-width:200px;
+  color: $black;
+  font-size:14px;
+  padding: 0px;
+}
+
+.categories-container h4 {
+  padding-left: 16px;
+  padding-top: 16px;
+  padding-right: 16px;
+  color: $green;
+  text-align: center;
+}
+.categories-container {
+  padding-bottom: 8px;
+}
+
+#categories-list ul li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  -webkit-padding-start: 0;
+}
+
+
+.fa-dot-circle {
+  color: $red;
+  padding-right: 16px;
+}
+
+
+.category-box {
+  background-color: $ivory;
+  width: auto;
+  border-radius: 8px;
+  margin: 8px;
+  padding: 2px;
+}
+
+
+
