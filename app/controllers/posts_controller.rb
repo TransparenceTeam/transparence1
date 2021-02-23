@@ -5,7 +5,11 @@ class PostsController < ApplicationController
   def index
     @posts = policy_scope(Post.all)
     @tweets = policy_scope(Tweet.all)
-    @politicians = Politician.all
+    @politicians = policy_scope(Politician.all)
+    @political_parties = policy_scope(PoliticalParty.all)
+    @matches = policy_scope(Match.all)
+    @policy_areas = policy_scope(PolicyArea.all)
+    @project_laws = policy_scope(ProjectLaw.all)
   end
 
   def new

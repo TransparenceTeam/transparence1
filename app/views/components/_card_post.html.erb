@@ -1,169 +1,194 @@
-<div class="card-post d-flex align-items-center flex-column pr-4 pl-4 h-auto  ">
-  <div class="card-political-group w-100 ">
+<% @posts.each do |post| %>
+  <% @tweets.each do |tweet| %>
+    <% if post.tweet_id == tweet.id %>
+      <% @politicians.each do |politician| %>
+        <% if tweet.politician_id == politician.id %>
+          <% @political_parties.each do |political_party| %>
+            <% if tweet.politician_id == political_party.id %>
+              <% @matches.each do |match| %>
+                <% if match.post_id == post.id %>
+                  <% @policy_areas.each do |policy_area| %>
+                    <% if match.policy_area_id == policy_area.id %>
+                      <% @project_laws.each do |law| %>
+                        <% if match.project_law_id == law.id %>
+                          <div class="card-post d-flex align-items-center flex-column pr-4 pl-4 h-auto  ">
+                            <div class="card-political-group w-100 ">
 
-    <div class="card-header-title d-flex w-100">
+                              <div class="card-header-title d-flex w-100">
 
-      <div class= "d-flex">
-        <span class=' politician-icon fas fa-user'></span>
-        <p class="ml-1 ">President, La Republique en Marché (LREM)</p>
-      </div>
+                                <div class= "d-flex">
+                                  <span class=' politician-icon fas fa-user'></span>
+                                  <p class="ml-1 "><%= politician.role %>, <%= political_party.name %></p>
+                                </div>
 
-      <div class="politician-icon">
-        <span class="fas fa-info-circle"></span>
-      </div>
+                                <div class="politician-icon">
+                                  <span class="fas fa-info-circle"></span>
+                                </div>
 
-    </div>
+                              </div>
 
-    <button class="btn btn-flat-red-1">Economy</button>
-  </div>
+                              <button class="btn btn-flat-red-1"><%= policy_area.category %></button>
+                            </div>
 
-  <div class="tweet-container w-100 h-auto">
-    <div class="politician-info d-flex p-2">
-      <!-- avatar -->
-      <div>
-        <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
-      </div>
+                            <div class="tweet-container w-100 h-auto">
 
-      <div class="politician-info-add ml-2">
-        <div class="politician-info-add-name">
-          Emmanual Macron
-        </div>
-        <div class="politician-info-add-username">
-        emmanuel_macron
-        </div>
+                              <div class="politician-info d-flex p-2">
+                                <!-- avatar -->
+                                <div>
+                                  <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+                                </div>
 
-      </div>
-    </div>
+                                <div class="politician-info-add ml-2">
+                                  <div class="politician-info-add-name">
+                                    <%= tweet.username %>
+                                  </div>
+                                  <div class="politician-info-add-username">
+                                    <%= politician.twitter_username %>
+                                  </div>
 
-    <div class="tweet-content p-4">
-      À la conférence de Munich sur la sécurité, j'ai plaidé pour un agenda transatlantique renouvelé autour d'un multilatéralisme qui produit des résultats, qui agit très concrètement pour réduire les inégalités et lutte contre la haine en ligne. Tous ces défis se relèveront ensemble.
-    </div>
+                                </div>
+                              </div>
 
-    <div class="tweet-additional-info p-2">
-      11:01 pm | 12th March 2021 | Twitter for Iphone
-    </div>
-  </div>
+                              <div class="tweet-content p-4">
+                                <%= tweet.content %>
+                              </div>
 
-  <div class="law-container w-100 h-auto">
-    <div class="d-flex p-2 law-details align-items-center ">
-     <!--  title and icon -->
-      <div class= "d-flex align-items-center w-100 ">
+                              <div class="tweet-additional-info p-2">
+                                <%= tweet.date %>
+                              </div>
+                            </div>
+                            <div class="law-container w-100 h-auto">
+                              <div class="d-flex p-2 law-details align-items-center ">
+                               <!--  title and icon -->
+                                <div class= "d-flex align-items-center w-100 ">
 
-        <div>
-          <span class="fas fa-university law-icon ml-2 mr-2"></span>
-        </div>
+                                  <div>
+                                    <span class="fas fa-university law-icon ml-2 mr-2"></span>
+                                  </div>
 
-        <div class="ml-1 law-text">
-          Loi de securite informatique
-        </div>
+                                  <div class="ml-1 law-text">
+                                    <%= law.name %>
+                                  </div>
 
-      </div>
-
-
-     <!--  main icons -->
-      <div class="law-info-summary w-100 d-flex align-items-center ">
-
-
-        <div class= "d-flex justify-content-between">
-
-          <div>
-            <i class="fas fa-vote-yea"></i>
-          </div>
-
-          <div class="ml-1">
-            Approved
-          </div>
-
-        </div>
-
-        <div class= "d-flex justify-content-between ml-2 align-items-center " >
-          <div>
-            <i class="fas fa-check-square"></i>
-          </div>
-
-          <div class= "ml-1">
-            6000
-          </div>
-        </div>
-
-        <div class= "d-flex justify-content-between ml-2">
-          <div>
-            <i class="fas fa-ban"></i>
-          </div>
-
-          <div class= "ml-1">
-            200
-          </div>
-        </div>
-
-        <div class= "d-flex justify-content-between ml-2">
-          <div>
-            <i class="fas fa-ban"></i>
-          </div>
-
-          <div class= "ml-1">
-            100
-          </div>
-        </div>
-
-      </div>
-
-     <!--  closing icons -->
-     <div class="d-flex">
-
-        <div class="mr-3">
-          <i class="fas fa-external-link-alt"></i>
-        </div>
-
-        <div class="mr-1">
-          <i class="fas fa-angle-double-down"></i>
-        </div>
-
-     </div>
-    </div>
+                                </div>
 
 
-
-    <div class="law-grid ml-2 mr-2 mt-2 mb-2">
-        <div class="card-law-grid h-auto">
-          <div class="political-group-subcard p-2 mt-2">
-            <div class="political-group-couple d-flex">
-              <div class="political-group-avatar">
-                <img class="avatar-small" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani"/>
-              </div>
-              <div class="political-group-name ml-2">
-                <p>La Republique en Marche</p>
-              </div>
-            </div>
-            <div class="political-group-votes d-flex">
-              <div class="votes d-flex">
-                <div><i class="fas fa-check-square"></i></div>
-                <div class="ml-2">34 voted against (94%)</div>
-              </div>
-            </div>
-              <div class="political-group-dropdown d-flex">
-                <div class="political-group-subcard"><i class="far fa-plus-square"></i></div>
-              </div>
-          </div>
-        </div>
-        <div class="card-law-grid h-auto">
-        </div>
-        <div class="card-law-grid">
-        </div>
-        <div class="card-law-grid">
-        </div>
-        <div class="card-law-grid">
-        </div>
-        <div class="card-law-grid">
-        </div>
-    </div>
-  </div>
+                               <!--  main icons -->
+                                <div class="law-info-summary w-100 d-flex align-items-center ">
 
 
-  <div class="post-share w-100">
-    <!-- icons to share and like -->
-  </div>
-</div>
+                                  <div class= "d-flex justify-content-between">
+
+                                    <div>
+                                      <i class="fas fa-vote-yea"></i>
+                                    </div>
+
+                                    <div class="ml-1">
+                                      Approved
+                                    </div>
+
+                                  </div>
+
+                                  <div class= "d-flex justify-content-between ml-2 align-items-center " >
+                                    <div>
+                                      <i class="fas fa-check-square"></i>
+                                    </div>
+
+                                    <div class= "ml-1">
+                                      <%= law.sum_for %>
+                                    </div>
+                                  </div>
+
+                                  <div class= "d-flex justify-content-between ml-2">
+                                    <div>
+                                      <i class="fas fa-ban"></i>
+                                    </div>
+
+                                    <div class= "ml-1">
+                                      <%= law.sum_against %>
+                                    </div>
+                                  </div>
+
+                                  <div class= "d-flex justify-content-between ml-2">
+                                    <div>
+                                      <i class="fas fa-ban"></i>
+                                    </div>
+
+                                    <div class= "ml-1">
+                                      <%= law.sum_abstention %>
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                               <!--  closing icons -->
+                               <div class="d-flex">
+
+                                  <div class="mr-3">
+                                    <i class="fas fa-external-link-alt"></i>
+                                  </div>
+
+                                  <div class="mr-1">
+                                    <i class="fas fa-angle-double-down"></i>
+                                  </div>
+
+                               </div>
+                              </div>
+
+
+
+                              <div class="law-grid ml-2 mr-2 mt-2 mb-2">
+                                <div class="card-law-grid h-auto">
+                                  <div class="political-group-subcard p-2 mt-2">
+                                    <div class="political-group-couple d-flex">
+                                      <div class="political-group-avatar">
+                                        <img class="avatar-small" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani"/>
+                                      </div>
+                                      <div class="political-group-name ml-2">
+                                        <p>La Republique en Marche</p>
+                                      </div>
+                                    </div>
+                                    <div class="political-group-votes d-flex">
+                                      <div class="votes d-flex">
+                                        <div><i class="fas fa-check-square"></i></div>
+                                        <div class="ml-2">34 voted against (94%)</div>
+                                      </div>
+                                    </div>
+                                      <div class="political-group-dropdown d-flex">
+                                        <div class="political-group-subcard"><i class="far fa-plus-square"></i></div>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="card-law-grid h-auto">
+                                </div>
+                                <div class="card-law-grid">
+                                </div>
+                                <div class="card-law-grid">
+                                </div>
+                                <div class="card-law-grid">
+                                </div>
+                                <div class="card-law-grid">
+                                </div>
+                              </div>
+
+
+                            <div class="post-share w-100">
+                              <!-- icons to share and like -->
+                            </div>
+                          </div>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
 
 
 
