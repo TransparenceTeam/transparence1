@@ -6,11 +6,11 @@ namespace :db do
   task fetch_api_twitter: :environment do
 
     class ApiTwitter
-      CONSUMER_KEY = 'FXT0aPogM3d34gdcQuvspRunJ'
-      CONSUMER_SECRET = 'BJ73hI7TvkBY3njtEgOMKoQNW5HlXKmDNzHNUEGhogSAAIBOot'
+      CONSUMER_KEY = ENV['TWITTER_CONSUMER_KEY']
+      CONSUMER_SECRET = ENV['TWITTER_CONSUMER_SECRET']
 
-      OA_TOKEN = '486094169-Kn3Ky9v0xk34hDmS2u8uDSfLVQKzST82soP9R7T3'
-      OA_SECRET = 'UonCSEohfanGpWDrrzBKHkKPhfsnrwpRmtxTrf2b1YwQS'
+      OA_TOKEN = ENV['TWITTER_ACCESS_TOKEN']
+      OA_SECRET = ENV['TWITTER_ACCESS_TOKEN_SECRET']
 
       BASE_URI = 'https://api.twitter.com/1.1/'
 
