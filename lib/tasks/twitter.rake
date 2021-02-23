@@ -5,6 +5,8 @@
 #   config.access_token        = "YOUR_ACCESS_TOKEN"
 #   config.access_token_secret = "YOUR_ACCESS_SECRET"
 # end
+puts "heyy"
+puts ENV['TWITTER_CONSUMER_KEY']
 
 namespace :db do
   desc "tweeter baptiste test"
@@ -52,3 +54,5 @@ end
 # end
 
 # client.get_all_tweets("sferik")
+
+
