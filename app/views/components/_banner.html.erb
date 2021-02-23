@@ -2,6 +2,7 @@
   <div class="container">
     <h1>Get context from political commuication!</h1>
     <p>by consulting their position on law.</p>
-    <a class="btn-flat-red" href="#">Browse</a>  <a class="btn-flat-green" href="#">Contribute</a>
+    <%= link_to "Browse", posts_path(@posts), class: 'btn btn-flat-green' %>
+    <%= link_to "contribute", tweets_path(@tweets), class: 'btn btn-flat-red' %></button>
   </div>
 </div>
