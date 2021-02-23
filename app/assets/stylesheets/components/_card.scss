@@ -22,10 +22,6 @@
   font-size:14px;
 }
 
-
-
-
-
 .card-post {
   background-color: $eggshell;
   border-radius: 16px;
@@ -137,7 +133,6 @@
   border-radius: 4px;
   box-shadow: 0 0 2px rgba(0,0,0,0.1);
   display: flex;
-  align-items: center;
   justify-content: space-around;
   font-size: 14px;
   background-color: $eggshell;
@@ -162,18 +157,31 @@
 }
 
 
-
 .post-share {
   height: 20px;
   background-color: $ivory;
   border-radius:8px;
 }
 
+.political-group-name p {
+  font-size: 12px;
+  text-align: left;
+}
 
+.votes {
+  font-size: 12px;
+  align-items: center;
+}
 
+.votes i {
+  font-size: 24px;
+}
 
+.political-group-dropdown {
+  justify-content: flex-end;
+}
 
-
-
-
+.political-group-subcard i {
+  font-size: 18px;
+}
 
