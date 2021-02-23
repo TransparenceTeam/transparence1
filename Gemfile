@@ -24,6 +24,7 @@ gem 'acts-as-taggable-on', '~> 7.0'
 gem 'pundit'
 gem 'faker'
 gem 'twitter', '~> 6.2'
+gem 'dotenv-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
