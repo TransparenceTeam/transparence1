@@ -24,7 +24,7 @@ gem 'acts-as-taggable-on', '~> 7.0'
 gem 'pundit'
 gem 'faker'
 gem 'twitter', '~> 6.2'
-gem 'dotenv-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -36,7 +36,7 @@ gem 'dotenv-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem "typhoeus"
 gem 'oauth'
-
+gem 'pry', '~> 0.13.1'
 # FRONT
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'autoprefixer-rails'
