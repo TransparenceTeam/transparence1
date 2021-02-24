@@ -182,7 +182,7 @@ class VoteResults
         lrem_score.update(UDI_positions: "#{udi_for}-#{udi_against}-#{udi_abstention}")
         lrem_score.update(NI_positions: "#{ni_for}-#{ni_against}-#{ni_abstention}")
         lrem_score.update(LFI_positions: "#{lfi_for}-#{lfi_against}-#{lfi_abstention}")
-        #lrem_score.update(UAI_positions: "#{uai_for}-#{uai_against}-#{uai_abstention}")
+        lrem_score.update(UAI_positions: "#{uai_for}-#{uai_against}-#{uai_abstention}")
         puts law.name
         puts "LREM FOR: #{lrem_for} - AGAINST: #{lrem_against} - Abstencion: #{lrem_abstention}"
         puts "MODEM FOR: #{modem_for} - AGAINST: #{modem_for_against} - Abstencion: #{modem_for_abstention}"
