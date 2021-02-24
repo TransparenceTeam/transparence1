@@ -65,8 +65,9 @@
 
 .card-political-group {
   display: flex;
-  justify-content: space-between;
+
   margin-top: 8px;
+  align-items: center;
 }
 
 .card-header-title{
@@ -78,15 +79,15 @@
   margin-right: 32px;
   max-resolution: 3px;
   padding: 4px;
-  text-align: center;
+  text-align: left;
   justify-content: space-between;
+  align-items:center;
 
 }
 
 .politician-icon {
     vertical-align: middle;
     font-size: 16px;
-    margin:3px
 }
 
 .law-container{
@@ -97,7 +98,10 @@
 }
 
 .law-details{
-  flex-grow:1;
+  margin: auto;
+  width: 80%;
+
+
 }
 
 .law-text{
@@ -184,4 +188,8 @@
 
 .votes_abstained {
   color: $lighter-green;
+}
+
+.law-info-summary{
+  font-size:13px;
 }
