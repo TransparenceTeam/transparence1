@@ -1,1 +1,11 @@
-_card_filter.html.erb
+
+<div class="categories-container">
+  <h4>Categories</h4>
+  <ul id="categories-list">
+    <% @policy_areas.each do |policy| %>
+      <div class="category-box">
+        <li><i class="fas fa-dot-circle"></i><%= policy.category%></li>
+      </div>
+    <%end %>
+  </ul>
+</div>
