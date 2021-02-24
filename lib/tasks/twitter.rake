@@ -1,13 +1,3 @@
-#
-# client = Twitter::REST::Client.new do |config|
-#   config.consumer_key        = "YOUR_CONSUMER_KEY"
-#   config.consumer_secret     = "YOUR_CONSUMER_SECRET"
-#   config.access_token        = "YOUR_ACCESS_TOKEN"
-#   config.access_token_secret = "YOUR_ACCESS_SECRET"
-# end
-puts "heyy"
-puts ENV['TWITTER_CONSUMER_KEY']
-
 namespace :db do
   desc "tweeter baptiste test"
   task twitter_api: :environment do

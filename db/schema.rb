@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_170541) do
+ActiveRecord::Schema.define(version: 2021_02_24_145517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,8 @@ ActiveRecord::Schema.define(version: 2021_02_21_170541) do
     t.string "UDI_positions"
     t.string "NI_positions"
     t.string "LFI_positions"
+    t.integer "sum"
+    t.string "UAI_positions"
   end
 
   create_table "tweets", force: :cascade do |t|
