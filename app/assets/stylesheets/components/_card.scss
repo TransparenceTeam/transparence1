@@ -7,7 +7,7 @@
   text-align:center;
   max-width:200px;
   color: $black;
-  font-size:14px;
+  font-size:12px;
 
 }
 
@@ -20,7 +20,7 @@
   text-align:center;
   max-width:640px;
   color: $black;
-  font-size:14px;
+  font-size:12px;
 }
 
 
@@ -45,9 +45,10 @@
 .tweet-content{
 
   font: work-sans;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 22px;
-  color: $black
+  color: $black;
+
 }
 
 .tweet-additional-info {
@@ -87,7 +88,7 @@
 
 .politician-icon {
     vertical-align: middle;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .law-container{
@@ -105,8 +106,9 @@
 }
 
 .law-text{
-  font-size:14px;
+  font-size:12px;
   text-align:left;
+  line-height:22px;
 }
 
 
@@ -116,9 +118,9 @@
 }
 
 .law-icon{
-  font-size: 16px;
+  font-size: 14px;
   vertical-align: middle;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .card-law-grid{
@@ -127,14 +129,14 @@
   box-shadow: 0 0 2px rgba(0,0,0,0.1);
   display: flex;
   justify-content: space-around;
-  font-size: 14px;
+  font-size: 12px;
   background-color: $eggshell;
   font-weight: bolder;
   text-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .politician-info-add {
-  font-size:14px;
+  font-size:12px;
   color: $black
 }
 
@@ -191,5 +193,23 @@
 }
 
 .law-info-summary{
-  font-size:13px;
+  font-size:12px;
+}
+
+
+.law-details-sub-container{
+  background-color: $eggshell;
+  border-radius:4px;
+  font-weight: light;
+  font-size:12px;
+
+}
+
+
+.tweet-details-sub-container{
+  background-color: $eggshell;
+  border-radius:4px;
+  font-weight: light;
+  font-size:12px;
+
 }
