@@ -4,9 +4,10 @@
   padding: 150px 0;
 }
 .banner h1 {
-  margin: 0;
+  margin: auto;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  opacity: .95;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
   font-size: 32px;
   font-weight: bold;
 }
@@ -14,5 +15,6 @@
   font-size: 20px;
   color: white;
   opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
+
