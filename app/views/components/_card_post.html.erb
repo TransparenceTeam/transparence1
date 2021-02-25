@@ -5,6 +5,8 @@
         <% if tweet.politician_id == politician.id %>
           <% @political_parties.each do |political_party| %>
             <% if tweet.politician_id == political_party.id %>
+            <% @political_group.each do |political_group| %>
+            <% if political_party.political_group_id == political_group.id %>
               <% @matches.each do |match| %>
                 <% if match.post_id == post.id %>
                   <% @policy_areas.each do |policy_area| %>
@@ -77,7 +79,7 @@
                               <div class="p-3 law-details align-items-center">
                                <!--  title and icon -->
 
-                                  <div class = law-details-sub-container p-3>
+                                  <div class = law-details-sub-container p-3 w-100>
 
 
                                     <div class= "d-flex w-100 align-items-center p-3 ">
@@ -91,90 +93,85 @@
                                       </div>
 
                                     </div>
+                                 <!--  main icons -->
+                                  <div class="law-info-summary w-100 d-flex align-items-center justify-content-between ">
+                                    <div class= "d-flex p-2">
 
-                                  </div>
-
-
-
-                               <!--  main icons -->
-                                <div class="law-info-summary w-100 d-flex align-items-center justify-content-between ">
-                                  <div class= "d-flex p-2">
-
-                                    <div>
-                                      <i class="fas fa-vote-yea"></i>
-                                    </div>
-
-                                    <div class="ml-1">
-                                      Approved
-                                    </div>
-
-                                  </div>
-
-
-                                  <div class='d-flex p-2'>
-
-                                    <div class= "d-flex ml-4 align-items-center " >
                                       <div>
-                                        <i class="fas fa-check-square"></i>
+                                        <i class="fas fa-vote-yea"></i>
                                       </div>
 
-                                      <div class= "ml-1">
-                                        <%= law.sum_for %>
+                                      <div class="ml-1">
+                                        Approved
+                                      </div>
+
+                                    </div>
+
+
+                                    <div class='d-flex p-2'>
+
+                                      <div class= "d-flex ml-4 align-items-center " >
+                                        <div>
+                                          <i class="fas fa-check-square"></i>
+                                        </div>
+
+                                        <div class= "ml-1">
+                                          <%= law.sum_for %>
+                                        </div>
+                                      </div>
+
+                                      <div class= "d-flex ml-4">
+                                        <div>
+                                          <i class="fas fa-ban"></i>
+                                        </div>
+
+                                        <div class= "ml-1">
+                                          <%= law.sum_against %>
+                                        </div>
+                                      </div>
+
+                                      <div class= "d-flex  ml-4">
+                                        <div>
+                                          <i class="fas fa-ban"></i>
+                                        </div>
+
+                                        <div class= "ml-1">
+                                          <%= law.sum_abstention %>
+                                        </div>
                                       </div>
                                     </div>
 
-                                    <div class= "d-flex ml-4">
-                                      <div>
-                                        <i class="fas fa-ban"></i>
-                                      </div>
 
-                                      <div class= "ml-1">
-                                        <%= law.sum_against %>
-                                      </div>
+
+                                 <!--  closing icons -->
+                                  <div class="d-flex p-2">
+
+                                    <div class="mr-3">
+                                      <i class="fas fa-external-link-alt"></i>
                                     </div>
 
-                                    <div class= "d-flex  ml-4">
-                                      <div>
-                                        <i class="fas fa-ban"></i>
-                                      </div>
-
-                                      <div class= "ml-1">
-                                        <%= law.sum_abstention %>
-                                      </div>
+                                    <div class="mr-1">
+                                      <i class="fas fa-angle-double-down"></i>
                                     </div>
-                                  </div>
-
-
-
-                               <!--  closing icons -->
-                                <div class="d-flex p-2">
-
-                                  <div class="mr-3">
-                                    <i class="fas fa-external-link-alt"></i>
-                                  </div>
-
-                                  <div class="mr-1">
-                                    <i class="fas fa-angle-double-down"></i>
-                                  </div>
-
                                 </div>
+                              </div>
                                <!--closing law details -->
                                </div>
-                              </div>
+                        </div>
 
                               <div class="law-grid ml-2 mr-2 mt-2 mb-2">
                                 <div class="card-law-grid h-auto">
                                   <div class="political-group-subcard p-2 mt-2">
                                     <div class="political-group-couple d-flex">
                                       <div class="political-group-avatar">
-                                        <img class="avatar-small" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani"/>
+                                        <img class="avatar-small" alt="avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/LesRépublicains15logo.svg/1920px-LesRépublicains15logo.svg.png"/>
                                       </div>
                                       <div class="political-group-name ml-2">
-                                        <p><%= political_party.ref %></p>
+                                        <p> LR </p>
                                       </div>
                                     </div>
                                     <div class="political-group-votes d-flex">
-                                      <div class="votes d-flex">
+                                      <div class="votes d-flex mt-2 ml-2 p-2">
                                         <% votes_for = law.LREM_positions.split("-")[0].to_i%>
                                         <% votes_against = law.LREM_positions.split("-")[1].to_i %>
                                         <% votes_abstained = law.LREM_positions.split("-")[2].to_i %>
@@ -190,7 +187,70 @@
                                         <% end %>
                                       </div>
                                     </div>
-
+                                    <div class="political-group-dropdown d-flex">
+                                        <div class="political-group-subcard"><i class="far fa-plus-square"></i></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-law-grid h-auto">
+                                  <div class="political-group-subcard p-2 mt-2">
+                                    <div class="political-group-couple d-flex">
+                                      <div class="political-group-avatar">
+                                        <img class="avatar-small" alt="avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/MoDem_logo_2019.svg/2880px-MoDem_logo_2019.svg.png"/>
+                                      </div>
+                                      <div class="political-group-name ml-2">
+                                        <p> MoDem </p>
+                                      </div>
+                                    </div>
+                                    <div class="political-group-votes d-flex">
+                                      <div class="votes d-flex mt-2 ml-2 p-2">
+                                        <% votes_for = law.SOC_positions.split("-")[0].to_i%>
+                                        <% votes_against = law.SOC_positions.split("-")[1].to_i %>
+                                        <% votes_abstained = law.SOC_positions.split("-")[2].to_i %>
+                                        <% if votes_for > votes_against && votes_for > votes_abstained %>
+                                        <div class="votes_for"><i class="fas fa-check-square"></i></div>
+                                        <div class="votes_for ml-2"><%= votes_for%> voted for the law</div>
+                                        <% elsif votes_against > votes_for && votes_against > votes_abstained %>
+                                        <div class="votes_against"><i class="fas fa-ban"></i></div>
+                                        <div class="votes_against ml-2"><%= votes_against%> voted against the law</div>
+                                        <% else votes_abstained %>
+                                        <div class="votes_abstained"><i class="fas fa-ban"></i></div>
+                                        <div class="votes_abstained ml-2"><%= votes_abstained%> abstained</div>
+                                        <% end %>
+                                      </div>
+                                    </div>
+                                    <div class="political-group-dropdown d-flex p-3">
+                                        <div class="political-group-subcard"><i class="far fa-plus-square"></i></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-law-grid h-auto">
+                                  <div class="political-group-subcard p-2 mt-2">
+                                    <div class="political-group-couple d-flex">
+                                      <div class="political-group-avatar">
+                                        <img class="avatar-small" alt="avatar" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4f/Parti_socialiste.svg/1920px-Parti_socialiste.svg.png"/>
+                                      </div>
+                                      <div class="political-group-name ml-2">
+                                        <p> SOC </p>
+                                      </div>
+                                    </div>
+                                    <div class="political-group-votes d-flex">
+                                      <div class="votes d-flex mt-2 mt-2 p-2">
+                                        <% votes_for = law.MODEM_positions.split("-")[0].to_i%>
+                                        <% votes_against = law.MODEM_positions.split("-")[1].to_i %>
+                                        <% votes_abstained = law.MODEM_positions.split("-")[2].to_i %>
+                                        <% if votes_for > votes_against && votes_for > votes_abstained %>
+                                        <div class="votes_for"><i class="fas fa-check-square"></i></div>
+                                        <div class="votes_for ml-2"><%= votes_for%> voted for the law</div>
+                                        <% elsif votes_against > votes_for && votes_against > votes_abstained %>
+                                        <div class="votes_against"><i class="fas fa-ban"></i></div>
+                                        <div class="votes_against ml-2"><%= votes_against%> voted against the law</div>
+                                        <% else votes_abstained %>
+                                        <div class="votes_abstained"><i class="fas fa-ban"></i></div>
+                                        <div class="votes_abstained ml-2"><%= votes_abstained%> abstained</div>
+                                        <% end %>
+                                      </div>
+                                    </div>
                                     <div class="political-group-dropdown d-flex">
                                         <div class="political-group-subcard"><i class="far fa-plus-square"></i></div>
                                     </div>
@@ -218,9 +278,9 @@
     <% end %>
 
   <% end %>
-
 <% end %>
-
+<% end %>
+<% end %>
 
 
 
