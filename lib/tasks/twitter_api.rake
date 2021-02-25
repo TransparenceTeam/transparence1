@@ -14,8 +14,6 @@ namespace :db do
 
       BASE_URI = 'https://api.twitter.com/1.1/'
 
-      NUMBER_OF_TWEETS_TO_LOOK_FOR = 1
-
       def initialize
         consumer = OAuth::Consumer.new(CONSUMER_KEY, CONSUMER_SECRET, { site: 'https://api.twitter.com', scheme: :header })
         token_hash = { oauth_token: OA_TOKEN, oauth_token_secret: OA_SECRET }
@@ -23,48 +21,46 @@ namespace :db do
       end
 
 
-      def user_timeline_endpoint(username)
-        JSON.parse(@access_token.request(:get, "#{BASE_URI}statuses/user_timeline.json?screen_name=#{username}&count=1&tweet_mode=extended")
+      def user_timeline_endpoint(twitter_username)
+        JSON.parse(@access_token.request(:get, "#{BASE_URI}statuses/user_timeline.json?screen_name=#{twitter_username}&count=2&tweet_mode=extended")
         .body)
       end
     end
 
-    api = ApiTwitter.new
-    tweets_content = api.user_timeline_endpoint("EmmanuelMacron")
+    politicians = Politician.all
+    politicians.each do |politician|
+      puts politician.twitter_username
+      api = ApiTwitter.new
+      puts api.user_timeline_endpoint(politician.twitter_username)
 
-   tweets_content.each do |user|
-      puts user['created_at'] #ok
-      puts user['id']
-      puts "full_text:" #ok
-      puts user['full_text'] #ok
-      puts "entities - hastag:" #ok
-      puts user['entities']['hashtags'] #ok
+      tweets_content = api.user_timeline_endpoint(politician.twitter_username)
 
-      puts user['entities']['urls'][0]['expanded_url']# ok, cest le lien du content du retweet
+      tweets_content.each do |user|
 
-      puts user['in_reply_to_status_id'] # on garde, cest le status quand le mec reponds
+        unless Tweet.exists?(tweet_id: user['id'])
+          new_tweet = Tweet.create!(
+            username: user['user']['screen_name'],
+            content: user['full_text'],
+            hashtag: user['entities']['hashtags'],
+            date: user['created_at'],
+            tweet_id: user['id'],
+            expanded_tweet_url: user['entities']['urls'][0]['expanded_url'],
+            in_reply_to_status: user['in_reply_to_status_id'],
+            user_description: user['user']['description'],
+            expanded_url: user['user']['entities']['url']['urls'][0]['expanded_url'],
+            followers_count: user['user']['followers_count'],
+            friends_count: user['user']['friends_count'],
+            listed_count: user['user']['listed_count'],
+            avatar_url: user['user']['profile_image_url'],
+            avatar_https: user['user']['profile_image_url_https'],
+            lang: user['lang'],
+            location: user['user']['location'],
+            politician_id: politician.id
+          )
+          puts "tweet id #{new_tweet.tweet_id} has been created from #{new_tweet.username} twitter profile"
+        end
 
-      puts user['in_reply_to_user_id']
-
-      puts user['user']['screen_name'] # on garde, issue with baptiste
-
-      puts user['user']['location']  #on garde
-
-      puts user['user']['description']  # titre de la position
-
-      puts user['user']['entities']['url']['urls'][0]['expanded_url'] #on garde
-
-      puts user['user']['followers_count'] # on garde
-
-      puts user['user']['friends_count'] #on garde
-
-      puts user['user']['listed_count'] #on garde, dans cb de liste twitter est present (currated liste)
-
-      puts user['user']['profile_image_url'] # avatar on garde
-
-      puts user['user']['profile_image_url_https'] #avatar on garde
-
-      puts user['lang']
+      end
 
     end
   end

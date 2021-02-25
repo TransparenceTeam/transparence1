@@ -172,17 +172,17 @@ class VoteResults
       end
       if law.LREM_positions.nil?
         lrem_score = ProjectLaw.find_by(id: law.id)
-        lrem_score.update(LREM_positions: "#{lrem_for}-#{lrem_against}-#{lrem_abstention}")
-        lrem_score.update(MODEM_positions: "#{modem_for}-#{modem_for_against}-#{modem_for_abstention}")
-        lrem_score.update(SOC_positions: "#{soc_for}-#{soc_against}-#{soc_abstention}")
-        lrem_score.update(LR_positions: "#{lr_for}-#{lr_against}-#{lr_abstention}")
-        lrem_score.update(GDR_positions: "#{gdr_for}-#{gdr_against}-#{gdr_abstention}")
-        lrem_score.update(LT_positions: "#{lt_for}-#{lt_against}-#{lt_abstention}")
-        lrem_score.update(AE_positions: "#{ae_for}-#{ae_against}-#{ae_abstention}")
-        lrem_score.update(UDI_positions: "#{udi_for}-#{udi_against}-#{udi_abstention}")
-        lrem_score.update(NI_positions: "#{ni_for}-#{ni_against}-#{ni_abstention}")
-        lrem_score.update(LFI_positions: "#{lfi_for}-#{lfi_against}-#{lfi_abstention}")
-        lrem_score.update(UAI_positions: "#{uai_for}-#{uai_against}-#{uai_abstention}")
+        lrem_score.update(LREM_positions: "LREM-#{lrem_for}-#{lrem_against}-#{lrem_abstention}")
+        lrem_score.update(MODEM_positions: "MODEM#{modem_for}-#{modem_for_against}-#{modem_for_abstention}")
+        lrem_score.update(SOC_positions: "SOC-#{soc_for}-#{soc_against}-#{soc_abstention}")
+        lrem_score.update(LR_positions: "LR-#{lr_for}-#{lr_against}-#{lr_abstention}")
+        lrem_score.update(GDR_positions: "GDR-#{gdr_for}-#{gdr_against}-#{gdr_abstention}")
+        lrem_score.update(LT_positions: "LT-#{lt_for}-#{lt_against}-#{lt_abstention}")
+        lrem_score.update(AE_positions: "AE-#{ae_for}-#{ae_against}-#{ae_abstention}")
+        lrem_score.update(UDI_positions: "UDI-#{udi_for}-#{udi_against}-#{udi_abstention}")
+        lrem_score.update(NI_positions: "#NI-{ni_for}-#{ni_against}-#{ni_abstention}")
+        lrem_score.update(LFI_positions: "LFI-#{lfi_for}-#{lfi_against}-#{lfi_abstention}")
+        lrem_score.update(UAI_positions: "UAI-#{uai_for}-#{uai_against}-#{uai_abstention}")
         puts law.name
         puts "LREM FOR: #{lrem_for} - AGAINST: #{lrem_against} - Abstencion: #{lrem_abstention}"
         puts "MODEM FOR: #{modem_for} - AGAINST: #{modem_for_against} - Abstencion: #{modem_for_abstention}"

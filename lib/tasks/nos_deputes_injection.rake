@@ -131,7 +131,6 @@ namespace :db do
         if !scrutin['vote']['position'].nil?
           unless Vote.exists?(deputy_id: Deputy.where(name: deputy_name).first.id) &&
             Vote.exists?(project_law_id: ProjectLaw.where(scrutin: scrutin['vote']['scrutin']['numero']).first.id)
-
             new_vote = Vote.create!(
               deputy_id: Deputy.where(name: deputy_name).first.id,
               project_law_id: ProjectLaw.where(scrutin: scrutin['vote']['scrutin']['numero']).first.id,
