@@ -91,6 +91,7 @@ namespace :db do
                 name: deputy_vote['vote']['scrutin']['titre'],
                 url: deputy_vote['vote']['scrutin']['url_nosdeputes_api'],
                 date: deputy_vote['vote']['scrutin']['date'],
+                position_law: deputy_vote['vote']['scrutin']['sort'],
                 sum: deputy_vote['vote']['scrutin']['nombre_votants'],
                 sum_for: deputy_vote['vote']['scrutin']['nombre_pours'],
                 sum_against: deputy_vote['vote']['scrutin']['nombre_contres'],
