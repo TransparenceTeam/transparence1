@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_151559) do
+ActiveRecord::Schema.define(version: 2021_02_25_171314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,6 +141,17 @@ ActiveRecord::Schema.define(version: 2021_02_25_151559) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "ref"
+    t.integer "tweet_id"
+    t.string "expanded_tweet_url"
+    t.string "in_reply_to_status"
+    t.string "user_description"
+    t.string "expanded_url"
+    t.integer "followers_count"
+    t.integer "friends_count"
+    t.integer "listed_count"
+    t.string "avatar_url"
+    t.string "avatar_https"
+    t.string "lang"
     t.index ["politician_id"], name: "index_tweets_on_politician_id"
   end
 
