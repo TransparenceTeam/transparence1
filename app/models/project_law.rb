@@ -4,4 +4,8 @@ class ProjectLaw < ApplicationRecord
   validates :url, presence: true
   has_many :votes
   has_many :matches
+
+  def last_100
+   projectlaw_100 = Projectlaw.last(1)
+  end
 end

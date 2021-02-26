@@ -1,16 +1,14 @@
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1520500807606-4ac9ae633574?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2850&q=80);">
-  <div class="navbar-home-container">
-    <%= render 'components/navbar_home'%>
-  </div>
-
-<div class="ml-5 pt-5 mt-5 w-80">
-  <div class="container-center">
+    <div class="container-center-home">
       <h1>Get context from political tweets!</h1>
       <p class= "p-2">by comparing the communication with their votes at the Parliamant</p>
       <%= link_to "Browse", posts_path(@posts), class: 'btn btn-flat-green' %>
-      <%= link_to "Contribute", tweets_path(@tweets), class: 'btn btn-flat-red' %></button>
+      <%= link_to "Contribute", tweets_path(@tweets), class: 'btn btn-flat-red' %>
+
       <%= render 'components/search_bar_home'%>
+
     </div>
   </div>
+
+
 </div>
