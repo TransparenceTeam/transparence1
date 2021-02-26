@@ -26,8 +26,8 @@
                                     <span class="fas fa-info-circle"></span>
                                   </div>
                               </div>
-                              <div>
-                                <button class="btn btn-flat-red-1"><%= policy_area.category %></button>
+                              <div class="tag-policy-area">
+                                <div class="tag-container d-flex"><%= policy_area.category %><span class="fas fa-tag"></span></div>
                               </div>
                             </div>
 
@@ -51,21 +51,16 @@
                                   </div>
 
                                  </div>
+                                 <div class="twitter-icon ml-auto">
+                                    <span class="fab fa-twitter"></span>
+                                </div>
                               </div>
 
-
-
-                                <div class="tweet-content p-3 ">
-                                  <div class="law-details-sub-container p-3">
-                                    <%= tweet.content %>
-                                  </div>
-
+                              <div class="tweet-content p-3 ">
+                                <div class="law-details-sub-container p-3">
+                                  <%= tweet.content %>
                                 </div>
-
-
-
-
-
+                              </div>
 
                               <div class="tweet-additional-info ml-3 mb-2">
                                 <%= tweet.date %>
@@ -112,7 +107,7 @@
 
                                       <div class= "d-flex ml-4 align-items-center " >
                                         <div>
-                                          <i class="fas fa-check-square"></i>
+                                          <i class="far fa-check-circle"></i>
                                         </div>
 
                                         <div class= "ml-1">
@@ -122,7 +117,7 @@
 
                                       <div class= "d-flex ml-4">
                                         <div>
-                                          <i class="fas fa-ban"></i>
+                                          <i class="far fa-times-circle"></i>
                                         </div>
 
                                         <div class= "ml-1">
@@ -176,11 +171,11 @@
                                         <% votes_against = law.LREM_positions.split("-")[1].to_i %>
                                         <% votes_abstained = law.LREM_positions.split("-")[2].to_i %>
                                         <% if votes_for > votes_against && votes_for > votes_abstained %>
-                                        <div class="votes_for"><i class="fas fa-check-square"></i></div>
-                                        <div class="votes_for ml-2"><%= votes_for%> voted for the law</div>
+                                        <div class="votes_for"><i class="far fa-check-circle"></i></div>
+                                        <div class="votes_for ml-2"><%= votes_for%> voted for</div>
                                         <% elsif votes_against > votes_for && votes_against > votes_abstained %>
-                                        <div class="votes_against"><i class="fas fa-ban"></i></div>
-                                        <div class="votes_against ml-2"><%= votes_against%> voted against the law</div>
+                                        <div class="votes_against"><i class="far fa-times-circle"></i></div>
+                                        <div class="votes_against ml-2"><%= votes_against%> voted against</div>
                                         <% else votes_abstained %>
                                         <div class="votes_abstained"><i class="fas fa-ban"></i></div>
                                         <div class="votes_abstained ml-2"><%= votes_abstained%> abstained</div>
@@ -208,11 +203,11 @@
                                         <% votes_against = law.SOC_positions.split("-")[1].to_i %>
                                         <% votes_abstained = law.SOC_positions.split("-")[2].to_i %>
                                         <% if votes_for > votes_against && votes_for > votes_abstained %>
-                                        <div class="votes_for"><i class="fas fa-check-square"></i></div>
-                                        <div class="votes_for ml-2"><%= votes_for%> voted for the law</div>
+                                        <div class="votes_for"><i class="far fa-check-circle"></i></div>
+                                        <div class="votes_for ml-2"><%= votes_for%> voted for</div>
                                         <% elsif votes_against > votes_for && votes_against > votes_abstained %>
-                                        <div class="votes_against"><i class="fas fa-ban"></i></div>
-                                        <div class="votes_against ml-2"><%= votes_against%> voted against the law</div>
+                                        <div class="votes_against"><i class="far fa-times-circle"></i></div>
+                                        <div class="votes_against ml-2"><%= votes_against%> voted against</div>
                                         <% else votes_abstained %>
                                         <div class="votes_abstained"><i class="fas fa-ban"></i></div>
                                         <div class="votes_abstained ml-2"><%= votes_abstained%> abstained</div>
@@ -240,11 +235,11 @@
                                         <% votes_against = law.MODEM_positions.split("-")[1].to_i %>
                                         <% votes_abstained = law.MODEM_positions.split("-")[2].to_i %>
                                         <% if votes_for > votes_against && votes_for > votes_abstained %>
-                                        <div class="votes_for"><i class="fas fa-check-square"></i></div>
-                                        <div class="votes_for ml-2"><%= votes_for%> voted for the law</div>
+                                        <div class="votes_for"><i class="far fa-check-square"></i></div>
+                                        <div class="votes_for ml-2"><%= votes_for%> voted for</div>
                                         <% elsif votes_against > votes_for && votes_against > votes_abstained %>
-                                        <div class="votes_against"><i class="fas fa-ban"></i></div>
-                                        <div class="votes_against ml-2"><%= votes_against%> voted against the law</div>
+                                        <div class="votes_against"><i class="far fa-times-circle"></i></div>
+                                        <div class="votes_against ml-2"><%= votes_against%> voted against</div>
                                         <% else votes_abstained %>
                                         <div class="votes_abstained"><i class="fas fa-ban"></i></div>
                                         <div class="votes_abstained ml-2"><%= votes_abstained%> abstained</div>

@@ -46,6 +46,20 @@
   font-size:14px;
 
   text-align: center;
+}
 
 
+.tag-container {
+  border-radius: 8px;
+  padding: 8px 24px;
+  color: $red;
+  background-color: $eggshell;
+  font-style: bold;
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+.fa-tag {
+  margin-left: 8px;
+  font-style: bold;
 }

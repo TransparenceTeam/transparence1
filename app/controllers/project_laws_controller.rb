@@ -9,4 +9,3 @@ class ProjectLawsController < ApplicationController
   end
 end
 
-

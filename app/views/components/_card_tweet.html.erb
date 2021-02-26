@@ -1,205 +1,111 @@
-<div class="card-post d-flex align-items-center flex-column pr-4 pl-4 h-auto  ">
-  <div class="card-political-group w-100 ">
+<% @tweets.each do |tweet| %>
+ <% @politicians.each do |politician| %>
+    <% if tweet.politician_id == politician.id %>
+      <div class="card-post d-flex align-items-center flex-column pr-4 pl-4 h-auto  ">
+        <div class="card-political-group w-100 ">
 
-    <div class="card-header-title d-flex w-100">
+            <div class="card-political-group w-100 d-flex h-auto  ">
+              <div class="card-header-title d-flex w-100 h-auto">
+                <div>
+                  <span class=' politician-icon fas fa-user ml-2'></span>
+                </div>
+                <div class= "ml-2"><%= politician.role %>
+                </div>
+                <div class="politician-icon mt-4">
+                  <span class="fas fa-info-circle"></span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div class= "d-flex">
-        <span class=' politician-icon fas fa-user'></span>
-        <p class="ml-1 ">President, La Republique en Marché (LREM)</p>
+          <div class="tweet-container w-100 h-auto">
+            <div class="politician-info d-flex p-2">
+              <!-- avatar -->
+              <div>
+                <img class="avatar" alt="avatar" src="https://pbs.twimg.com/profile_images/1308812357502668812/jSVlszOa_400x400.jpg" />
+              </div>
+
+              <div class="politician-info-add ml-2">
+                <div class="politician-info-add-name">
+                  <%= tweet.username %>
+                </div>
+                <div class="politician-info-add-username">
+                  <%= politician.twitter_username %>
+                </div>
+
+               </div>
+               <div class="twitter-icon ml-auto">
+                  <span class="fab fa-twitter"></span>
+              </div>
+            </div>
+
+            <div class="tweet-content p-3 ">
+              <div class="law-details-sub-container p-3">
+                <%= tweet.content %>
+              </div>
+            </div>
+
+            <div class="tweet-additional-info ml-3 mb-2">
+              <%= tweet.date %>
+            </div>
+
+          </div>
+
+        <div class="law-container w-100 h-auto">
+
+          <div class=" p-2 law-details align-items-center ">
+           <!--  title and icon -->
+            <div class= " align-items-center w-100 ">
+              <div class="ml-1 law-text">
+                Please pick the most rellevant law. Just start typing and we’re going to help you:
+              </div>
+              <div class="d-flex ml-1 justify-content-center space-between">
+                <div>
+                  <a class="btn btn-flat-green mr-3 far fa-check-circle" href="#"></a>
+                </div>
+                <div>
+                  <a class="btn btn-flat-red mr-3 far fa-times-circle" href="#"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+           <div class=" p-2 law-details align-items-center ">
+           <!--  title and icon -->
+            <div class= " align-items-center w-100 ">
+              <div class="ml-1 law-text">
+                Which topic would you most closely associate the tweet with?
+              </div>
+              <div class="d-flex ml-1 justify-content-center space-between">
+                <div>
+                  <a class="btn btn-flat-green mr-3 far fa-check-circle" href="#"></a>
+                </div>
+                <div>
+                  <a class="btn btn-flat-red mr-3 far fa-times-circle" href="#"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class=" p-2 law-details align-items-center ">
+           <!--  title and icon -->
+            <div class= " align-items-center w-100 ">
+              <div class="ml-1 law-text">
+                Please pick the most relevant law from the list:
+              </div>
+              <div class="d-flex ml-1 justify-content-center space-between">
+                <div>
+                  <a class="btn btn-flat-green mr-3 far fa-check-circle" href="#"></a>
+                </div>
+                <div>
+                  <a class="btn btn-flat-red mr-3 far fa-times-circle" href="#"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-
-      <div class="politician-icon">
-        <span class="fas fa-info-circle"></span>
-      </div>
-
-    </div>
-
-    <button class="btn btn-flat-red-1">Economy</button>
-  </div>
-
-  <div class="tweet-container w-100 h-auto">
-    <div class="politician-info d-flex p-2">
-      <!-- avatar -->
-      <div>
-        <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
-      </div>
-
-      <div class="politician-info-add ml-2">
-        <div class="politician-info-add-name">
-        </div>
-        <div class="politician-info-add-username">
-        emmanuel_macron
-        </div>
-
-      </div>
-    </div>
-
-    <div class="tweet-content p-4">
-      À la conférence de Munich sur la sécurité, j'ai plaidé pour un agenda transatlantique renouvelé autour d'un multilatéralisme qui produit des résultats, qui agit très concrètement pour réduire les inégalités et lutte contre la haine en ligne. Tous ces défis se relèveront ensemble.
-    </div>
-
-    <div class="tweet-additional-info p-2">
-      11:01 pm | 12th March 2021 | Twitter for Iphone
-    </div>
-  </div>
-
-  <div class="law-container w-100 h-auto">
-    <div class=" p-2 law-details align-items-center ">
-     <!--  title and icon -->
-      <div class= " align-items-center w-100 ">
-        <div class="ml-1 law-text">
-          Please pick the most rellevant law. Just start typing and we’re going to help you:
-        </div>
-        <div class="d-flex ml-1 justify-content-center space-between">
-          <div>
-            <a class="btn btn-flat-green mr-3fas fa-check" href="#">Yes</a>
-          </div>
-          <div>
-            <span class="fas fa-ban "></span>
-            <a class="btn btn-flat-red" href="#">No</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="law-container w-100 h-auto">
-    <div class="d-flex p-2 law-details align-items-center ">
-
-     <!--  title and icon -->
-      <div class= "d-flex align-items-center w-100 ">
-
-        <div>
-          <span class="fas fa-university law-icon ml-2 mr-2"></span>
-        </div>
-
-        <div class="ml-1 law-text">
-          Loi de securite informatique
-        </div>
-
-      </div>
-
-
-     <!--  main icons -->
-
-      <div class="law-info-summary w-100 d-flex align-items-center ">
-
-
-        <div class= "d-flex justify-content-between">
-
-          <div>
-            <i class="fas fa-vote-yea"></i>
-          </div>
-
-          <div class="ml-1">
-            Approved
-          </div>
-
-        </div>
-
-        <div class= "d-flex justify-content-between ml-2 align-items-center " >
-          <div>
-            <i class="fas fa-check-square"></i>
-          </div>
-
-          <div class= "ml-1">
-            6000
-          </div>
-        </div>
-
-        <div class= "d-flex justify-content-between ml-2">
-          <div>
-            <i class="fas fa-ban"></i>
-          </div>
-
-          <div class= "ml-1">
-            200
-          </div>
-        </div>
-
-        <div class= "d-flex justify-content-between ml-2">
-          <div>
-            <i class="fas fa-ban"></i>
-          </div>
-
-          <div class= "ml-1">
-            100
-          </div>
-        </div>
-
-      </div>
-
-     <!--  closing icons -->
-
-    </div>
-  </div>
-  <div class="law-container w-100 h-auto">
-    <div class="d-flex p-2 law-details align-items-center ">
-     <!--  title and icon -->
-      <div class= "d-flex align-items-center w-100 ">
-
-        <div>
-          <span class="fas fa-university law-icon ml-2 mr-2"></span>
-        </div>
-
-        <div class="ml-1 law-text">
-          Loi de securite informatique
-        </div>
-
-      </div>
-
-
-     <!--  main icons -->
-      <div class="law-info-summary w-100 d-flex align-items-center ">
-
-
-        <div class= "d-flex justify-content-between">
-
-          <div>
-            <i class="fas fa-vote-yea"></i>
-          </div>
-
-          <div class="ml-1">
-            Approved
-          </div>
-
-        </div>
-
-        <div class= "d-flex justify-content-between ml-2 align-items-center " >
-          <div>
-            <i class="fas fa-check-square"></i>
-          </div>
-
-          <div class= "ml-1">
-            6000
-          </div>
-        </div>
-
-        <div class= "d-flex justify-content-between ml-2">
-          <div>
-            <i class="fas fa-ban"></i>
-          </div>
-
-          <div class= "ml-1">
-            200
-          </div>
-        </div>
-
-        <div class= "d-flex justify-content-between ml-2">
-          <div>
-            <i class="fas fa-ban"></i>
-          </div>
-
-          <div class= "ml-1">
-            100
-          </div>
-        </div>
-
-      </div>
-
-     <!--  closing icons -->
-
-    </div>
-  </div>
-
-</div>
+    <% end %>
+  <% end %>
+<% end %>
