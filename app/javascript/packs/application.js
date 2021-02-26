@@ -7,7 +7,11 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("bootstrap")
+// require ("packs/custome")
+// require ("packs/post.js")
 import 'bootstrap';
+
 
 console.log("Hello from app/javascript/packs/application.js!");
 
