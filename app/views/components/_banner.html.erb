@@ -4,12 +4,13 @@
     <%= render 'components/navbar_home'%>
   </div>
 
-<div class="ml-5 pt-5 mt-5 w-75">
+<div class="ml-5 pt-5 mt-5 w-80">
   <div class="container-center">
       <h1>Get context from political tweets!</h1>
       <p class= "p-2">by comparing the communication with their votes at the Parliamant</p>
       <%= link_to "Browse", posts_path(@posts), class: 'btn btn-flat-green' %>
       <%= link_to "Contribute", tweets_path(@tweets), class: 'btn btn-flat-red' %></button>
+      <%= render 'components/search_bar'%>
     </div>
   </div>
 </div>

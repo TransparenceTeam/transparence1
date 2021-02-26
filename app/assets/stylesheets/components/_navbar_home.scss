@@ -1,5 +1,6 @@
 .navbar-lewagon-home {
   justify-content: space-between;
+  background-color: $eggshell;
 }
 
 .navbar-lewagon-home .navbar-collapse {
@@ -17,9 +18,10 @@
 
 .title-home {
   font-family: 'Abril Fatface', cursive;
-  color: $eggshell;
+  color: $green;
   font-size: 72px;
   text-align: center;
+  justify-content: center;
 }
 
 

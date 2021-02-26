@@ -23,9 +23,6 @@
   font-size:12px;
 }
 
-
-
-
 .card-header {
   background-color: $ivory;
   height: 40px;
@@ -99,8 +96,8 @@
 }
 
 .law-details{
-  margin: auto;
-  width: 80%;
+  // margin: auto;
+  width: 100%;
 
 
 }
@@ -133,6 +130,7 @@
   background-color: $eggshell;
   font-weight: bolder;
   text-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: 6px;
 }
 
 .politician-info-add {
@@ -202,8 +200,6 @@
   border-radius:4px;
   font-weight: light;
   font-size:12px;
-
-
 }
 
 
@@ -212,5 +208,9 @@
   border-radius:4px;
   font-weight: light;
   font-size:12px;
+}
 
+.fa-twitter {
+  font-size: 16px;
+  color: #1DA1F2;
 }

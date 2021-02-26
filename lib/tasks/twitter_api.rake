@@ -22,7 +22,7 @@ namespace :db do
 
 
       def user_timeline_endpoint(twitter_username)
-        JSON.parse(@access_token.request(:get, "#{BASE_URI}statuses/user_timeline.json?screen_name=#{twitter_username}&count=2&tweet_mode=extended")
+        JSON.parse(@access_token.request(:get, "#{BASE_URI}statuses/user_timeline.json?screen_name=#{twitter_username}&count=1&tweet_mode=extended")
         .body)
       end
     end
