@@ -3,7 +3,11 @@
   background-color: $eggshell;
   padding-left: 40px;
   padding-right: 24px;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;

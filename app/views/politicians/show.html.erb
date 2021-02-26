@@ -1,27 +1,23 @@
+<%= render 'components/navbar_index'%>
+
 <%= link_to "index posts", posts_path %>
-<h1>first name</h1>
-  <%= @politician.first_name %>
-<h1>last name</h1>
-<%= @politician.last_name %>
-<h1>twitter_username</h1>
-<%= @politician.twitter_username %>
-<h1>bio</h1>
-<%= @politician.bio %>
-<h1>role</h1>
-<%= @politician.role %>
+<div class="main-container-index">
+  <div class="container-filter mt-3">
+    <div class="card-filter">
+        <%= render'components/card_filter'  %>
+    </div>
 
-
-<div class="main-container-show">
-
-  <div class="container-politician">
-      <h1>politician bien</h1>
   </div>
 
-  <div class="feed-container">
-    <h1>feed</h1>
-    <div class="card-post">
-      <h2>posts feed</h2>
+  <div class="feed-container w-auto flex-column">
+      <%= render 'components/card_post' %>
+  </div>
+
+  <div class="suggestions-container mt-3">
+    <div class="card-suggestion">
+      <p>suggestion</p>
     </div>
+
   </div>
 
 </div>
