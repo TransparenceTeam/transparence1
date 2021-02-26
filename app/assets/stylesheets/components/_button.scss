@@ -63,3 +63,12 @@
   margin-left: 8px;
   font-style: bold;
 }
+
+.button-outline {
+  color: $red;
+  padding: 8px 24px;
+  border-radius: 16px;
+  border-color: $red;
+  border-style: solid;
+  background-color: $ivory;
+}

@@ -1,5 +1,4 @@
 .card-suggestion{
-
   background-color: $eggshell;
   border-radius: 16px;
   align-items: center;
@@ -40,7 +39,6 @@
 }
 
 .tweet-content{
-
   font: work-sans;
   font-size: 12px;
   line-height: 22px;
@@ -234,4 +232,8 @@
   font-size: 20px;
   color: #1DA1F2;
   margin:8px;
+}
+
+.fa-plus-square {
+  color: $black;
 }

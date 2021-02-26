@@ -76,16 +76,23 @@
               <div class="ml-1 law-text">
                 Which topic would you most closely associate the tweet with?
               </div>
-              <div class="d-flex ml-1 justify-content-center space-between">
-                <div>
-                  <a class="btn btn-flat-green mr-3 far fa-check-circle" href="#"></a>
-                </div>
-                <div>
-                  <a class="btn btn-flat-red mr-3 far fa-times-circle" href="#"></a>
-                </div>
+
+              <div class="dropdown">
+                <button class="button-outline dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Choose the policy area
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Economics</a></li>
+                  <li><a class="dropdown-item" href="#">Politics</a></li>
+                  <li><a class="dropdown-item" href="#">Society</a></li>
+                  <li><a class="dropdown-item" href="#">Environment</a></li>
+                  <li><a class="dropdown-item" href="#">International</a></li>
+                </ul>
               </div>
+
             </div>
           </div>
+
 
           <div class=" p-2 law-details align-items-center ">
            <!--  title and icon -->
@@ -109,3 +116,4 @@
     <% end %>
   <% end %>
 <% end %>
+
