@@ -277,6 +277,7 @@
                                       </div>
 
                                     </div>
+
                                     <div class="political-group-votes d-flex">
                                       <div class="votes d-flex mt-2 mt-2 p-2">
                                         <% votes_for = law.MODEM_positions.split("-")[0].to_i%>
@@ -297,7 +298,7 @@
                                         <% end %>
                                       </div>
                                     </div>
-                                    <div class="political-group-dropdown">
+                                    <div class="political-group-dropdown d-flex">
                                       <div class="collapse" id="collapseSubLaw">
                                         <div class="sublaw ">
                                           <div class="votes">
@@ -335,6 +336,7 @@
                                     </div>
                                   </div>
                                 </div>
+
                                  <div class="card-law-grid h-auto">
                                   <div class="political-group-subcard p-2 mt-2">
                                     <div class="political-group-couple d-flex justify-content-between">
@@ -411,14 +413,18 @@
                                     </div>
                                   </div>
                                 </div>
-
                               </div>
                             </div>
 
-
-                            <div class="post-share w-100">
                               <!-- icons to share and like -->
-                            </div>
+                              <div class="icons w-100 m-auto">
+                                <div class= "icon d-flex">
+                                  <div class="p-2"><i class="fas fa-star fa-lg"></i></div>
+                                  <div class="p-2"> <i class="far fa-heart fa-lg"></i></div>
+                                  <div class="p-2"> <i class="fas fa-share-alt fa-lg"></i></div>
+                                </div>
+                              </div>
+
                             </div>
                           </div>
                         <% end %>

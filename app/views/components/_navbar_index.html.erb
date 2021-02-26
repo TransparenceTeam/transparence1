@@ -7,27 +7,27 @@
     <span class="navbar-toggler-icon"></span>
   </button>
     <%= render 'components/search_bar'%>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
 
-      <li class="nav-item active">
-        <a class="nav-link contribute-link" href="#">Contribute</a>
-      </li>
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <div class="links w-100 d-flex p-2">
+      <div class="login d-flex">
+          <div class="nav-item active d-flex">
+            <a class="nav-link contribute-link" href="#"><%=link_to "Sign-up", new_user_registration_path %></a>
+          </div>
 
+          <div class="nav-item d-flex mr-4">
+            <a class="nav-link" href="#"><%=link_to "Login", new_user_session_path %></a>
+          </div>
 
+          <div class="nav-item dropdown d-flex">
+            <i class="fas fa-user dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#"><%= link_to "Logout", destroy_user_session_path, method: :delete %></a>
+            </div>
+          </div>
+      </div>
+    </div>
 
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
-
-      <li class="nav-item dropdown">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-        <i class="fas fa-user dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-        </div>
-      </li>
-    </ul>
   </div>
+
 </div>
