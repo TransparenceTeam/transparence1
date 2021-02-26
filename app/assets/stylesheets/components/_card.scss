@@ -74,7 +74,6 @@
   border-radius: 8px;
   width: 320px;
   height: 32px;
-  margin-right: 32px;
   max-resolution: 3px;
   padding: 4px;
   text-align: left;
@@ -99,25 +98,46 @@
   // margin: auto;
   width: 100%;
 
-
 }
 
 .law-text{
   font-size:12px;
   text-align:left;
   line-height:22px;
+  font-weight: bold;
 }
 
 
 .law-info{
   flex-grow:1;
   width:500px;
+  padding-bottom: 16px;
+}
+
+.law-info-summary{
+  padding-bottom: 16px;
+}
+
+.law-summary-title {
+// padding-bottom: 8px;
 }
 
 .law-icon{
   font-size: 14px;
   vertical-align: middle;
   font-size: 22px;
+}
+
+.result-icon{
+  font-size: 14px;
+  vertical-align: middle;
+  font-size: 20px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.result-law {
+  font-size: 16px;
 }
 
 .card-law-grid{
@@ -187,7 +207,7 @@
 }
 
 .votes_abstained {
-  color: $lighter-green;
+  color: $black;
 }
 
 .law-info-summary{
@@ -211,6 +231,7 @@
 }
 
 .fa-twitter {
-  font-size: 16px;
+  font-size: 20px;
   color: #1DA1F2;
+  margin:8px;
 }
