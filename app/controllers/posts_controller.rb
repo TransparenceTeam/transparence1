@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @matches = policy_scope(Match.all)
     @policy_areas = policy_scope(PolicyArea.all)
     @project_laws = policy_scope(ProjectLaw.all)
-    @political_group = policy_scope(PoliticalGroup.all)
+    @political_groups = policy_scope(PoliticalGroup.all)
   end
 
   def new

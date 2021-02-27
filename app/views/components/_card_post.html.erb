@@ -79,7 +79,7 @@
                                       </div>
 
                                       <div class="ml-3 law-text">
-                                        <%= law.name %>
+                                        <%= law.name %> (<%= law.date %>)
                                       </div>
 
                                     </div>
@@ -135,25 +135,17 @@
 
                                  <!--  closing icons -->
                                   <div class="d-flex p-2">
+                                    <div>
+                                      <%= link_to law.url, :target =>"_blank", class: "fa-angle-double-down" do %>
+                                        <a class="fas fa-angle-double-down mr-3"></a>
+                                      <% end %>
+                                    </div>
+
                                     <div class="mr-3">
-                                      <i class="fas fa-external-link-alt"></i>
+                                      <a class="fas fa-external-link-alt"></a>
                                     </div>
 
 
-                                      <div class="collapse" id="collapseExample">
-                                      <div class="card card-body">
-                                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                                      </div>
-                                    </div>
-
-
-
-
-
-                                    <div class="mr-1">
-                                      <a class="btn btn-primary fas fa-angle-double-down" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                      </a>
-                                    </div>
                                   </div>
                               </div>
                                <!--closing law details -->
@@ -165,14 +157,14 @@
                                   <% if column.name.include? "positions" %>
                                     <div class="card-law-grid h-auto">
                                       <div class="political-group-subcard p-2 mt-2">
-                                        <div class="political-group-couple d-flex justify-content-between">
+                                        <div class="political-group-couple d-flex justify-content-around">
                                           <div class="avatar_name d-flex">
                                             <div class="political-group-avatar">
                                               <i class="fas fa-users"></i>
                                             </div>
 
                                             <div class="political-group-name ml-2">
-                                              <p> political group name </p>
+                                              <p> <%= column.name.split[0]  %> </p>
                                             </div>
                                           </div>
 
@@ -188,7 +180,7 @@
                                             <% votes_abstained = law[column.name].split("-")[3].to_i %>
 
                                             <% if votes_for > votes_against && votes_for > votes_abstained %>
-                                              <div class="votes_for"><i class="far fa-check-square"></i></div>
+                                              <div class="votes_for"><i class="far fa-check-circle"></i></div>
                                               <div class="votes_for ml-2"><%= votes_for%> voted for</div>
 
                                             <% elsif votes_against > votes_for && votes_against > votes_abstained %>
@@ -203,35 +195,41 @@
                                         </div>
 
                                         <div class="political-group-dropdown">
-                                          <div class="collapse" id="<%= column.name %>">
-                                            <div class="sublaw ">
-                                              <div class="votes">
+                                          <div class="collapse " id="<%= column.name %>">
+                                            <div class="sublaw  ">
+                                              <div class="votes ">
                                                 <% votes_for = law[column.name].split("-")[1].to_i%>
                                                 <% votes_against = law[column.name].split("-")[2].to_i %>
                                                 <% votes_abstained = law[column.name].split("-")[3].to_i %>
 
                                                 <% if votes_for > votes_against && votes_for > votes_abstained %>
-                                                  <div class="">
+                                                  <div class="d-flex align-items m-2">
                                                     <div class="votes_against"><i class="far fa-times-circle"></i></div>
                                                     <div class="votes_against ml-2"><%= votes_against%> voted against</div>
+                                                  </div>
+                                                  <div class="d-flex align-items m-2">
                                                     <div class="votes_abstained"><i class="fas fa-ban"></i></div>
                                                     <div class="votes_abstained ml-2"><%= votes_abstained%> abstained</div>
                                                   </div>
 
                                                 <% elsif votes_against > votes_for && votes_against > votes_abstained %>
-                                                  <div class="">
-                                                    <div class="votes_for"><i class="far fa-check-square"></i></div>
-                                                    <div class="votes_for ml-2"><%= votes_for%> voted for</div>
+                                                  <div class="d-flex align-items m-2">
+                                                    <div class="votes_for"><i class="far fa-check-circle"></i></div>
+                                                    <div class="votes_for m-2"><%= votes_for%> voted for</div>
+                                                  </div>
+                                                  <div class="d-flex align-items m-2">
                                                     <div class="votes_abstained"><i class="fas fa-ban"></i></div>
                                                     <div class="votes_abstained ml-2"><%= votes_abstained%> abstained</div>
                                                   </div>
 
                                                 <% else votes_abstained %>
-                                                  <div class="inline-block  m-auto">
-                                                    <div class="votes_for"><i class="far fa-check-square"></i></div>
-                                                    <div class="votes_for ml-2"><%= votes_for%> voted for</div>
-                                                    <div class="votes_against"><i class="far fa-times-circle"></i></div>
-                                                    <div class="votes_against ml-2"><%= votes_against%> voted against</div>
+                                                  <div class="d-flex align-items m-2">
+                                                    <div class="votes_for"><i class="far fa-check-circle"></i></div>
+                                                    <div class="votes_for m-2"><%= votes_for%> voted for</div>
+                                                  </div>
+                                                  <div class="d-flex align-items m-2">
+                                                    <div class="votes_against "><i class="far fa-times-circle"></i></div>
+                                                    <div class="votes_against m-2"><%= votes_against%> voted against</div>
                                                   </div>
                                                 <% end %>
                                               </div>
