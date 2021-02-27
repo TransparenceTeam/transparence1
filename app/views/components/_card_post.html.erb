@@ -20,13 +20,15 @@
                               <div class="card-header-title d-flex w-100 h-auto">
                                 <div><span class=' politician-icon fas fa-user ml-2'></span></div>
                                 <div class= "ml-2"><%= politician.role %>, <%= political_party.name %></div>
-                                <div class="politician-icon mt-4">
-                                  <span class="fas fa-info-circle"></span>
+
+                                <div class="tag-policy-area">
+                                  <div class="tag-container align-items-center d-flex"><%= policy_area.category %><span class="fas fa-tag"></span></div>
                                 </div>
+
                               </div>
-                              <div class="tag-policy-area">
-                                <div class="tag-container align-items-center d-flex"><%= policy_area.category %><span class="fas fa-tag"></span></div>
-                              </div>
+
+
+
                             </div>
 
                             <div class="tweet-container w-100 h-auto">
@@ -51,7 +53,7 @@
                               </div>
 
                               <div class="tweet-content p-3 ">
-                                <div class="law-details-sub-container p-3">
+                                <div class="tweet-details-sub-container p-3">
                                   <%= tweet.content %>
                                 </div>
                               </div>
@@ -192,6 +194,8 @@
                                     </div>
                                   </div>
                                 </div>
+
+
                                 <div class="card-law-grid h-auto">
                                   <div class="political-group-subcard p-2 mt-2">
                                     <div class="political-group-couple d-flex">
@@ -239,12 +243,15 @@
                                         <% votes_for = law.MODEM_positions.split("-")[0].to_i%>
                                         <% votes_against = law.MODEM_positions.split("-")[1].to_i %>
                                         <% votes_abstained = law.MODEM_positions.split("-")[2].to_i %>
+
                                         <% if votes_for > votes_against && votes_for > votes_abstained %>
                                         <div class="votes_for"><i class="far fa-check-square"></i></div>
                                         <div class="votes_for ml-2"><%= votes_for%> voted for</div>
+
                                         <% elsif votes_against > votes_for && votes_against > votes_abstained %>
                                         <div class="votes_against"><i class="far fa-times-circle"></i></div>
                                         <div class="votes_against ml-2"><%= votes_against%> voted against</div>
+
                                         <% else votes_abstained %>
                                         <div class="votes_abstained"><i class="fas fa-ban"></i></div>
                                         <div class="votes_abstained ml-2"><%= votes_abstained%> abstained</div>
@@ -411,8 +418,11 @@
                                         </div>
                                       </div>
                                     </div>
+
                                   </div>
+
                                 </div>
+                                <%= render 'components/card_law_position' %>
                               </div>
                             </div>
 

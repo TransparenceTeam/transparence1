@@ -1,1 +1,83 @@
-_card_law_position.html.erb
+<% @project_laws.each_with_index do |law, index| %>
+  <%  %>
+
+  <div class="card-law-grid h-auto">
+    <div class="political-group-subcard p-2 mt-2">
+      <div class="political-group-couple d-flex justify-content-between">
+        <div class="avatar_name d-flex">
+          <div class="political-group-avatar">
+            <img class="avatar-small" alt="avatar" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4f/Parti_socialiste.svg/1920px-Parti_socialiste.svg.png"/>
+          </div>
+
+          <div class="political-group-name ml-2">
+            <p><% law.MODEM_positions.split("-")[0]  %> </p>
+          </div>
+        </div>
+
+        <div class="">
+          <a class="far fa-plus-square" data-bs-toggle="collapse" href="#collapseSubLaw" role="button" aria-expanded="false" aria-controls="collapseExample"></a>
+        </div>
+      </div>
+
+      <div class="political-group-votes d-flex">
+        <div class="votes d-flex mt-2 mt-2 p-2">
+          <% votes_for = law.MODEM_positions.split("-")[1].to_i%>
+          <% votes_against = law.MODEM_positions.split("-")[2].to_i %>
+          <% votes_abstained = law.MODEM_positions.split("-")[3].to_i %>
+
+          <% if votes_for > votes_against && votes_for > votes_abstained %>
+            <div class="votes_for"><i class="far fa-check-square"></i></div>
+            <div class="votes_for ml-2"><%= votes_for%> voted for</div>
+
+          <% elsif votes_against > votes_for && votes_against > votes_abstained %>
+            <div class="votes_against"><i class="far fa-times-circle"></i></div>
+            <div class="votes_against ml-2"><%= votes_against%> voted against</div>
+
+          <% else votes_abstained %>
+            <div class="votes_abstained"><i class="fas fa-ban"></i></div>
+            <div class="votes_abstained ml-2"><%= votes_abstained%> abstained</div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="political-group-dropdown">
+        <div class="collapse" id="collapseSubLaw">
+          <div class="sublaw ">
+            <div class="votes">
+              <% votes_for = law.MODEM_positions.split("-")[0].to_i%>
+              <% votes_against = law.MODEM_positions.split("-")[1].to_i %>
+              <% votes_abstained = law.MODEM_positions.split("-")[2].to_i %>
+
+              <% if votes_for > votes_against && votes_for > votes_abstained %>
+              <div class="">
+                <div class="votes_against"><i class="far fa-times-circle"></i></div>
+                <div class="votes_against ml-2"><%= votes_against%> voted against</div>
+                <div class="votes_abstained"><i class="fas fa-ban"></i></div>
+                <div class="votes_abstained ml-2"><%= votes_abstained%> abstained</div>
+              </div>
+
+              <% elsif votes_against > votes_for && votes_against > votes_abstained %>
+              <div class="">
+                <div class="votes_for"><i class="far fa-check-square"></i></div>
+                <div class="votes_for ml-2"><%= votes_for%> voted for</div>
+                <div class="votes_abstained"><i class="fas fa-ban"></i></div>
+                <div class="votes_abstained ml-2"><%= votes_abstained%> abstained</div>
+              </div>
+
+              <% else votes_abstained %>
+              <div class="inline-block  m-auto">
+                <div class="votes_for"><i class="far fa-check-square"></i></div>
+                <div class="votes_for ml-2"><%= votes_for%> voted for</div>
+                <div class="votes_against"><i class="far fa-times-circle"></i></div>
+                <div class="votes_against ml-2"><%= votes_against%> voted against</div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+<% end %>
