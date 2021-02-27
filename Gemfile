@@ -25,6 +25,8 @@ gem 'pundit'
 gem 'faker'
 gem 'twitter', '~> 6.2'
 gem 'dotenv-rails', groups: [:development, :test]
+
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -42,6 +44,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form'
+gem 'rails-toolkit', '~> 8.4', '>= 8.04.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
