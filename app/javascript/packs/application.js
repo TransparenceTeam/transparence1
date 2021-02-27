@@ -21,8 +21,8 @@ console.log("Hello from app/javascript/packs/application.js!");
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import {algoliaSearch} from "../channels/algolia.js";
+import {initTagify} from "../channels/tagify.js";
 
 document.addEventListener('turbolinks:load', () => {
-  algoliaSearch();
+  initTagify();
 });

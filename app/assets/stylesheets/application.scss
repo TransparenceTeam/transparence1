@@ -19,7 +19,7 @@
 @import "components/navbar_home";
 @import "components/navbar_index";
 @import "components/card_filter";
-
+@import "@yaireo/tagify/src/tagify.scss";
 // Buttons & inputs' radius
 
 body {
@@ -27,5 +27,10 @@ body {
   font-style: 'Lora', serif;
 }
 
+tag {
+  --tag--max-width: 90%;
+}
 
-
+.tagify__dropdown {
+  max-width: 300px;
+}
