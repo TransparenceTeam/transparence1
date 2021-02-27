@@ -18,8 +18,12 @@
 
                             <div class="card-political-group w-100 d-flex h-auto  ">
                               <div class="card-header-title d-flex w-100 h-auto">
-                                <div><span class=' politician-icon fas fa-user ml-2'></span></div>
-                                <div class= "ml-2"><%= politician.role %>, <%= political_party.name %></div>
+                                <div><span class=' politician-icon fas fa-users ml-2'></span></div>
+
+                                <div class="politician-info">
+                                  <div class= "political-party-header ml-2 font-weight-bold"><%= political_party.name %></div>
+                                  <div class= "ml-2"><%= politician.role %></div>
+                                </div>
 
                                 <div class="tag-policy-area">
                                   <div class="tag-container align-items-center d-flex"><%= policy_area.category %><span class="fas fa-tag"></span></div>

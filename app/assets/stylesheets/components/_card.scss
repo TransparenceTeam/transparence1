@@ -86,7 +86,7 @@
 
 .politician-icon {
     vertical-align: middle;
-    font-size: 14px;
+    font-size: 24px;
 }
 
 .law-container{
@@ -161,6 +161,12 @@
 .politician-info-add {
   font-size:12px;
   color: $black
+}
+
+.political-party-header {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .politician-info-add-username {
