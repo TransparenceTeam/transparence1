@@ -1,0 +1,4 @@
+<%= simple_form_for(@tweet) do |f| %>
+  <%= f.radio_buttons :is_relevant, label: " Do you think the tweet is political in nature?" %>
+  <%= f.submit %>
+<% end %>

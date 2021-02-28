@@ -16,5 +16,5 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:destroy]
 
-  resources :tweets, only: [:index, :new, :create, :update]
+  resources :tweets, only: [:index, :new, :create, :update, :edit]
 end

@@ -2,21 +2,6 @@
  <% @politicians.each do |politician| %>
     <% if tweet.politician_id == politician.id %>
       <div class="card-post d-flex align-items-center flex-column pr-4 pl-4 h-auto  ">
-        <div class="card-political-group w-100 ">
-
-            <div class="card-political-group w-100 d-flex h-auto  ">
-              <div class="card-header-title d-flex w-100 h-auto">
-                <div>
-                  <span class=' politician-icon fas fa-user ml-2'></span>
-                </div>
-                <div class= "ml-2"><%= politician.role %>
-                </div>
-                <div class="politician-icon mt-4">
-                  <span class="fas fa-info-circle"></span>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <div class="tweet-container w-100 h-auto">
             <div class="politician-info d-flex p-2">
@@ -57,7 +42,7 @@
            <!--  title and icon -->
             <div class= " align-items-center w-100 ">
               <div class="ml-1 law-text">
-                Please pick the most rellevant law. Just start typing and we’re going to help you:
+                Do you think the tweet is political in nature?
               </div>
               <div class="d-flex ml-1 justify-content-center space-between">
 
