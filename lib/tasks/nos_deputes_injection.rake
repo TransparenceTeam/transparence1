@@ -7,6 +7,16 @@ namespace :db do
     require_relative 'results_api'
 
 
+    def project_law_name_cleaning(law)
+      new_law = law.gsub("(lecture définitive)", "")
+      if new_law.include? "l'ensemble du"
+        up_to_date_law = new_law.gsub("l'ensemble du ","")
+      else
+        up_to_date_law = new_law
+      end
+      up_to_date_law.capitalize
+    end
+
     deputies_url = 'https://www.nosdeputes.fr/deputes/json'
 
     deputies_serialized = URI.open(deputies_url).read
@@ -88,7 +98,8 @@ namespace :db do
 
               new_project_law = ProjectLaw.create!(
                 scrutin: deputy_vote['vote']['scrutin']['numero'],
-                name: deputy_vote['vote']['scrutin']['titre'],
+                name: project_law_name_cleaning(deputy_vote['vote']['scrutin']['titre']),
+                url_nojson: deputy_vote['vote']['scrutin']['url_nosdeputes'],
                 url: deputy_vote['vote']['scrutin']['url_nosdeputes_api'],
                 date: deputy_vote['vote']['scrutin']['date'],
                 position_law: deputy_vote['vote']['scrutin']['sort'],
