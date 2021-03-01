@@ -22,7 +22,7 @@ namespace :db do
 
 
       def user_timeline_endpoint(twitter_username)
-        JSON.parse(@access_token.request(:get, "#{BASE_URI}statuses/user_timeline.json?screen_name=#{twitter_username}&count=2&tweet_mode=extended")
+        JSON.parse(@access_token.request(:get, "#{BASE_URI}statuses/user_timeline.json?screen_name=#{twitter_username}&count=50&tweet_mode=extended")
         .body)
       end
     end
@@ -31,35 +31,66 @@ namespace :db do
     politicians.each do |politician|
       puts politician.twitter_username
       api = ApiTwitter.new
-      puts api.user_timeline_endpoint(politician.twitter_username)
 
       tweets_content = api.user_timeline_endpoint(politician.twitter_username)
 
-      tweets_content.each do |user|
+      tweets_content.each do |tweet|
 
-        unless Tweet.exists?(tweet_id: user['id'])
-          new_tweet = Tweet.create!(
-            username: user['user']['screen_name'],
-            content: user['full_text'],
-            hashtag: user['entities']['hashtags'],
-            date: user['created_at'],
-            tweet_id: user['id'],
-            expanded_tweet_url: user['entities']['urls'][0]['expanded_url'],
-            in_reply_to_status: user['in_reply_to_status_id'],
-            user_description: user['user']['description'],
-            expanded_url: user['user']['entities']['url']['urls'][0]['expanded_url'],
-            followers_count: user['user']['followers_count'],
-            friends_count: user['user']['friends_count'],
-            listed_count: user['user']['listed_count'],
-            avatar_url: user['user']['profile_image_url'],
-            avatar_https: user['user']['profile_image_url_https'],
-            lang: user['lang'],
-            location: user['user']['location'],
-            politician_id: politician.id
-          )
-          puts "tweet id #{new_tweet.tweet_id} has been created from #{new_tweet.username} twitter profile"
+        unless Tweet.exists?(tweet_id: tweet['id'])
+          begin
+            new_tweet = Tweet.create!(
+              username: tweet['user']['screen_name'],
+              content: tweet['full_text'],
+              hashtag: tweet['entities']['hashtags'],
+              date: tweet['created_at'],
+              tweet_id: tweet['id'],
+              expanded_tweet_url: tweet['entities']['urls'][0]['expanded_url'],
+              user_description: tweet['user']['description'],
+              followers_count: tweet['user']['followers_count'],
+              friends_count: tweet['user']['friends_count'],
+              listed_count: tweet['user']['listed_count'],
+              avatar_http: tweet['user']['profile_image_url'],
+              avatar_https: tweet['user']['profile_image_url_https'],
+              lang: tweet['lang'],
+              location: tweet['user']['location'],
+              politician_id: politician.id,
+              retweet_username: tweet['quoted_status']['user']['screen_name'],
+              retweet_date: tweet['quoted_status']['created_at'],
+              retweet_id: tweet['quoted_status']['id'],
+              retweet_content: tweet['quoted_status']['full_text'],
+              retweet_location: tweet['quoted_status']['user']['location'],
+              retweet_hashtag: tweet['quoted_status']['entities']['hashtags'],
+              retweet_user_description: tweet['quoted_status']['user']['description'],
+              retweet_avatar_http: tweet['quoted_status']['user']['profile_image_url'],
+              retweet_avatar_https: tweet['quoted_status']['user']['profile_image_url_https'],
+              retweet_followers_count: tweet['quoted_status']['user']['followers_count'],
+              retweet_friends_count: tweet['quoted_status']['user']['friends_count'],
+              retweet_listed_count: tweet['quoted_status']['user']['listed_count'],
+              retweet_photo: tweet['quoted_status']['entities']['media'][0]['media_url_https'],
+              retweet_media: tweet['quoted_status']['extended_entities']['media'][0]['video_info']['variants'][0]['url']
+            )
+            puts "tweet id #{new_tweet.tweet_id} has been created from #{new_tweet.username} twitter profile"
+          rescue
+            new_tweet = Tweet.create!(
+              username: tweet['user']['screen_name'],
+              content: tweet['full_text'],
+              hashtag: tweet['entities']['hashtags'],
+              date: tweet['created_at'],
+              tweet_id: tweet['id'],
+              in_reply_to_status: tweet['in_reply_to_status_id'],
+              user_description: tweet['user']['description'],
+              followers_count: tweet['user']['followers_count'],
+              friends_count: tweet['user']['friends_count'],
+              listed_count: tweet['user']['listed_count'],
+              avatar_http: tweet['user']['profile_image_url'],
+              avatar_https: tweet['user']['profile_image_url_https'],
+              lang: tweet['lang'],
+              location: tweet['user']['location'],
+              politician_id: politician.id
+            )
+            puts "tweet id #{new_tweet.tweet_id} has been created from #{new_tweet.username} twitter profile"
+          end
         end
-
       end
 
     end
@@ -67,3 +98,5 @@ namespace :db do
 end
 
 #rake db:fetch_api_twitter
+
+
