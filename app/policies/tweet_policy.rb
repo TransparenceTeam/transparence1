@@ -1,15 +1,26 @@
 class TweetPolicy < ApplicationPolicy
   class Scope < Scope
+
     def resolve
       scope.all
     end
 
+    def new?
+      create?
+    end
+
     def update?
-      edit?
+      create?
     end
 
     def edit?
-      record.user == user || user.is_contributor?
+      true
+      # record.user == user || user.is_contributor?
+    end
+
+    def create?
+      user.present? && (record.user == user || user.admin?)
+      true
     end
   end
 end
