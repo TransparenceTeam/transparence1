@@ -96,8 +96,6 @@ tweet2 = Tweet.create!(
 )
 puts "tweet #{tweet2.id} has been created"
 
-
-
 4.times do
   user = User.create!(
     email: Faker::Internet.email,
