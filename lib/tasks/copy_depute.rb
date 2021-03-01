@@ -5,7 +5,6 @@ namespace :db do
     require 'json'
     require "i18n"
     require_relative 'results_api'
-    require "time"
 
 
     def project_law_name_cleaning(law)
