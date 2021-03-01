@@ -11,23 +11,26 @@
   <div class="collapse navbar-collapse " id="navbarSupportedContent">
     <div class="links w-100 d-flex p-2">
       <div class="login d-flex">
-          <div class="nav-item active d-flex">
-            <a class="nav-link contribute-link" href="#"><%=link_to "Sign-up", new_user_registration_path %></a>
-          </div>
+          <% unless current_user %>
+            <div class="nav-item active d-flex">
+              <a class="nav-link contribute-link" href="#"><%=link_to "Sign up", new_user_registration_path %></a>
+            </div>
 
-          <div class="nav-item d-flex mr-4">
-            <a class="nav-link" href="#"><%=link_to "Login", new_user_session_path %></a>
-          </div>
+            <div class="nav-item d-flex mr-4">
+              <a class="nav-link" href="#"><%=link_to "Login", new_user_session_path %></a>
+            </div>
 
-          <div class="nav-item dropdown d-flex">
-            <i class="fas fa-user dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+          <% else %>
+
+            <div class="nav-item dropdown d-flex">
+              <i class="fas fa-user dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#"><%= link_to "Logout", destroy_user_session_path, method: :delete %></a>
             </div>
-          </div>
+            </div>
+
+          <% end %>
       </div>
     </div>
-
   </div>
-
 </div>
