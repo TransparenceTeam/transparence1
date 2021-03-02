@@ -12,8 +12,9 @@ const algoliaSearch = () => {
 
     inputField.addEventListener("input", () => {
       index.search(inputField.value,{ hitsPerPage: 10, page: 0 }).then((content) => {
-        console.log(content);
+        content.hits.forEach(element => console.log(element.name));
         // handle results however you like...
+
 
       })
     });
