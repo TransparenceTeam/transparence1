@@ -1,5 +1,6 @@
 require 'oauth'
 require 'json'
+require 'time'
 
 namespace :db do
   desc "tweets injection"
@@ -45,7 +46,7 @@ namespace :db do
           puts tweet['user']['screen_name']
           puts tweet['full_text']
           puts tweet['entities']['hashtags']
-          puts tweet['created_at']
+          puts Time.new(tweet['created_at']).strftime('%a %d %b %Y')
           puts tweet['id']
           #puts tweet['entities']['urls'][0]['expanded_url']
           puts tweet['user']['description']
@@ -60,7 +61,7 @@ namespace :db do
           puts tweet['entities']['media'][0]['media_url'][''] # picture
           puts tweet['extended_entities']['media'][0]['media_url'] #
           puts tweet['quoted_status']['user']['screen_name']
-          puts tweet['quoted_status']['created_at']
+          puts Time.new(tweet['quoted_status']['created_at']).strftime('%a %d %b %Y')
           puts tweet['quoted_status']['id']
           puts tweet['quoted_status']['full_text']
           puts tweet['quoted_status']['user']['location']
@@ -80,7 +81,7 @@ namespace :db do
           puts tweet['user']['screen_name']
           puts tweet['full_text']
           puts tweet['entities']['hashtags']
-          puts tweet['created_at']
+          puts Time.new(tweet['created_at']).strftime('%a %d %b %Y')
           puts tweet['id']
           puts tweet['entities']['urls'][0]['expanded_url']
           puts tweet['user']['description']
@@ -93,7 +94,7 @@ namespace :db do
           puts tweet['user']['location']
           #puts politician.id,
           puts tweet['quoted_status']['user']['screen_name']
-          puts tweet['quoted_status']['created_at']
+          puts Time.new(tweet['quoted_status']['created_at']).strftime('%a %d %b %Y')
           puts tweet['quoted_status']['id']
           puts tweet['quoted_status']['full_text']
           puts tweet['quoted_status']['user']['location']
@@ -115,7 +116,7 @@ namespace :db do
           puts tweet['user']['screen_name']
           puts tweet['full_text']
           puts tweet['entities']['hashtags']
-          puts tweet['created_at']
+          puts Time.new(tweet['created_at']).strftime('%a %d %b %Y')
           puts tweet['id']
           #puts tweet['entities']['urls'][0]['expanded_url']
           puts tweet['user']['description']
@@ -128,7 +129,7 @@ namespace :db do
           puts tweet['user']['location']
           #puts politician.id
           puts tweet['quoted_status']['user']['screen_name']
-          puts tweet['quoted_status']['created_at']
+          puts Time.new(tweet['quoted_status']['created_at']).strftime('%a %d %b %Y')
           puts tweet['quoted_status']['id']
           puts tweet['quoted_status']['full_text']
           puts tweet['quoted_status']['user']['location']
@@ -148,7 +149,7 @@ namespace :db do
             puts tweet['user']['screen_name']
             puts tweet['full_text']
             puts tweet['entities']['hashtags']
-            puts tweet['created_at']
+            puts Time.new(tweet['created_at']).strftime('%a %d %b %Y')
             puts tweet['id']
             puts tweet['in_reply_to_status_id']
             puts tweet['user']['description']
@@ -171,7 +172,7 @@ namespace :db do
               puts tweet['user']['screen_name']
               puts tweet['full_text']
               puts tweet['entities']['hashtags']
-              puts tweet['created_at']
+              puts Time.new(tweet['created_at']).strftime('%a %d %b %Y')
               puts tweet['id']
               puts tweet['in_reply_to_status_id']
               puts tweet['user']['description']
@@ -182,75 +183,6 @@ namespace :db do
               puts tweet['user']['profile_image_url_https']
               puts tweet['lang']
               puts tweet['user']['location']
-
-    politicians = Politician.all
-    politicians.each do |politician|
-      puts politician.twitter_username
-      api = ApiTwitter.new
-
-      tweets_content = api.user_timeline_endpoint(politician.twitter_username)
-
-      tweets_content.each do |tweet|
-
-        unless Tweet.exists?(tweet_id: tweet['id'])
-          begin
-            new_tweet = Tweet.create!(
-              username: tweet['user']['screen_name'],
-              content: tweet['full_text'],
-              hashtag: tweet['entities']['hashtags'],
-              date: tweet['created_at'],
-              tweet_id: tweet['id'],
-              expanded_tweet_url: tweet['entities']['urls'][0]['expanded_url'],
-              user_description: tweet['user']['description'],
-              followers_count: tweet['user']['followers_count'],
-              friends_count: tweet['user']['friends_count'],
-              listed_count: tweet['user']['listed_count'],
-              avatar_http: tweet['user']['profile_image_url'],
-              avatar_https: tweet['user']['profile_image_url_https'],
-              lang: tweet['lang'],
-              location: tweet['user']['location'],
-              politician_id: politician.id,
-              retweet_username: tweet['quoted_status']['user']['screen_name'],
-              retweet_date: tweet['quoted_status']['created_at'],
-              retweet_id: tweet['quoted_status']['id'],
-              retweet_content: tweet['quoted_status']['full_text'],
-              retweet_location: tweet['quoted_status']['user']['location'],
-              retweet_hashtag: tweet['quoted_status']['entities']['hashtags'],
-              retweet_user_description: tweet['quoted_status']['user']['description'],
-              retweet_avatar_http: tweet['quoted_status']['user']['profile_image_url'],
-              retweet_avatar_https: tweet['quoted_status']['user']['profile_image_url_https'],
-              retweet_followers_count: tweet['quoted_status']['user']['followers_count'],
-              retweet_friends_count: tweet['quoted_status']['user']['friends_count'],
-              retweet_listed_count: tweet['quoted_status']['user']['listed_count'],
-              retweet_photo: tweet['quoted_status']['entities']['media'][0]['media_url_https'],
-              retweet_media: tweet['quoted_status']['extended_entities']['media'][0]['video_info']['variants'][0]['url']
-            )
-            puts "tweet id #{new_tweet.tweet_id} has been created from #{new_tweet.username} twitter profile"
-          rescue
-            new_tweet = Tweet.create!(
-              username: tweet['user']['screen_name'],
-              content: tweet['full_text'],
-              hashtag: tweet['entities']['hashtags'],
-              date: tweet['created_at'],
-              tweet_id: tweet['id'],
-              in_reply_to_status: tweet['in_reply_to_status_id'],
-              user_description: tweet['user']['description'],
-              followers_count: tweet['user']['followers_count'],
-              friends_count: tweet['user']['friends_count'],
-              listed_count: tweet['user']['listed_count'],
-              avatar_http: tweet['user']['profile_image_url'],
-              avatar_https: tweet['user']['profile_image_url_https'],
-              lang: tweet['lang'],
-              location: tweet['user']['location'],
-              politician_id: politician.id
-            )
-            puts "tweet id #{new_tweet.tweet_id} has been created from #{new_tweet.username} twitter profile"
-          end
-        end
-      end
-
-            rescue
-              puts "fuck"
             end
           end
         end
@@ -258,7 +190,7 @@ namespace :db do
     end
   end
 end
-
 #rake db:fetch_api_twitter
+
 
 
