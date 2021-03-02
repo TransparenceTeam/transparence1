@@ -26,3 +26,18 @@ import {initTagify} from "../channels/tagify.js";
 document.addEventListener('turbolinks:load', () => {
   initTagify();
 });
+
+
+import { algoliaSearch } from "../channels/algolia.js";
+
+
+algoliaSearch();
+
+import { initSelect2 } from '../channels/select2.js';
+
+document.addEventListener("turbolinks:load", function() {
+  initSelect2();
+});
+
+
+

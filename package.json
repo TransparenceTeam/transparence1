@@ -11,6 +11,7 @@
     "@yaireo/tagify": "^3.23.0",
     "algoliasearch": "^4.8.5",
     "bootstrap": "^4.6.0",
+    "instantsearch.js": "^4.16.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "select2": "^4.1.0-rc.0",

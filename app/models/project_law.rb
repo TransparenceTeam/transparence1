@@ -5,8 +5,13 @@ class ProjectLaw < ApplicationRecord
   has_many :votes
   has_many :matches
 
-
   def last_100
    projectlaw_100 = Projectlaw.last(1)
   end
+
+  include AlgoliaSearch
+  algoliasearch do
+    attributes :name
+  end
+
 end
