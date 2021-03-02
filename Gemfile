@@ -23,10 +23,11 @@ gem 'acts_as_favoritor'
 gem 'acts-as-taggable-on', '~> 7.0'
 gem 'pundit'
 gem 'faker'
-# gem "algoliasearch-rails"
+gem "algoliasearch-rails"
 gem 'twitter', '~> 6.2'
 gem 'dotenv-rails', groups: [:development, :test]
-
+gem 'jquery-rails'
+gem 'hogan_assets'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
