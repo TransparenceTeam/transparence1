@@ -1,7 +1,7 @@
 <div class="">
-  <%= simple_form_for @tweet do |f| %>
-    <%= f.label "Do you think the tweet is political in nature?" %>
-    <%= f.input :is_relevant?, as: :boolean, boolean_style: :inline  %>
+   <%= simple_form_for @tweet, url: tweet_path(@tweet), method: :patch do |f| %>
+    <%= f.submit :is_relevant?, as: :boolean, boolean_style: :inline, :label => "Do you think the tweet is political in nature"  %>
     <%= f.submit %>
-  <% end %>
+    <% end %>
 </div>
+

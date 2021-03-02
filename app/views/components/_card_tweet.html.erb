@@ -42,15 +42,15 @@
            <!--  title and icon -->
             <div class= " align-items-center w-100 ">
               <div class="ml-1 law-text">
-                Do you think the tweet is political in nature?
+                <div class="">
+                  Do you think the tweet is political in nature?
+                </div>
               </div>
               <div class="d-flex ml-1 justify-content-center space-between">
-
                 <div>
-                  <a class="btn btn-flat-green mr-3 far fa-check-circle" href="#"></a>
-                </div>
+                  <%= link_to "", tweet_path(tweet, is_relevant: true), method: :patch, class: "btn btn-flat-green mr-3 far fa-check-circle" %>
                 <div>
-                  <a class="btn btn-flat-red mr-3 far fa-times-circle" href="#"></a>
+                  <%= link_to "", tweet_path(tweet, is_relevant: false), method: :patch, class: "btn btn-flat-red mr-3 far fa-times-circle" %>
                 </div>
               </div>
             </div>

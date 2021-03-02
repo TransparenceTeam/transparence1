@@ -10,17 +10,16 @@ class TweetPolicy < ApplicationPolicy
     end
 
     def update?
-      create?
+      edit?
     end
 
     def edit?
       true
-      # record.user == user || user.is_contributor?
     end
 
     def create?
-      user.present? && (record.user == user || user.admin?)
       true
+      record.user == user || user.is_contributer?
     end
   end
 end

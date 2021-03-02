@@ -1,5 +1,4 @@
 class TweetsController < ApplicationController
-
   before_action :set_tweet
 
   def index
@@ -42,19 +41,19 @@ class TweetsController < ApplicationController
   end
 
   def update
-    authorize @tweet
-    if @tweet.update(post_params)
-      redirect_to @tweets
+    if @tweet.update!(is_relevant?: params[:is_relevant])
+      redirect_to tweets_path, notice: "tweet relevant"
     else
-      render :index
+      render "edit"
     end
+    authorize @tweet
   end
 
   private
 
-  def tweet_params
-    params.require(:tweet).permit(:is_relevant?)
-  end
+  # def tweet_params
+  #   params.require(:tweet).permit(:is_relevant?)
+  # end
 
   def set_tweet
     @tweet = Tweet.find(params[:id]) if params[:id]
