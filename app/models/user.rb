@@ -5,6 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_posts, dependent: :destroy
   has_many :posts, dependent: :destroy
+  before_create :check_attributes
 
   acts_as_favoritor
+
+  def check_attributes
+
+  end
 end
