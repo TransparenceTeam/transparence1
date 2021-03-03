@@ -30,7 +30,7 @@ namespace :db do
     api = ApiTwitter.new
     politicians = Politician.all
     politicians.each do |politician|
-
+      puts politician.twitter_username
       tweets_content = api.user_timeline_endpoint(politician.twitter_username)
 
       tweets_content.each do |tweet|
