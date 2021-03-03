@@ -5,6 +5,8 @@ const searchOnlyApiKey = document.querySelector("meta[name='algolia-search-only-
 const client = algoliasearch(appId, searchOnlyApiKey);
 const index = client.initIndex('ProjectLaw');
 
+const select = document.querySelector(".form-control")
+
 const resultsDropDown = document.querySelector("#law")
 //const inputField = document.querySelector("#search");
 
@@ -14,7 +16,7 @@ const form = document.querySelector("#search-id")
 
 const dom = (option) => {
   const lawContent = `<option id="law">${option}</option>`;
-  resultsDropDown.insertAdjacentHTML('afterbegin', lawContent);
+  resultsDropDown.insertAdjacentHTML('afterend', lawContent);
 };
 
 
@@ -32,7 +34,6 @@ form.addEventListener("input", (event) => {
   const input = document.querySelector("#search-id")
   resultsDropDown.innerHTML = '';
   algoliaSearch(input)
-
 });
 
 
