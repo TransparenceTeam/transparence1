@@ -36,6 +36,13 @@
                               <div class="tweet-details-sub-container p-3">
                                 <%= tweet.content %>
                               </div>
+
+                              <% if tweet.media.present? %>
+                                <div class="tweet-details-sub-container p-3">
+
+                                </div>
+                              <% end %>
+
                             </div>
 
                             <div class="tweet-additional-info ml-3 mb-2">
@@ -61,6 +68,7 @@
                                   <div>
                                     <%= link_to "", tweet_path(tweet, is_relevant: false), method: :patch, class: "btn btn-flat-red mr-3 far fa-times-circle" %>
                                   </div>
+
                                 </div>
                               <% end %>
                             </div>
@@ -88,6 +96,7 @@
 
                             </div>
                           </div>
+                          
 
                           <div class=" p-2 law-details align-items-center ">
                            <!--  title and icon -->
@@ -99,12 +108,12 @@
 
                                   <div class="form-outline w-100">
                                     <%= select_tag 'user_id', options_for_select(@project_laws.collect{ |u| [u.name, u.id] }) %>
+                 
                                   </div>
 
                                   <div class="results-container w-100 h-auto">
 
 
-                                   <!--  <input data-project-laws="<%= @project_laws_tags%>" class="form-control tagify-input  mr-2 mb-2" /> -->
                                   </div>
 
 

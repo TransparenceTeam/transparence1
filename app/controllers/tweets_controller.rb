@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
   def index
     # add this for the feed: order(id: "DESC")
     @tweets = policy_scope(Tweet.all.order(id: "DESC"))
+    @posts = policy_scope(Post.all)
     @matches = policy_scope(Match.all)
     @politicians = policy_scope(Politician.all)
     @policy_areas = policy_scope(PolicyArea.all)
@@ -17,7 +18,7 @@ class TweetsController < ApplicationController
     @user = current_user
   end
 
-  def new
+  def new1
     @tweet = Tweet.new
     authorize @tweet
   end
