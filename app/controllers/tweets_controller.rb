@@ -47,9 +47,9 @@ class TweetsController < ApplicationController
         Post.create(user: current_user, tweet: @tweet)
       end
       redirect_to tweets_path, notice: "tweet relevant"
-      else
-      render "edit"
-      end
+    else
+    render "edit"
+    end
     authorize @tweet
   end
 
