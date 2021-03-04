@@ -25,3 +25,13 @@
   border-radius: 50%;
   object-fit: cover;
 }
+
+.avatar-politician {
+  width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background-clip: padding-box;
+    margin: 7px 0 0 5px;
+    float: left;
+    object-fit: cover;
+}

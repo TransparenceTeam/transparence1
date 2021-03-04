@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_195059) do
+ActiveRecord::Schema.define(version: 2021_03_04_192845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2021_03_01_195059) do
     t.string "wikipedia_url"
     t.string "linkedin_url"
     t.bigint "political_party_id"
+    t.string "avatar"
     t.index ["political_party_id"], name: "index_politicians_on_political_party_id"
   end
 
