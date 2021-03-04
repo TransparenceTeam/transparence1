@@ -11,10 +11,10 @@
 
   </div> -->
 
-  <div class="feed-container w-auto ">
-      <div>
-        <%= render 'components/card_tweet' %>
-      </div>
+  <div class=" w-auto  ">
+    <% @tweets.each do |tweet| %>
+        <%= render 'components/card_tweet',tweet: tweet %>
+    <% end %>
   </div>
 
 
