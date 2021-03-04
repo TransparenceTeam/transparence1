@@ -79,7 +79,6 @@
             </div>
           </div>
 
-
           <div class=" p-2 law-details align-items-center ">
            <!--  title and icon -->
             <div class= " align-items-center w-100 ">
@@ -88,14 +87,8 @@
               </div>
               <div>
 
-                  <div class="form-outline">
-                    <form id="search" class="form-inline">
-                      <input type="text" id="search-id" name="search" class="form-control"/>
-                        <select class="form-control">
-                          <option id="law"></option>
-                        </select>
-                    </form>
-
+                  <div class="form-outline w-100">
+                    <%= select_tag 'user_id', options_for_select(@project_laws.collect{ |u| [u.name, u.id] }) %>
                   </div>
 
                   <div class="results-container w-100 h-auto">
