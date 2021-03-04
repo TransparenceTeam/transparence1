@@ -1,125 +1,147 @@
 <% @tweets.each do |tweet| %>
  <% @politicians.each do |politician| %>
     <% if tweet.politician_id == politician.id %>
-      <div class="card-post d-flex align-items-center flex-column pr-4 pl-4 h-auto  ">
+      <% @posts.each do |post| %>
+        <% @matches.each do |match| %>
+          <% if match.post_id == post.id %>
+            <% @policy_areas.each do |policy_area| %>
+              <% if match.policy_area_id == policy_area.id %>
+                <% @project_laws.each do |law| %>
+                  <% if match.project_law_id == law.id %>
+                      <div class="card-post d-flex align-items-center flex-column pr-4 pl-4 h-auto  ">
 
-          <div class="tweet-container w-100 h-auto">
-            <div class="politician-info d-flex p-2">
-              <!-- avatar -->
-              <div>
-                <img class="avatar" alt="avatar" src="https://pbs.twimg.com/profile_images/1308812357502668812/jSVlszOa_400x400.jpg" />
-              </div>
+                          <div class="tweet-container w-100 h-auto">
+                            <div class="politician-info d-flex p-2">
+                              <!-- avatar -->
+                              <div>
+                                <img class="avatar" alt="avatar" src="https://pbs.twimg.com/profile_images/1308812357502668812/jSVlszOa_400x400.jpg" />
+                              </div>
 
-              <div class="politician-info-add ml-2">
-                <div class="politician-info-add-name">
-                  <%= tweet.username %>
-                </div>
-                <div class="politician-info-add-username">
-                  <%= politician.twitter_username %>
-                </div>
+                              <div class="politician-info-add ml-2">
+                                <div class="politician-info-add-name">
+                                  <%= tweet.username %>
+                                </div>
+                                <div class="politician-info-add-username">
+                                  <%= politician.twitter_username %>
+                                </div>
 
-               </div>
-               <div class="twitter-icon ml-auto">
-                  <span class="fab fa-twitter"></span>
-              </div>
-            </div>
+                               </div>
+                               <div class="twitter-icon ml-auto">
+                                  <span class="fab fa-twitter"></span>
+                              </div>
+                            </div>
 
-            <div class="tweet-content p-3 ">
-              <div class="tweet-details-sub-container p-3">
-                <%= tweet.content %>
-              </div>
-            </div>
+                            <div class="tweet-content p-3 ">
+                              <div class="tweet-details-sub-container p-3">
+                                <%= tweet.content %>
+                              </div>
+                              <% if tweet.media.present? %>
+                                <div class="tweet-details-sub-container p-3">
 
-            <div class="tweet-additional-info ml-3 mb-2">
-              <%= tweet.date %>
-            </div>
+                                </div>
+                              <% end %>
+                            </div>
 
-          </div>
+                            <div class="tweet-additional-info ml-3 mb-2">
+                              <%= tweet.date %>
+                            </div>
 
-        <div class="law-container w-100 h-auto">
+                          </div>
 
-          <div class=" p-2 law-details align-items-center ">
-           <!--  title and icon -->
-            <div class= " align-items-center w-100 ">
-              <div class="ml-1 law-text">
-                <div class="">
-                  Do you think the tweet is political in nature?
-                </div>
-              </div>
-              <div class="d-flex ml-1 justify-content-center space-between">
-                <div>
-                  <%= link_to "", tweet_path(tweet, is_relevant: true), method: :patch, class: "btn btn-flat-green mr-3 far fa-check-circle" %>
-                <div>
-                  <%= link_to "", tweet_path(tweet, is_relevant: false), method: :patch, class: "btn btn-flat-red mr-3 far fa-times-circle" %>
-                </div>
-              </div>
-            </div>
-          </div>
+                        <div class="law-container w-100 h-auto">
 
-           <div class=" p-2 law-details align-items-center ">
-           <!--  title and icon -->
-            <div class= " align-items-center w-100 ">
-              <div class="ml-1 law-text">
-                Which topic would you most closely associate the tweet with?
-              </div>
+                          <div class=" p-2 law-details align-items-center ">
+                           <!--  title and icon -->
+                            <div class= " align-items-center w-100 ">
+                              <div class="ml-1 law-text">
+                                <div class="">
+                                  Do you think the tweet is political in nature?
+                                </div>
+                              </div>
+                              <% if tweet.is_relevant? == nil  %>
+                                <div class="d-flex ml-1 justify-content-center space-between">
+                                  <div>
+                                    <%= link_to "", tweet_path(tweet, is_relevant: true), method: :patch, class: "btn btn-flat-green mr-3 far fa-check-circle" %>
+                                  <div>
+                                    <%= link_to "", tweet_path(tweet, is_relevant: false), method: :patch, class: "btn btn-flat-red mr-3 far fa-times-circle" %>
+                                  </div>
 
-              <div class="dropdown">
-                <button class="button-outline dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Choose the policy area
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Economics</a></li>
-                  <li><a class="dropdown-item" href="#">Politics</a></li>
-                  <li><a class="dropdown-item" href="#">Society</a></li>
-                  <li><a class="dropdown-item" href="#">Environment</a></li>
-                  <li><a class="dropdown-item" href="#">International</a></li>
-                </ul>
-              </div>
+                                </div>
+                              <% end %>
+                            </div>
+                          </div>
 
-            </div>
-          </div>
+                             <div class=" p-2 law-details align-items-center ">
+                             <!--  title and icon -->
+                              <div class= " align-items-center w-100 ">
+                                <div class="ml-1 law-text">
+                                  Which topic would you most closely associate the tweet with?
+                                </div>
 
+                                <div class="dropdown">
+                                  <button class="button-outline dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Choose the policy area
+                                  </button>
+                                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Economics</a></li>
+                                    <li><a class="dropdown-item" href="#">Politics</a></li>
+                                    <li><a class="dropdown-item" href="#">Society</a></li>
+                                    <li><a class="dropdown-item" href="#">Environment</a></li>
+                                    <li><a class="dropdown-item" href="#">International</a></li>
+                                  </ul>
+                                </div>
 
-          <div class=" p-2 law-details align-items-center ">
-           <!--  title and icon -->
-            <div class= " align-items-center w-100 ">
-              <div class="ml-1 law-text">
-                Please pick the most relevant law from the list:
-              </div>
-              <div>
-
-                  <div class="form-outline">
-
-                    <select class="js-example-basic-single select2 w-100" name="state" id="search">
-                      <option value="AL">Alabama</option>
-
-                      <option value="WY">Wyoming</option>
-                    </select>
-
-                   <!--  <input data-project-laws="<%= @project_laws_tags%>" class="form-control tagify-input  mr-2 mb-2" /> -->
-                  </div>
-
-                  <div class="results-container w-100 h-auto">
+                              </div>
+                            </div>
 
 
-                   <!--  <input data-project-laws="<%= @project_laws_tags%>" class="form-control tagify-input  mr-2 mb-2" /> -->
-                  </div>
+                          <div class=" p-2 law-details align-items-center ">
+                           <!--  title and icon -->
+                            <div class= " align-items-center w-100 ">
+                              <div class="ml-1 law-text">
+                                Please pick the most relevant law from the list:
+                              </div>
+                              <div>
+
+                                  <div class="form-outline">
+
+                                    <select class="js-example-basic-single select2 w-100" name="state" id="search">
+                                      <option value="AL">Alabama</option>
+
+                                      <option value="WY">Wyoming</option>
+                                    </select>
+
+                                   <!--  <input data-project-laws="<%= @project_laws_tags%>" class="form-control tagify-input  mr-2 mb-2" /> -->
+                                  </div>
+
+                                  <div class="results-container w-100 h-auto">
 
 
-                </div>
-              <div class="d-flex ml-1 justify-content-center space-between">
-                <div>
-                  <a class="btn btn-flat-green mr-3 far fa-check-circle" href="#"></a>
-                </div>
-                <div>
-                  <a class="btn btn-flat-red mr-3 far fa-times-circle" href="#"></a>
-                </div>
-              </div>
-            </div>
-          </div>
+                                   <!--  <input data-project-laws="<%= @project_laws_tags%>" class="form-control tagify-input  mr-2 mb-2" /> -->
+                                  </div>
 
-        </div>
-      </div>
+
+                                </div>
+                              <div class="d-flex ml-1 justify-content-center space-between">
+                                <div>
+                                  <a class="btn btn-flat-green mr-3 far fa-check-circle" href="#"></a>
+                                </div>
+                                <div>
+                                  <a class="btn btn-flat-red mr-3 far fa-times-circle" href="#"></a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+              <% end %>
+            <% end %>
+          <% end %>
+         <% end %>
+        <% end %>
+       <% end %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
