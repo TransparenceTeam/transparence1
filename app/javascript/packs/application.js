@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("bootstrap")
+require ("select2")
 // require ("packs/custome")
 // require ("packs/post.js")
 import 'bootstrap';
@@ -21,11 +22,6 @@ console.log("Hello from app/javascript/packs/application.js!");
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import {initTagify} from "../channels/tagify.js";
-
-document.addEventListener('turbolinks:load', () => {
-  initTagify();
-});
 
 
 import { algoliaSearch } from "../channels/algolia.js";
@@ -33,10 +29,11 @@ import { algoliaSearch } from "../channels/algolia.js";
 
 algoliaSearch();
 
-import { initSelect2 } from '../channels/select2.js';
+
+import { select2 } from '../channels/select2.js';
 
 document.addEventListener("turbolinks:load", function() {
-  initSelect2();
+  Select2();
 });
 
 
