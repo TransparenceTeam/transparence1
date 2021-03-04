@@ -1,25 +1,40 @@
 import algoliasearch from "algoliasearch";
 
-const algoliaSearch = () => {
-  const inputField = document.querySelector("#search");
+const appId = document.querySelector("meta[name='algolia-app-id']").content;
+const searchOnlyApiKey = document.querySelector("meta[name='algolia-search-only-api-key']").content;
+const client = algoliasearch(appId, searchOnlyApiKey);
+const index = client.initIndex('ProjectLaw');
 
-  if (inputField) {
-    const appId = document.querySelector("meta[name='algolia-app-id']").content;
-    const searchOnlyApiKey = document.querySelector("meta[name='algolia-search-only-api-key']").content;
+const select = document.querySelector(".form-control")
 
-    const client = algoliasearch(appId, searchOnlyApiKey);
-    const index = client.initIndex('ProjectLaw');
+const resultsDropDown = document.querySelector("#law")
+//const inputField = document.querySelector("#search");
 
-    inputField.addEventListener("input", () => {
-      index.search(inputField.value,{ hitsPerPage: 10, page: 0 }).then((content) => {
-        content.hits.forEach(element => console.log(element.name));
-        // handle results however you like...
+const form = document.querySelector("#search-id")
 
 
+
+const dom = (option) => {
+  const lawContent = `<option id="law">${option}</option>`;
+  resultsDropDown.insertAdjacentHTML('afterend', lawContent);
+};
+
+
+const algoliaSearch = (input) => {
+  index.search(input.value,{ hitsPerPage: 10, page: 0 })
+      .then((content) => {
+        content.hits.forEach((element) =>
+          dom(element.name)
+        );
       })
-    });
-  }
 }
 
-export { algoliaSearch };
+form.addEventListener("input", (event) => {
+  event.preventDefault();
+  const input = document.querySelector("#search-id")
+  resultsDropDown.innerHTML = '';
+  algoliaSearch(input)
+});
 
+
+export { algoliaSearch };
