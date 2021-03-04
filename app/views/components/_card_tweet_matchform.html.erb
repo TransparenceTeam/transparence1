@@ -1,0 +1,44 @@
+<div class=" p-2 law-details align-items-center ">
+ <!--  title and icon -->
+  <div class= " align-items-center w-100 ">
+    <div class="ml-1 law-text">
+      Which topic would you most closely associate the tweet with?
+    </div>
+
+
+    <div class="form-outline w-100">
+      <%= select_tag('user_id', options_for_select(@policy_areas.collect{ |u| [u.category, u.id] }), {:class => 'w-100'}) %>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<div class=" p-2 law-details align-items-center ">
+ <!--  title and icon -->
+  <div class= " align-items-center w-100 ">
+
+    <div class="ml-1 law-text">
+      Please pick the most relevant law from the list:
+    </div>
+
+    <div class="form-outline w-100">
+      <%= select_tag('user_id', options_for_select(@project_laws.collect{ |u| [u.name, u.id] }), {:class => 'w-100'}) %>
+    </div>
+
+    <div class="d-flex ml-1 justify-content-center space-between mt-3">
+      <div>
+        <a class="btn btn-flat-green mr-3 far fa-check-circle" href="#"></a>
+      </div>
+      <div>
+        <a class="btn btn-flat-red mr-3 far fa-times-circle" href="#"></a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
