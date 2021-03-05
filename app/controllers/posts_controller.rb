@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Posts.new(post_params)
+    @post = Post.new(post_params)
     @post.user = current_user
     authorize @post
     if @post.save

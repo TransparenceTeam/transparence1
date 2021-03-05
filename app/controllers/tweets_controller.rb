@@ -1,11 +1,11 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet
+  before_action :set_tweet, :set_post
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     # add this for the feed: order(id: "DESC")
-    @tweets = policy_scope(Tweet.all.order(id: "ASC") ) if
+    @tweets = policy_scope(Tweet.all.order(id: "ASC") )
     @posts = policy_scope(Post.all)
-    @matches = policy_scope(Match.all)
     @politicians = policy_scope(Politician.all)
     @policy_areas = policy_scope(PolicyArea.all)
     @project_laws = policy_scope(ProjectLaw.all)
@@ -15,8 +15,6 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
     @post = Post.new
     @match = Match.new
-    @new_post = current_user.posts.build
-    @user = current_user
   end
 
   def new
@@ -25,9 +23,13 @@ class TweetsController < ApplicationController
   end
 
   def create
-    raise
+    # raise
+    # @match.post_id = post.id
+    # @match.user = current_user
+    # @match = Match.create(user: current_user, match: params[:match_params])
     @match = Match.new(match_params)
-    @match.post_ids = @post
+
+    # @match.post_ids = @post
     # @post.user = current_user
     # @tweet.user = current_user
     authorize @match
@@ -64,7 +66,7 @@ class TweetsController < ApplicationController
   end
 
   def tweet_params
-     params.require(:tweet).permit(:is_relevant?)
+    params.require(:tweet).permit(:is_relevant?)
   end
 
   def set_tweet
@@ -75,11 +77,11 @@ class TweetsController < ApplicationController
     @post = Post.find(params[:id]) if params[:id]
   end
 
-  def post_params
-    params.require(:post).permit(:tweet_id, :user_id)
+  def set_match
+    @match = Match.find(params[:id])
   end
 
-  def match_params
-    params.require(:match).permit(:post_id, :project_law_id, :policy_area_id)
+  def post_params
+    params.require(:post).permit(:tweet_id, :user_id)
   end
 end
