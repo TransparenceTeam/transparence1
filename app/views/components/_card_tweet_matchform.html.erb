@@ -5,7 +5,6 @@
       Which topic would you most closely associate the tweet with?
     </div>
 
-
     <div class="form-outline w-100">
     </div>
 
@@ -27,11 +26,20 @@
       <%= form_tag tweets_path, method: "post" do |f| %>
         <%= select_tag 'law_id', options_for_select(@project_laws.collect{ |u| [u.name, u.id] }), class: 'form-control' %>
         <%= select_tag 'policy_area_id', options_for_select(@policy_areas.collect{ |u| [u.category, u.id] }), class: 'form-control' %>
-        <%= submit_tag "SEARCH", class: "btn btn-flat-green mr-3 far fa-check-circle"%>
+        <%= submit_tag "Validate", class: "btn btn-flat-green mr-3 far fa-check-circle"%>
       <% end %>
     </div>
 
     <div class="d-flex ml-1 justify-content-center space-between mt-3">
+
+      <div>
+        <a class="btn btn-flat-green mr-3 far fa-check-circle" href="#"></a>
+
+      </div>
+      <div>
+
+      </div>
+
     </div>
 
   </div>
