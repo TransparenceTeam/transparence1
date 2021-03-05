@@ -14,27 +14,29 @@ class TweetsController < ApplicationController
     @political_group = policy_scope(PoliticalGroup.all)
     @tweet = Tweet.new
     @post = Post.new
+    @match = Match.new
     @new_post = current_user.posts.build
     @user = current_user
   end
 
-  def new1
-    @tweet = Tweet.new
-    authorize @tweet
+  def new
+    @match = Match.new
+    authorize @match
   end
 
   def create
-    @tweet = Tweet.new(tweet_params)
-    @tweet.post_ids = @post
+    raise
+    @match = Match.new(match_params)
+    @match.post_ids = @post
     # @post.user = current_user
     # @tweet.user = current_user
-    authorize @tweet
+    authorize @match
 
-    if @tweet.save
-      redirect_to tweets_path
-    else
-      render :new
-    end
+    #if @tweet.save
+      #redirect_to tweets_path
+    #else
+      #render :new
+    #end
   end
 
   def edit
@@ -55,9 +57,13 @@ class TweetsController < ApplicationController
 
   private
 
-  # def tweet_params
-  #   params.require(:tweet).permit(:is_relevant?)
-  # end
+  def match_params
+    params.require(:match).permit(:post_id, :policy_area_id, :project_law_id)
+  end
+
+  def tweet_params
+     params.require(:tweet).permit(:is_relevant?)
+  end
 
   def set_tweet
     @tweet = Tweet.find(params[:id]) if params[:id]

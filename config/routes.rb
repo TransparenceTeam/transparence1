@@ -5,10 +5,9 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :show, :new, :create, :update] do
     resources :user_posts, only: [:index] do
+
     end
   end
-
-  resources :project_laws, only: [:index]
 
   resources :politicians, only: [:show]
 
@@ -17,4 +16,5 @@ Rails.application.routes.draw do
   resources :posts, only: [:destroy]
 
   resources :tweets, only: [:index, :create, :new, :update, :edit]
+
 end
