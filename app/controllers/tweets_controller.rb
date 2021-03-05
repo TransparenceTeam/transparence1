@@ -3,7 +3,7 @@ class TweetsController < ApplicationController
 
   def index
     # add this for the feed: order(id: "DESC")
-    @tweets = policy_scope(Tweet.all.order(id: "DESC"))
+    @tweets = policy_scope(Tweet.all.order(id: "ASC") ) if
     @posts = policy_scope(Post.all)
     @matches = policy_scope(Match.all)
     @politicians = policy_scope(Politician.all)
@@ -18,12 +18,13 @@ class TweetsController < ApplicationController
     @user = current_user
   end
 
-  def new1
-    @tweet = Tweet.new
-    authorize @tweet
+  def new
+    @match = Match.new
+    authorize @match
   end
 
   def create
+    @match = Match.new()
     @tweet = Tweet.new(tweet_params)
     @tweet.post_ids = @post
     # @post.user = current_user
@@ -43,12 +44,14 @@ class TweetsController < ApplicationController
 
   def update
     if @tweet.update!(is_relevant?: params[:is_relevant])
+
       if @tweet.is_relevant?
         Post.create(user: current_user, tweet: @tweet)
       end
+
       redirect_to tweets_path, notice: "tweet relevant"
     else
-    render "edit"
+      render "edit"
     end
     authorize @tweet
   end
@@ -69,5 +72,9 @@ class TweetsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:tweet_id, :user_id)
+  end
+
+  def match_params
+    params.require(:match).permit(:post_id, :project_law_id, :policy_area_id)
   end
 end

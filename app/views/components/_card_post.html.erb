@@ -84,7 +84,7 @@
 
                                       </div>
                                      <!--  main icons -->
-                                      <div class="law-info-summary w-100 d-flex align-items-center justify-content-between ">
+                                      <div class="law-info-summary w-100 d-flex  justify-content-between ">
                                         <div class= "d-flex p-2">
 
                                           <div>
@@ -100,13 +100,13 @@
 
                                         <div class='d-flex p-2 result-law'>
 
-                                          <div class= "d-flex ml-4 align-items-center " >
+                                          <div class= "d-flex ml-4  " >
                                             <div>
                                               <i class="far fa-check-circle votes_for"></i>
                                             </div>
 
-                                            <div class= "ml-1">
-                                              <%= law.sum_for %>
+                                            <div class= " d-flex ml-1">
+                                              <p><%= law.sum_for %> for</p>
                                             </div>
                                           </div>
 
@@ -116,7 +116,7 @@
                                             </div>
 
                                             <div class= "ml-1">
-                                              <%= law.sum_against %>
+                                              <p><%= law.sum_against %> against</p>
                                             </div>
                                           </div>
 
@@ -126,7 +126,8 @@
                                             </div>
 
                                             <div class= "ml-1">
-                                              <%= law.sum_abstention %>
+                                              <p><%= law.sum_abstention %> abstained</p>
+
                                             </div>
                                           </div>
                                         </div>
@@ -135,14 +136,10 @@
 
                                      <!--  closing icons -->
                                       <div class="d-flex p-2">
-                                        <div>
-                                          <%= link_to law.url, :target =>"_blank", class: "fa-angle-double-down" do %>
-                                            <a class="fas fa-angle-double-down mr-3"></a>
-                                          <% end %>
-                                        </div>
+
 
                                         <div class="mr-3">
-                                          <%= link_to law.url_nojson, :target =>"_blank", class: "fas fa-external-link-alt" do %>
+                                          <%= link_to law.url_nojson, :target =>"_blank", class: "fas fa-external-link-alt result-icon" do %>
                                           <% end %>
                                         </div>
 
@@ -177,7 +174,7 @@
                                                 </div>
 
                                                 <div class= "ml-1">
-                                                  <div><%= law[column.name].split("-")[1].to_i%> voted for</div>
+                                                  <div><%= law[column.name].split("-")[1].to_i%> for</div>
                                                 </div>
                                               </div>
 
@@ -187,7 +184,7 @@
                                                 </div>
 
                                                 <div class= "ml-1">
-                                                 <div><%= law[column.name].split("-")[2].to_i%> voted against</div>
+                                                 <div><%= law[column.name].split("-")[2].to_i%> against</div>
                                                 </div>
                                               </div>
 
