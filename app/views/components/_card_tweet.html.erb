@@ -5,8 +5,8 @@
     <div class="politician-info d-flex p-2">
       <!-- avatar -->
       <div>
-        <img class="avatar" alt="avatar" src="https://pbs.twimg.com/profile_images/1308812357502668812/jSVlszOa_400x400.jpg" />
-      </div>
+          <img class="avatar" alt="avatar" src=<%= tweet.avatar_https %> />
+        </div>
 
       <div class="politician-info-add ml-2">
         <div class="politician-info-add-name">
@@ -26,11 +26,10 @@
         <%= tweet.content %>
       </div>
 
-      <% if tweet.media.present? %>
-        <div class="tweet-details-sub-container p-3">
 
+        <div class="tweet-details-sub-container p-3">
+      <!-- placeholder for picture/video -->
         </div>
-      <% end %>
 
     </div>
 
@@ -46,7 +45,7 @@
      <!--  title and icon -->
       <div class= " align-items-center w-100 ">
 
-        <% if tweet.is_relevant? == nil  %>
+        <% unless tweet.is_relevant? == nil || false%>
 
           <div class="ml-1 law-text">
             <div class="">

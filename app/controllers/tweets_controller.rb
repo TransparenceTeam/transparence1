@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
 
   def index
     # add this for the feed: order(id: "DESC")
+
     @tweets = policy_scope(Tweet.all.order(id: "ASC") )  #relevent
     @posts = policy_scope(Post.all)
     @politicians = policy_scope(Politician.all)
