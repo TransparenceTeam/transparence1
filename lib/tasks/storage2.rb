@@ -1,5 +1,6 @@
 require 'oauth'
 require 'json'
+require 'time'
 
 namespace :db do
   desc "tweets injection"
@@ -20,9 +21,8 @@ namespace :db do
         @access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
       end
 
-
       def user_timeline_endpoint(twitter_username)
-        JSON.parse(@access_token.request(:get, "#{BASE_URI}statuses/user_timeline.json?screen_name=#{twitter_username}&count=20&tweet_mode=extended")
+        JSON.parse(@access_token.request(:get, "#{BASE_URI}statuses/user_timeline.json?screen_name=#{twitter_username}&count=50&tweet_mode=extended")
         .body)
       end
     end
@@ -30,6 +30,7 @@ namespace :db do
     api = ApiTwitter.new
     politicians = Politician.all
     politicians.each do |politician|
+      puts politician.twitter_username
 
       tweets_content = api.user_timeline_endpoint(politician.twitter_username)
 
@@ -41,7 +42,7 @@ namespace :db do
                 username: tweet['user']['screen_name'],
                 content: tweet['full_text'],
                 hashtag: tweet['entities']['hashtags'],
-                date: tweet['created_at'],
+                date: Time.new(tweet['created_at']).strftime('%a %d %b %Y'),
                 tweet_id: tweet['id'],
                 user_description: tweet['user']['description'],
                 followers_count: tweet['user']['followers_count'],
@@ -53,7 +54,7 @@ namespace :db do
                 location: tweet['user']['location'],
                 politician_id: politician.id,
                 retweet_username: tweet['quoted_status']['user']['screen_name'],
-                retweet_date: tweet['quoted_status']['created_at'],
+                retweet_date: Time.new(tweet['quoted_status']['created_at']).strftime('%a %d %b %Y'),
                 retweet_id: tweet['quoted_status']['id'],
                 retweet_content: tweet['quoted_status']['full_text'],
                 retweet_location: tweet['quoted_status']['user']['location'],
@@ -75,7 +76,7 @@ namespace :db do
                 username: tweet['user']['screen_name'],
                 content: tweet['full_text'],
                 hashtag: tweet['entities']['hashtags'],
-                date: tweet['created_at'],
+                date: Time.new(tweet['created_at']).strftime('%a %d %b %Y'),
                 tweet_id: tweet['id'],
                 user_description: tweet['user']['description'],
                 followers_count: tweet['user']['followers_count'],
@@ -87,7 +88,7 @@ namespace :db do
                 location: tweet['user']['location'],
                 politician_id: politician.id,
                 retweet_username: tweet['quoted_status']['user']['screen_name'],
-                retweet_date: tweet['quoted_status']['created_at'],
+                retweet_date: Time.new(tweet['quoted_status']['created_at']).strftime('%a %d %b %Y'),
                 retweet_id: tweet['quoted_status']['id'],
                 retweet_content: tweet['quoted_status']['full_text'],
                 retweet_location: tweet['quoted_status']['user']['location'],
@@ -109,7 +110,7 @@ namespace :db do
                 username: tweet['user']['screen_name'],
                 content: tweet['full_text'],
                 hashtag: tweet['entities']['hashtags'],
-                date: tweet['created_at'],
+                date: Time.new(tweet['created_at']).strftime('%a %d %b %Y'),
                 tweet_id: tweet['id'],
                 user_description: tweet['user']['description'],
                 followers_count: tweet['user']['followers_count'],
@@ -121,7 +122,7 @@ namespace :db do
                 location: tweet['user']['location'],
                 politician_id: politician.id,
                 retweet_username: tweet['quoted_status']['user']['screen_name'],
-                retweet_date: tweet['quoted_status']['created_at'],
+                retweet_date: Time.new(tweet['quoted_status']['created_at']).strftime('%a %d %b %Y'),
                 retweet_id: tweet['quoted_status']['id'],
                 retweet_content: tweet['quoted_status']['full_text'],
                 retweet_location: tweet['quoted_status']['user']['location'],
@@ -140,7 +141,7 @@ namespace :db do
                   username: tweet['user']['screen_name'],
                   content: tweet['full_text'],
                   hashtag: tweet['entities']['hashtags'],
-                  date: tweet['created_at'],
+                  date: Time.new(tweet['created_at']).strftime('%a %d %b %Y'),
                   tweet_id: tweet['id'],
                   user_description: tweet['user']['description'],
                   followers_count: tweet['user']['followers_count'],
@@ -161,7 +162,7 @@ namespace :db do
                     username: tweet['user']['screen_name'],
                     content: tweet['full_text'],
                     hashtag: tweet['entities']['hashtags'],
-                    date: tweet['created_at'],
+                    date: Time.new(tweet['created_at']).strftime('%a %d %b %Y'),
                     tweet_id: tweet['id'],
                     user_description: tweet['user']['description'],
                     followers_count: tweet['user']['followers_count'],
