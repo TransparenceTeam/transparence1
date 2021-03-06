@@ -21,12 +21,19 @@
     </div>
 
     <div class="form-outline w-100">
+<<<<<<< HEAD
       <%= form_for tweets_path, method: "post" do |f| %>
         <%= f.label "Please pick the most relevant law from the list:" %>
         <%= select_tag 'law_id', options_for_select(@project_laws.collect{ |u| [u.name, u.id] }), class: 'form-control m-3' %>
         <%= f.label "Which topic would you most closely associate the tweet with?" %>
         <%= select_tag 'policy_area_id', options_for_select(@policy_areas.collect{ |u| [u.category, u.id] }), class: 'form-control' %>
         <%= submit_tag "Validate", class: "btn btn-flat-green mr-3 far fa-check-circle"%>
+=======
+      <%= simple_form_for @match do |f| %>
+        <%= f.select :project_law_id, options_for_select(ProjectLaw.all.map{ |u| [u.name, u.id] }) %>
+        <%= f.select :policy_area_id, options_for_select(PolicyArea.all.map{ |u| [u.category, u.id] })%>
+        <%= submit_tag "SEARCH", class: "btn btn-flat-green mr-3 far fa-check-circle"%>
+>>>>>>> master
       <% end %>
     </div>
 
