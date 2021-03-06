@@ -30,7 +30,8 @@ gem 'jquery-rails'
 gem 'hogan_assets'
 
 gem "select2-rails"
-
+gem 'excon'
+gem 'i18n_data'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

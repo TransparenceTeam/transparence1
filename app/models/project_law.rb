@@ -9,9 +9,9 @@ class ProjectLaw < ApplicationRecord
    projectlaw_100 = Projectlaw.last(1)
   end
 
-  include AlgoliaSearch
-  algoliasearch do
-    attributes :name
-  end
+  # include AlgoliaSearch
+  # algoliasearch do
+  #   attributes :name
+  # end
 
 end
