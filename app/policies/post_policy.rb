@@ -5,8 +5,22 @@ class PostPolicy < ApplicationPolicy
     end
   end
 
+  def new
+    create?
+  end
+
+  def create?
+    record.user == user || user.is_contributer?
+    true
+  end
+
   def update?
-    record.user == user || user.is_contributor?
+    edit?
+  end
+
+  def edit?
+    record.user == user || user.is_contributer?
+    true
   end
 
   def show?

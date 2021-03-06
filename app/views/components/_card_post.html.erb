@@ -25,10 +25,14 @@
                                     </div>
                                     <div class="politician-info-add ml-2">
                                       <div class="politician-info-add-name">
-                                        <%= tweet.username %>
+
+                                        <div class="link"><%= link_to tweet.username, politician_path(tweet.politician_id) %></div>
                                       </div>
                                       <div class="politician-info-add-username">
-                                        <div class= "political-party-header font-weight-bold"><%= political_party.name %></div>
+                                        <div class= "political-party-header font-weight-bold">
+                                          <div class="link"><a href=<%= political_party.website_url%>, target="_blank" ><%= political_party.name %></a>
+                                          </div>
+                                        </div>
                                       </div>
 
                                       <div class="politician-info-add-username">
@@ -46,9 +50,8 @@
                                       <%= tweet.content %>
                                     </div>
                                     <div class="tweet-media p-3">
-                                      <% if tweet.media != nil %>
-                                      <%= political_party.avatar %>
-                                      <%= tweet.media %>
+                                      <% if tweet.media != nil || tweet.picture != nil %>
+                                      <%= tweet.media || tweet.picture%>
                                       <% end %>
                                     </div>
                                   </div>

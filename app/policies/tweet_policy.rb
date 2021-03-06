@@ -14,12 +14,13 @@ class TweetPolicy < ApplicationPolicy
     end
 
     def edit?
+      record.user == user || user.is_contributer?
       true
     end
 
     def create?
-      true
       record.user == user || user.is_contributer?
+      true
     end
   end
 end

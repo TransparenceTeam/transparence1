@@ -71,3 +71,13 @@
   border-style: solid;
   background-color: $ivory;
 }
+
+#new_user > div.form-inputs.p-3 > fieldset > div {
+  // display: flex;
+}
+
+
+#user_is_contributer {
+  position: absolute;
+  left: 60%;
+}
