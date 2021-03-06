@@ -27,7 +27,9 @@ class TweetsController < ApplicationController
     # @match.post_id = post.id
     # @match.user = current_user
     # @match = Match.create(user: current_user, match: params[:match_params])
+    @post = Post.find(params[:post_id])
     @match = Match.new(match_params)
+    @match.post = @match
 
     # @match.post_ids = @post
     # @post.user = current_user

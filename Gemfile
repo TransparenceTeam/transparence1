@@ -49,6 +49,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form'
 gem 'rails-toolkit', '~> 8.4', '>= 8.04.1'
+gem 'pg_search', '~> 1.0', '>= 1.0.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

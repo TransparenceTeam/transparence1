@@ -11,6 +11,16 @@ class PostsController < ApplicationController
     @policy_areas = policy_scope(PolicyArea.all)
     @project_laws = policy_scope(ProjectLaw.all)
     @political_groups = policy_scope(PoliticalGroup.all)
+    if params["search"]
+      @filter = params["search"]["policy_areas"].concat(params["search"]["strengths"]).flatten.reject(&:blank?)
+      @posts = Post.all.filter_categories("#{@filter}")
+    else
+      @posts = policy_scope(Post.joins(:matches).where.not(matches: nil))
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

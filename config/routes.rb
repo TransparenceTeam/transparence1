@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :posts, only: [:index, :show, :new, :create, :update] do
-    resources :user_posts, only: [:index] do
-
-    end
+    resources :user_posts, only: [:index]
   end
 
   resources :politicians, only: [:show]
