@@ -4,7 +4,8 @@ class TweetsController < ApplicationController
 
   def index
     # add this for the feed: order(id: "DESC")
-    @tweets = policy_scope(Tweet.all.order(id: "ASC"))
+
+    @tweets = policy_scope(Tweet.all.order(id: "ASC") )  #relevent
     @posts = policy_scope(Post.all)
     @politicians = policy_scope(Politician.all)
     @policy_areas = policy_scope(PolicyArea.all)
@@ -17,26 +18,6 @@ class TweetsController < ApplicationController
     @match = Match.new
   end
 
-  def new
-    raise
-    @match = Match.new
-    authorize @match
-  end
-
-  def create
-    # raise
-     #@match.post_id = post.id
-
-    @match = Match.new(match_params)
-    @match.user = current_user
-    authorize @match
-    if @match.save
-      redirect_to matches_path
-    else
-      render 'new'
-    end
-
-  end
 
   def edit
     authorize @tweet

@@ -80,36 +80,36 @@ politician3 = Politician.create!(
 puts "politician #{politician3.id} has been created"
 
 
-tweet1 = Tweet.create!(
-  username: 'Emmanuel Macron',
-  ref: '1362829183626465282',
-  content: "Avec les dirigeants du G7, nos priorités pour 2021 sont claires : tout faire pour vaincre le virus, s'assurer d'une distribution équitable et efficace du vaccin, être solidaires avec les pays les plus vulnérables, relancer nos économies et accélérer la transition écologique.",
-  date: '19 févr. 2021',
-  politician_id: 2
-)
-puts "tweet #{tweet1.id} has been created"
+#tweet1 = Tweet.create!(
+  #username: 'Emmanuel Macron',
+  #ref: '1362829183626465282',
+  #content: "Avec les dirigeants du G7, nos priorités pour 2021 sont claires : tout faire pour vaincre le virus, s'assurer d'une distribution équitable et efficace du vaccin, être solidaires avec les pays les plus vulnérables, relancer nos économies et accélérer la transition écologique.",
+  #date: '19 févr. 2021',
+  #politician_id: 2
+#)
+#puts "tweet #{tweet1.id} has been created"
 
 
-tweet2 = Tweet.create!(
-  username: 'Jean-Luc Mélenchon',
-  ref: '1362496524463337488',
-  content: 'Nous les Français, nous savons faire des fusées, des satellites, nous savons tout faire. Alors comment se fait-il qu’il y a 8 expéditions sur Mars et que les Français soient seulement spectateurs ? #Le20HdeLCI #Perseverance #CountdownToMars',
-  date: '18 févr. 2021',
-  politician_id: 1
-)
-puts "tweet #{tweet2.id} has been created"
+#tweet2 = Tweet.create!(
+  #username: 'Jean-Luc Mélenchon',
+  #ref: '1362496524463337488',
+  #content: 'Nous les Français, nous savons faire des fusées, des satellites, nous savons tout faire. Alors comment se fait-il qu’il y a 8 expéditions sur Mars et que les Français soient seulement spectateurs ? #Le20HdeLCI #Perseverance #CountdownToMars',
+  #date: '18 févr. 2021',
+  #politician_id: 1
+#)
+#puts "tweet #{tweet2.id} has been created"
 
-4.times do
-  user = User.create!(
-    email: Faker::Internet.email,
-    first_name: ["olga", "baptiste", "victor", "gaurav"].sample,
-    username: ["olga", "baptiste", "victor", "gaurav"].sample,
-    last_name: ["gabbet", "klocker", "la fur", "lewagon"].sample,
-    password: "123456",
-    is_contributer: [true, false].sample
-    )
-  puts "User #{user.id} is created"
-end
+#4.times do
+  #user = User.create!(
+    #email: Faker::Internet.email,
+    #first_name: ["olga", "baptiste", "victor", "gaurav"].sample,
+    #username: ["olga", "baptiste", "victor", "gaurav"].sample,
+    #last_name: ["gabbet", "klocker", "la fur", "lewagon"].sample,
+    #password: "123456",
+    #is_contributer: [true, false].sample
+    #)
+  #puts "User #{user.id} is created"
+#end
 
 policy_area1 = PolicyArea.create!(
   category: "Economics",
@@ -136,21 +136,21 @@ policy_area5 = PolicyArea.create!(
   subcategory: "Europe"
 )
 
-3.times do
-  post = Post.create!(
-    tweet_id: rand(1..2),
-    user_id: rand(1..4)
-  )
-  puts "Post #{post.id} is created"
-end
+#3.times do
+  #post = Post.create!(
+    #tweet_id: rand(1..2),
+    #user_id: rand(1..4)
+  #)
+  #puts "Post #{post.id} is created"
+#end
 
-2.times do
-  matche = Match.create!(
-    post_id: rand(1..2),
-    project_law_id: rand(1..40),
-    policy_area_id: rand(1..3)
-  )
-  puts "match #{matche.id} has been created"
-end
+#2.times do
+  #matche = Match.create!(
+    #post_id: rand(1..2),
+    #project_law_id: rand(1..40),
+    #policy_area_id: rand(1..3)
+  #)
+  #puts "match #{matche.id} has been created"
+#end
 
 
