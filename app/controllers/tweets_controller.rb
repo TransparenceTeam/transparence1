@@ -15,16 +15,8 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
     @post = Post.new
     @match = Match.new
-    #http://localhost:3000/tweets#tweet4
   end
 
-  def new
-    @match = Match.new
-    authorize @match
-  end
-
-  def create
-  end
 
   def edit
     authorize @tweet
