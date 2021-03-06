@@ -3,6 +3,7 @@ class MatchPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
     def new?
       create?
@@ -20,5 +21,5 @@ class MatchPolicy < ApplicationPolicy
       true
       record.user == user || user.is_contributer?
     end
-  end
+
 end

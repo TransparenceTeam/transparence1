@@ -64,6 +64,7 @@ namespace :db do
     puts "step 2 done"
 
     deputies = Deputy.all
+
     deputies.each do |deputy|
       if deputy.last_name.include? "(de)"
         new_name = deputy.last_name.gsub(" (de)", "")
@@ -94,9 +95,10 @@ namespace :db do
       json_deputy = JSON.parse(deputy_serialized)
       json_deputy['votes'].each do |deputy_vote|
         if !deputy_vote['vote']['scrutin']['titre'].nil? && !deputy_vote['vote']['scrutin']['numero'].nil?
+
           if deputy_vote['vote']['scrutin']['titre'].include? "lecture définitive"
             unless ProjectLaw.exists?(scrutin: deputy_vote['vote']['scrutin']['numero'])
-
+              puts "test"
               new_project_law = ProjectLaw.create!(
                 scrutin: deputy_vote['vote']['scrutin']['numero'],
                 name: project_law_name_cleaning(deputy_vote['vote']['scrutin']['titre']),
