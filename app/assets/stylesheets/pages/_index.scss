@@ -1,2 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.main-container-index {
+  z-index: 1000;
+}

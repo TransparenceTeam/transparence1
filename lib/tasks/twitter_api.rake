@@ -21,7 +21,6 @@ namespace :db do
         @access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
       end
 
-
       def user_timeline_endpoint(twitter_username)
         JSON.parse(@access_token.request(:get, "#{BASE_URI}statuses/user_timeline.json?screen_name=#{twitter_username}&count=50&tweet_mode=extended")
         .body)
