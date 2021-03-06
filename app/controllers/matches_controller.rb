@@ -1,7 +1,7 @@
 class MatchesController < ApplicationController
+  before_action :authenticate_user!
 
   def new
-    raise
     @match = Match.new
     authorize @match
   end
@@ -20,7 +20,7 @@ class MatchesController < ApplicationController
   private
 
   def match_params
-    params.require(:match).permit(:post_id, :policy_area_id, :project_law_id)
+    params.require(:match).permit(:policy_area_id, :project_law_id)
   end
 
 end

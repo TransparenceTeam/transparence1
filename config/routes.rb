@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:destroy]
 
   resources :tweets, only: [:index, :create, :new, :update, :edit]
+  resources :matches, only: [:new, :create]
+
 
 end

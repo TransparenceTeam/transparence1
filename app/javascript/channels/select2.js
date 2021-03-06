@@ -3,7 +3,7 @@ import 'select2';
 
 
 $(document).ready(function() {
-    $('#law_id').select2({
+    $('#project_law_id').select2({
       allowClear: true,
       placeholder: "Select a law",
       closeOnSelect: true,

@@ -18,27 +18,24 @@ class TweetsController < ApplicationController
   end
 
   def new
+    raise
     @match = Match.new
     authorize @match
   end
 
   def create
     # raise
-    # @match.post_id = post.id
-    # @match.user = current_user
-    # @match = Match.create(user: current_user, match: params[:match_params])
+     #@match.post_id = post.id
+
     @match = Match.new(match_params)
-
-    # @match.post_ids = @post
-    # @post.user = current_user
-    # @tweet.user = current_user
+    @match.user = current_user
     authorize @match
+    if @match.save
+      redirect_to matches_path
+    else
+      render 'new'
+    end
 
-    #if @tweet.save
-      #redirect_to tweets_path
-    #else
-      #render :new
-    #end
   end
 
   def edit
@@ -62,7 +59,7 @@ class TweetsController < ApplicationController
   private
 
   def match_params
-    params.require(:match).permit(:post_id, :policy_area_id, :project_law_id)
+    params.require(:match).permit(:policy_area_id, :project_law_id)
   end
 
   def tweet_params
@@ -85,3 +82,6 @@ class TweetsController < ApplicationController
     params.require(:post).permit(:tweet_id, :user_id)
   end
 end
+
+#        <%= number_field :post_id, :value => @post.id %>
+
