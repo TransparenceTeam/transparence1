@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, :set_post
+  before_action :set_tweet
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
