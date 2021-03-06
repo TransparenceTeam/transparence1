@@ -22,13 +22,18 @@
       Please pick the most relevant law from the list:
     </div>
 
+
+
     <div class="form-outline w-100">
       <%= simple_form_for @match do |f| %>
         <%= f.select :project_law_id, options_for_select(ProjectLaw.all.map{ |u| [u.name, u.id] }) %>
         <%= f.select :policy_area_id, options_for_select(PolicyArea.all.map{ |u| [u.category, u.id] })%>
+        <%= f.hidden_field :post_id, value: @posts.last.id%>
         <%= submit_tag "SEARCH", class: "btn btn-flat-green mr-3 far fa-check-circle"%>
       <% end %>
     </div>
+
+
 
     <div class="d-flex ml-1 justify-content-center space-between mt-3">
 
