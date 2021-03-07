@@ -51,7 +51,6 @@
 }
 
 .tweet-content{
-
   font: work-sans;
   font-size: 14px;
   line-height: 22px;
@@ -163,4 +162,98 @@
 .search .form-control {
     background-color:$ivory;
     color:white;
+    text-align: center;
 }
+
+// .simple_form {
+//   position: auto;
+//   float: none;
+//   text-align : center;
+//   margin-right: auto;
+//   margin-left: auto;
+// }
+// .select2-container--default .select2-selection--single span{
+//   width: 100% !important;
+// }
+
+// .select2-selection.select2-selection--single {
+//   width: 200px !important;
+//   background-color: red !important;
+// }
+
+// .form-group > .select2-container {
+//     width:
+// }
+
+// .select {
+//   max-width: 100%;
+// }
+
+// .dropdown-wrapper {
+//   width: 100%;
+// }
+
+
+// .select2-container {
+//   width: 100% !important;
+//   max-width: 100%;
+// }
+
+// .select2-selection {
+//   width: 100%;
+// }
+
+.form-control {
+}
+
+
+.select2-selection--single {
+  width: 100% !important;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+// .select2-selection--clearable {
+//   width: 200px !important;
+//   text-align: center;
+//   margin: 0 auto;
+// }
+
+
+
+
+// .select2-selection {
+//   width: 400px !important;
+// }
+
+// .select2-selection--single {
+//   width: 400px !important;
+// }
+
+// .select2-selection--clearable {
+//   width: 400px !important;
+// }
+
+// .simple_form div.input {
+//   margin-bottom: 10px;
+//   clear: both; /* Required for Webkit, but not for Gecko */
+// }
+
+// .select_law {
+//   // position: relative;
+
+// }
+
+
+.simple_form {
+  // position: fixed;
+}
+#match_project_law_id {
+  width: 450px;
+}
+#match_policy_area_id {
+  width: 450px;
+}
+
+// select2-container select2-container--default

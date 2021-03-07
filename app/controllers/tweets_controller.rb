@@ -1,11 +1,10 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, :set_post
+  before_action :set_tweet
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
     # add this for the feed: order(id: "DESC")
-
-    @tweets = policy_scope(Tweet.all.order(id: "ASC") )  #relevent
+    @tweets = policy_scope(Tweet.where(is_relevant?: nil).or(Tweet.where(is_relevant?: true)).order(date: "DESC"))
     @posts = policy_scope(Post.all)
     @politicians = policy_scope(Politician.all)
     @policy_areas = policy_scope(PolicyArea.all)
@@ -18,7 +17,6 @@ class TweetsController < ApplicationController
     @match = Match.new
   end
 
-
   def edit
     authorize @tweet
   end
@@ -30,8 +28,9 @@ class TweetsController < ApplicationController
         Post.create(user: current_user, tweet: @tweet)
       end
 
-      redirect_to tweets_path, notice: "tweet relevant"
+      redirect_to tweets_path(@tweet), alert: "tweet relevant"
     else
+
       render "edit"
     end
     authorize @tweet
@@ -51,9 +50,9 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id]) if params[:id]
   end
 
-  def set_post
-    @post = Post.find(params[:id]) if params[:id]
-  end
+  # def set_post
+  #   @post = Post.find(params[:id]) if params[:id]
+  # end
 
   def set_match
     @match = Match.find(params[:id])
@@ -62,6 +61,7 @@ class TweetsController < ApplicationController
   def post_params
     params.require(:post).permit(:tweet_id, :user_id)
   end
+
 end
 
 #        <%= number_field :post_id, :value => @post.id %>
