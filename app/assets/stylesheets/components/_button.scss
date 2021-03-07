@@ -1,7 +1,7 @@
-
 .btn-flat-red {
   color: white;
   padding: 8px 24px;
+  width: 100%;
   border-radius: 16px;
   background: $red;
   transition: background 0.3s ease;
@@ -11,9 +11,28 @@
   color: white;
 }
 
+
+.btn-flat-red-index {
+  color: white;
+  height: 38px;
+  padding: 8px 24px;
+  border-radius: 16px;
+  background: $red;
+  transition: background 0.3s ease;
+}
+.btn-flat-red-index:hover {
+  background: #1BCB7F;
+  color: white;
+}
+
+.btn.btn-link.link {
+  text-decoration: none;
+}
+
 .btn-flat-green {
   color: white;
   padding: 8px 24px;
+  width: 100%;
   border-radius: 16px;
   background: $green;
   transition: background 0.3s ease;

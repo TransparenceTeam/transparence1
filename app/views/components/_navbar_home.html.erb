@@ -1,7 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-home navbar-lewagon-home">
-  <a class="navbar-brand" href="#">
+  <%= link_to root_path, class: "paw-link" do %>
     <h2 class="title-home">Transparence</h2>
-  </a>
+  <% end %>
+
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,9 +11,12 @@
     <div class="navbar-nav mr-auto d-flex">
 
       <% unless current_user %>
-          <div class="nav-item d-flex mr-4">
-            <a class="nav-link" href="#"><%= link_to "Login", new_user_session_path %></a>
-          </div>
+            <div class="nav-item d-flex mr-4">
+              <a class="nav-link" href="#"><%=link_to "Login", new_user_session_path %></a>
+            </div>
+            <div class="nav-item d-flex mr-4">
+              <a class="nav-link" href="#"><%=link_to "Contribute", tweets_path %></a>
+            </div>
       <% else %>
         <div class="nav-item dropdown d-flex">
           <i class="fas fa-user dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>

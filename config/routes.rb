@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index, :show, :new, :create, :update] do
     resources :user_posts, only: [:index] do
-
     end
   end
 
@@ -18,5 +17,7 @@ Rails.application.routes.draw do
   resources :tweets, only: [:index, :create, :new, :update, :edit]
   resources :matches, only: [:new, :create]
 
-
+ get '/404', to: "errors#not_found"
+ get '/422', to: "errors#unacceptable"
+ get '/500', to: "errors#internal_error"
 end
