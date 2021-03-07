@@ -1,20 +1,25 @@
 <%= render 'components/navbar_index'%>
 <div class="main-container-index">
 
-  <div class="container-filter mt-3">
-    <div class="card-filter">
+  <div class="container-filter d-flex justify-content-around mt-3 mb-4">
         <%= render'components/card_filter'  %>
+  </div>
+
+
+  <div class="card-container d-flex justify-content-around mt-3 mb-4">
+    <div>
+        <%= render 'components/card_post' %>
     </div>
   </div>
 
-  <div class="feed-container w-auto flex-column">
-      <%= render 'components/card_post' %>
-  </div>
-
-  <div class="suggestions-container mt-3">
-    <div class="card-suggestion">
-
+  <div class="suggestions-container d-flex justify-content-around mt-4">
+    <div class="d-flex flex-column">
+      <div class="politicians_suggestions p-2">
+        <%= render 'components/card_suggestion_politician' %>
+      </div>
+      <div class="footer p-2">
+        <%= render 'components/footer' %>
+      </div>
     </div>
   </div>
-
 </div>

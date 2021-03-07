@@ -1,26 +1,33 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex">
+  <a class="navbar-brand d-flex justify-content-between" href="#">
     <h2 class="title">Transparence</h2>
   </a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-    <%= render 'components/search_bar'%>
+    <div class="d-flex justify-content-between"> <%= render 'components/search_bar'%></div>
 
-  <div class="collapse navbar-collapse " id="navbarSupportedContent">
-    <div class="links w-100 d-flex p-2">
-      <div class="login d-flex">
-          <% unless current_user %>
-            <div class="nav-item active d-flex">
-              <a class="nav-link contribute-link" href="#"><%=link_to "Sign up", new_user_registration_path %></a>
+  <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+    <div class="links w-100">
+      <div class="login d-flex vertical-align">
+          <% if current_user && current_user.is_contributer? %>
+
+          <div class="nav-item active d-flex mr-4">
+              <a class="nav-link contribute-link text-decoration-none"><%=link_to "Contribute", tweets_path, class: 'my-btn btn btn-link' %></a>
             </div>
 
-            <div class="nav-item d-flex mr-4">
-              <a class="nav-link" href="#"><%=link_to "Login", new_user_session_path %></a>
+            <div class="d-flex ml-4">
+              <div class="nav-item dropdown">
+                <i class="fas fa-user dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="20,30"></i>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuOffset">
+                <div class="dropdown-item"><%= link_to "Profile", user_path(current_user.id) %></div>
+                <div class="dropdown-item"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
+              </div>
+              </div>
             </div>
 
-          <% else %>
+          <% elsif current_user %>
 
             <div class="nav-item dropdown d-flex">
               <i class="fas fa-user dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
@@ -30,6 +37,15 @@
             </div>
             </div>
 
+          <% else %>
+
+            <div class="nav-item active d-flex mr-2">
+              <a class="nav-link contribute-link text-decoration-none"><%=link_to "Sign up to contribute", new_user_registration_path, class: 'btn btn-flat-red-index' %></a>
+            </div>
+
+            <div class="nav-item d-flex">
+              <a class="text-decoration-none"><%=link_to "Login", new_user_session_path, class: "my-btn btn btn-link" %></a>
+            </div>
           <% end %>
       </div>
     </div>
