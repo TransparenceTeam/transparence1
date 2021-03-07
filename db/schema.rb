@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_235029) do
+ActiveRecord::Schema.define(version: 2021_03_06_143243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(version: 2021_03_05_235029) do
     t.boolean "is_relevant?"
     t.string "media"
     t.string "picture"
+    t.string "translatedtext"
     t.index ["politician_id"], name: "index_tweets_on_politician_id"
   end
 
