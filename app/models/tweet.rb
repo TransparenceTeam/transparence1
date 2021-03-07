@@ -15,7 +15,7 @@ class Tweet < ApplicationRecord
     con = Faraday.new
 
     res = con.post do |req|
-        req.url 'https://api.deepl.com/v2/translate?auth_key=54dd8f74-c7e7-2689-51ba-b34c61055eca',
+        req.url 'https://api.deepl.com/v2/translate?auth_key='+ ENV["DEEPL_API"],
         req.body = {text: self.content,
         target_lang: 'EN',
         source_lang: 'FR'
