@@ -15,9 +15,11 @@
           </div>
       <% else %>
         <div class="nav-item dropdown d-flex">
-            <i class="fas fa-user dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#"><%= link_to "Logout", destroy_user_session_path, method: :delete %></a>
+          <i class="fas fa-user dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <div class="dropdown-item"><%= link_to "Profile", user_path(current_user.id) %></div>
+            <div class="dropdown-item"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
+          </div>
         </div>
         </div>
       <% end %>
