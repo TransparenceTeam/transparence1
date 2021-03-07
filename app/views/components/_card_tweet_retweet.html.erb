@@ -1,4 +1,5 @@
 <div id="<%= "tweet#{tweet.id}" %>"class="card-post d-flex align-items-center flex-column pr-4 pl-4 mt-3 h-auto  ">
+
     <div class="tweet-container w-100 h-auto">
       <div class="politician-info d-flex p-2">
 
@@ -9,7 +10,7 @@
             <%= tweet.username %>
           </div>
           <div class="politician-info-add-username">
-            <%= tweet.politician.twitter_username %>
+            <p>has retweeted</p>
           </div>
         </div>
         <div class="twitter-icon ml-auto">
@@ -17,30 +18,75 @@
         </div>
       </div>
   <!-- CONTENT TO CHANGE -->
-
+    <% if tweet.content? %>
       <div class="tweet-content p-3 ">
         <div class="tweet-details-sub-container p-3">
           <%= tweet.content %>
         </div>
 
-        <% if tweet.picture? %>
-          <div class="tweet-details-sub-container p-3">
-        <!-- placeholder for picture/video -->
-            <img class="tweet_picture" alt="avatar" src=<%= tweet.picture %> />
-          </div>
-        <% else tweet.media? %>
-           <div class="tweet-details-sub-container p-3">
+        <% if tweet.media != nil %>
+              <div class="tweet-details-sub-container p-3">
           <!-- placeholder for picture/video -->
+              <video controls width="450">
+                <source type="video/mp4" src=<%= tweet.media%> >
+                <source type="video/webm" src=<%= tweet.media%> >
+                Sorry, your browser doesn't support embedded videos.
+              </video>
+            </div>
+
+
+
+        <% else tweet.picture? %>
+
+           <div class="tweet-details-sub-container p-3">
+        <!-- placeholder for picture/video -->
+            <img class="tweet_picture" alt="" src=<%= tweet.picture %> />
+          </div>
+
+
+
+          </div>
+       <% end %>
+    <% end %>
+
+    <div class="retweet_container p-3">
+
+      <div class="politician-info d-flex p-2">
+
+        <div> <img class="avatar" alt="avatar" src=<%= tweet.retweet_avatar_https %> /></div>
+
+        <div class="politician-info-add ml-2">
+          <div class="politician-info-add-name">
+            <%= tweet.retweet_username %>
+          </div>
+        </div>
+
+        </div>
+      <div class="tweet-content p-3 ">
+        <div class="tweet-details-sub-container p-3">
+          <%= tweet.retweet_content %>
+        </div>
+
+      <% if tweet.retweet_photo? %>
+        <div class="tweet-details-sub-container p-3">
+      <!-- placeholder for picture/video -->
+          <img class="tweet_picture" alt="avatar" src=<%= tweet.retweet_photo %> />
+        </div>
+      <% else tweet.retweet_media != nil %>
+        <div class="tweet-details-sub-container p-3">
+        <!-- placeholder for picture/video -->
           <video controls width="450">
-            <source type="video/mp4" src=<%= tweet.media%> >
-            <source type="video/webm" src=<%= tweet.media%> >
+            <source type="video/mp4" src=<%= tweet.retweet_media%> >
+            <source type="video/webm" src=<%= tweet.retweet_media%> >
             Sorry, your browser doesn't support embedded videos.
           </video>
-            </div>
-        <% end %>
+        </div>
+      <% end %>
 
       </div>
-      <!-- CONTENT TO CHANGE -->
+
+    </div>
+  <!-- CONTENT TO CHANGE -->
       <div class="tweet-additional-info ml-3 mb-2">
         <%= tweet.date %>
       </div>

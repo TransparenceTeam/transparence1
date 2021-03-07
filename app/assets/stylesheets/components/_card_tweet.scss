@@ -244,7 +244,10 @@
 //   // position: relative;
 
 // }
-
+.retweet_container > .tweet-content{
+  border-style: thin;
+  border-color: $eggshell;
+}
 
 .simple_form {
   // position: fixed;
@@ -254,6 +257,12 @@
 }
 #match_policy_area_id {
   width: 450px;
+}
+
+.tweet_picture {
+  object-fit: cover;
+  width: 530px;
+  border-radius: 16px;
 }
 
 // select2-container select2-container--default

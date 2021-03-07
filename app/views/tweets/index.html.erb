@@ -14,7 +14,13 @@
 
   <div class=" w-auto ">
     <% @tweets.each do |tweet| %>
+       <% if tweet.retweet_id? %>
+        <%= render 'components/card_tweet_retweet',tweet: tweet %>
+      <% elsif tweet.in_reply_to_status? %>
+        <%= render 'components/card_tweet_replied',tweet: tweet %>
+      <% else %>
         <%= render 'components/card_tweet',tweet: tweet %>
+      <% end %>
     <% end %>
   </div>
 
