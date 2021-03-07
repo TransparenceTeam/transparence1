@@ -50,8 +50,10 @@
                                       <%= tweet.content %>
                                     </div>
                                     <div class="tweet-media p-3">
-                                      <% if tweet.media != nil || tweet.picture != nil %>
-                                      <%= tweet.media || tweet.picture%>
+
+                                      <% if tweet.media != nil %>
+                                      <%= political_party.avatar %>
+
                                       <% end %>
                                     </div>
                                   </div>
