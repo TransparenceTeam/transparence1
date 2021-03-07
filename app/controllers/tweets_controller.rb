@@ -4,7 +4,6 @@ class TweetsController < ApplicationController
 
   def index
     # add this for the feed: order(id: "DESC")
-
     @tweets = policy_scope(Tweet.all.order(id: "ASC") )  #relevent
     @posts = policy_scope(Post.all)
     @politicians = policy_scope(Politician.all)
@@ -13,18 +12,17 @@ class TweetsController < ApplicationController
     @project_laws_tags = @project_laws.map {|project_law| { title: "#{project_law.name[0..20]}...", value: project_law.name, id: project_law.id} }.to_json
     @political_parties = policy_scope(PoliticalParty.all)
     @political_group = policy_scope(PoliticalGroup.all)
-    @tweet = Tweet.new
+
     @post = Post.new
     @match = Match.new
   end
-
 
   def edit
     authorize @tweet
   end
 
   def update
-    if @tweet.update!(is_relevant?: params[:is_relevant])
+    if @tweet.update!(is_relevant?: params[:is_relevant?])
       if @tweet.is_relevant?
         Post.create(user: current_user, tweet: @tweet)
       end
