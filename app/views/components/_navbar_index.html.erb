@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
     <div class="links w-100">
       <div class="login d-flex vertical-align">
-          <% if current_user && current_user.is_contributer? %>
+          <% if current_user.is_contributer? %>
 
           <div class="nav-item active d-flex mr-4">
               <a class="nav-link contribute-link text-decoration-none"><%=link_to "Contribute", tweets_path, class: 'my-btn btn btn-link' %></a>

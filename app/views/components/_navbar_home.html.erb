@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="navbar-nav mr-auto d-flex">
 
-      <% if current_user && current_user.is_contributer? %>
+        <% if current_user && current_user.is_contributer? %>
 
           <div class="nav-item active d-flex mr-4">
               <a class="nav-link contribute-link text-decoration-none"><%=link_to "Contribute", tweets_path, class: 'my-btn btn btn-link' %></a>
@@ -37,10 +37,6 @@
             </div>
 
           <% else %>
-
-            <div class="nav-item active d-flex mr-2">
-              <a class="nav-link contribute-link text-decoration-none"><%=link_to "Sign up to contribute", new_user_registration_path, class: 'btn btn-flat-red-index' %></a>
-            </div>
 
             <div class="nav-item d-flex">
               <a class= "text-decoration-none"><%=link_to "Login", new_user_session_path, class: "my-btn btn btn-link " %></a>
