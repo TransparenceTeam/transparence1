@@ -29,5 +29,11 @@
 
 .links a {
   text-decoration: none;
-  color: $green;
+  font-color: $white;
+
+}
+
+#navbarSupportedContent > div > div {
+  align-items: center;
+  justify-content: center;
 }

@@ -5,6 +5,7 @@
   height: 90%;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
+
 .banner h1 {
   margin: auto;
   color: white;
@@ -29,5 +30,7 @@ html, body {
   margin: auto;
   width: 70%;
   padding: 200px;
+  backdrop-filter: blur(2px);
 }
+
 
