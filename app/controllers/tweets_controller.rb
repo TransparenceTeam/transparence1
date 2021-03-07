@@ -3,8 +3,7 @@ class TweetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    # add this for the feed: order(id: "DESC")
-    @tweets = policy_scope(Tweet.all.order(id: "ASC") )  #relevent
+    @tweets = policy_scope(Tweet.where(is_relevant?: nil).or(Tweet.where(is_relevant?: true)).order(date: "DESC"))
     @posts = policy_scope(Post.all)
     @politicians = policy_scope(Politician.all)
     @policy_areas = policy_scope(PolicyArea.all)
@@ -47,9 +46,9 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id]) if params[:id]
   end
 
-  def set_post
-    @post = Post.find(params[:id]) if params[:id]
-  end
+  # def set_post
+  #   @post = Post.find(params[:id]) if params[:id]
+  # end
 
   def set_match
     @match = Match.find(params[:id])
@@ -58,6 +57,7 @@ class TweetsController < ApplicationController
   def post_params
     params.require(:post).permit(:tweet_id, :user_id)
   end
+
 end
 
 #        <%= number_field :post_id, :value => @post.id %>

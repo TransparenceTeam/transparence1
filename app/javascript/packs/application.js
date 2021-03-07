@@ -24,16 +24,16 @@ console.log("Hello from app/javascript/packs/application.js!");
 // const imagePath = (name) => images(name, true)
 
 
-import { algoliaSearch } from "../channels/algolia.js";
+// import { algoliaSearch } from "../channels/algolia.js";
 
 
-algoliaSearch();
+// algoliaSearch();
 
 
 import { select2 } from '../channels/select2.js';
 
 document.addEventListener("turbolinks:load", function() {
-  Select2();
+  // select2();
 });
 
 
