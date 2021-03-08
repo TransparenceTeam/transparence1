@@ -23,20 +23,20 @@
           <%= tweet.content %>
         </div>
 
-        <% if tweet.picture? %>
+        <% if tweet.media == nil %>
           <div class="tweet-details-sub-container p-3">
         <!-- placeholder for picture/video -->
-            <img class="tweet_picture" alt="avatar" src=<%= tweet.picture %> />
+            <img class="tweet_picture" alt="" src=<%= tweet.picture %> />
           </div>
-        <% else tweet.media? %>
+        <% else tweet.media?  %>
            <div class="tweet-details-sub-container p-3">
           <!-- placeholder for picture/video -->
-          <video controls width="450">
-            <source type="video/mp4" src=<%= tweet.media%> >
-            <source type="video/webm" src=<%= tweet.media%> >
-            Sorry, your browser doesn't support embedded videos.
-          </video>
-            </div>
+            <video controls width="450">
+              <source type="video/mp4" src=<%= tweet.media%> >
+              <source type="video/webm" src=<%= tweet.media%> >
+              Sorry, your browser doesn't support embedded videos.
+            </video>
+          </div>
         <% end %>
 
       </div>
