@@ -1,29 +1,30 @@
-.filter-card {
-}
 
 .categories-container h4 {
   padding-left: 16px;
   padding-top: 16px;
   padding-right: 16px;
-  color: $green;
   text-align: center;
 }
+
 .categories-container {
   background-color: $eggshell;
   border-radius: 16px;
   height: 400px;
-  padding:4px;
-  max-width:640px;
+  width: 600px;
+  padding: 8px;
   color: $black;
   font-size: 12px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   margin-bottom: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5rem;
 }
 
 #categories-list ul li{
   list-style: none;
-  margin: 0;
+  margin: 0px;
   padding: 0;
 }
 
@@ -43,7 +44,7 @@ ul {
   background-color: $ivory;
   width: auto;
   border-radius: 8px;
-  margin: 8px;
+  margin: 10px;
   padding: 2px;
 }
 
