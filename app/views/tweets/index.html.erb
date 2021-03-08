@@ -1,6 +1,6 @@
 <% if current_user && current_user.is_contributer? %>
 <%= render 'components/navbar_index'%>
-  <div class="main-container-index">
+<div class="main-container-index">
 
     <div class="container-filter d-flex justify-content-around mt-3 mb-4">
       <%= render'components/card_guide'  %>
@@ -8,28 +8,31 @@
 
 
 
-  <div class=" m-auto   ">
+  <div class=" card-container d-flex justify-content-around mt-3 mb-4 ">
+    <div>
     <% @tweets.each do |tweet| %>
-       <% if tweet.retweet_id? %>
-        <%= render 'components/card_tweet_retweet',tweet: tweet %>
-      <% else %>
-        <%= render 'components/card_tweet',tweet: tweet %>
-      <% end %>
+      <%= render 'components/card_tweet',tweet: tweet %>
     <% end %>
   </div>
+</div>
 
 
-
-  <!-- <div class="suggestions-container ">
-    <div class="card-suggestion">
-      <p>suggestion</p>
+  <div class="suggestions-container d-flex justify-content-around mt-4">
+    <div class="d-flex flex-column">
+      <div class="politicians_suggestions p-2">
+        <%= render 'components/card_user_profile_level' %>
+      </div>
+      <div class="footer p-2">
+        <%= render 'components/footer' %>
+      </div>
     </div>
+  </div>
 
-  </div> -->
 </div>
 
   <% else %>
     <%= render 'components/navbar_home'%>
+
 <div id="main">
       <div class="fof">
             <h1>Sorry, you're not allowed to view this page</h1>

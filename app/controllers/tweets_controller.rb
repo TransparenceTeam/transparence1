@@ -22,8 +22,10 @@ class TweetsController < ApplicationController
 
   def update
     if @tweet.update!(is_relevant?: params[:is_relevant?])
+
       if @tweet.is_relevant?
         Post.create(user: current_user, tweet: @tweet)
+
       end
       redirect_to tweets_path, notice: "tweet relevant"
     else
@@ -46,9 +48,9 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id]) if params[:id]
   end
 
-  # def set_post
-  #   @post = Post.find(params[:id]) if params[:id]
-  # end
+  def set_post
+    @post = Post.find(params[:id]) if params[:id]
+  end
 
   def set_match
     @match = Match.find(params[:id])

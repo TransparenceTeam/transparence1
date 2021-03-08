@@ -3,7 +3,7 @@
 
 #puts "cleaning up Db"
 
-#Politician.destroy_all
+# Politician.destroy_all
 #Tweet.destroy_all
 #User.destroy_all
 #Post.destroy_all
@@ -36,7 +36,7 @@ political_party3 = PoliticalParty.create!(
   sum_members: 2100,
   avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Logo-LREM-noir.svg/2880px-Logo-LREM-noir.svg.png',
   website_url: 'https://lafranceinsoumise.fr/',
-  political_group_id: 3
+  political_group_id: 10
 )
 puts "political party #{political_party3.id} has been created"
 
@@ -61,7 +61,7 @@ politician2 = Politician.create!(
   bio: "Emmanuel Jean-Michel Frédéric Macron, born 21 December 1977 is a French politician who has been serving as the president of France and ex officio co-prince of Andorra since 14 May 2017.",
   linkedin_url: 'https://www.linkedin.com/in/emmanuelmacron/',
   wikipedia_url: "https://en.wikipedia.org/wiki/Emmanuel_Macron",
-  political_party_id: 1,
+  political_party_id: 2,
   avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Emmanuel_Macron_%28cropped%29.jpg/420px-Emmanuel_Macron_%28cropped%29.jpg"
 )
 puts "politician #{politician2.id} has been created"
@@ -74,7 +74,7 @@ politician3 = Politician.create!(
   bio: "Nicolas Paul Stéphane Sarközy de Nagy-Bocsa (/sɑːrˈkoʊzi/; French: [nikɔla pɔl stefan saʁkɔzi də naʒi bɔksa] (About this soundlisten); born 28 January 1955) is a retired French politician who served as President of France and ex officio Co-Prince of Andorra from 16 May 2007 until 15 May 2012.",
   linkedin_url: 'https://www.linkedin.com/in/nicolassarkozy/',
   wikipedia_url: "https://en.wikipedia.org/wiki/Nicolas_Sarkozy",
-  political_party_id: 3,
+  political_party_id: 1,
   avatar: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Nicolas_Sarkozy_in_2010.jpg"
 )
 puts "politician #{politician3.id} has been created"

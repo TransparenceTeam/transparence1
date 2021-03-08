@@ -6,6 +6,7 @@ class MatchesController < ApplicationController
     @match.user = current_user
     authorize @match
     @match.save
+
     redirect_to tweets_path
   end
 
