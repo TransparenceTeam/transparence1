@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show, :new, :create, :update] do
     resources :user_posts, only: [:index] do
     end
+    resources :tweets, only: [:index] do
+    end
   end
 
   resources :politicians, only: [:show]
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:destroy]
 
-  resources :tweets, only: [:index, :create, :new, :update, :edit]
+  resources :tweets, only: [:index, :update, :edit]
   resources :matches, only: [:new, :create]
 
  get '/404', to: "errors#not_found"

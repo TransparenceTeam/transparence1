@@ -35,11 +35,16 @@
 }
 
 .container-filter {
-  width: 200px;
+  width: 250px;
 }
 
 .suggestions-container {
-  width:200px;
+  width: 250px;
+  height: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5rem;
+  align-self: flex-start
 }
 
 

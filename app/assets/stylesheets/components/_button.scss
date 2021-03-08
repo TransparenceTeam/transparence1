@@ -1,9 +1,14 @@
 a:hover {
   text-decoration: none!important;
+
+}
+
+a:link, a:visited {
+color: $black;
 }
 
 .btn-flat-red {
-  color: white;
+  color: white!important;
   padding: 8px 24px;
   width: 100%;
   border-radius: 16px;
@@ -17,7 +22,7 @@ a:hover {
 
 
 .btn-flat-red-index {
-  color: white;
+  color: white!important;
   height: 38px;
   padding: 8px 24px;
   border-radius: 16px;
@@ -31,7 +36,7 @@ a:hover {
 
 
 .btn-flat-green {
-  color: white;
+  color: white!important;
   padding: 8px 24px;
   width: 100%;
   border-radius: 16px;
@@ -40,23 +45,23 @@ a:hover {
 }
 .btn-flat-green:hover {
   background: #1BCB7F;
-  color: white;
+  color: white!important;
 }
 
 
 .btn-flat {
-  color: white;
+  color: white!important;
   padding: 8px 24px;
   border-radius: 16px;
 }
 
 .btn-flat:hover {
   background: #1BCB7F;
-  color: white;
+  color: white!important;
 }
 
 .btn-flat-red-1 {
-  color: white;
+  color: white!important;
   padding: 1px 4px;
   border-radius: 8px;
   background: $red;
