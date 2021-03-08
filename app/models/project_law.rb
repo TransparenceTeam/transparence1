@@ -4,7 +4,7 @@ class ProjectLaw < ApplicationRecord
   validates :url, presence: true
   has_many :votes
   has_many :matches
-  before_save :fetch_translated_tweet
+  before_save :fetch_translated_law
 
   #def last_100
   # projectlaw_100 = Projectlaw.last(1)
@@ -20,7 +20,7 @@ class ProjectLaw < ApplicationRecord
 
     res = con.post do |req|
         req.url 'https://api.deepl.com/v2/translate?auth_key='+ ENV["DEEPL_API"],
-        req.body = {text: self.content,
+        req.body = {text: self.name,
         target_lang: 'EN',
         source_lang: 'FR'
        }
