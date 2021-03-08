@@ -29,6 +29,8 @@ console.log("Hello from app/javascript/packs/application.js!");
 
 // algoliaSearch();
 
+import { progress } from '../channels/progress-bar.js';
+
 
 import { select2 } from '../channels/select2.js';
 

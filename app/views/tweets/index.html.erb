@@ -10,11 +10,7 @@
 
   <div class=" m-auto   ">
     <% @tweets.each do |tweet| %>
-       <% if tweet.retweet_id? %>
-        <%= render 'components/card_tweet_retweet',tweet: tweet %>
-      <% else %>
-        <%= render 'components/card_tweet',tweet: tweet %>
-      <% end %>
+      <%= render 'components/card_tweet',tweet: tweet %>
     <% end %>
   </div>
 

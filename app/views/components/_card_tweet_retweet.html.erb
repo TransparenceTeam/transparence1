@@ -98,7 +98,7 @@
        <!--  title and icon -->
         <div class= " align-items-center w-100 ">
 
-          <% if tweet.is_relevant? == nil%>
+          <% if tweet.is_relevant?.nil?%>
 
             <div class="ml-1 law-text">
               <div class="">
@@ -108,9 +108,11 @@
 
             <div class="d-flex ml-1 justify-content-center space-between">
               <div>
-                <%= link_to "", tweet_path(tweet, is_relevant: true), {method: :patch, class: "btn btn-flat-green mr-3 far fa-check-circle", remote: true, data: {confirm: "Are you sure?"}} %>
+                <%= link_to "", tweet_path(tweet, is_relevant: true), {method: :patch, class: "btn btn-flat-green mr-3 far fa-check-circle"} %>
               </div>
-                <%= link_to "", tweet_path(tweet, is_relevant: false), {method: :patch, class: "btn btn-flat-red mr-3 far fa-times-circle",remote: true, data: {confirm: "Are you sure?"}} %>
+              <div>
+                <%= link_to "", tweet_path(tweet, is_relevant: false), {method: :patch, class: "btn btn-flat-red mr-3 far fa-times-circle"} %>
+              </div>
             </div>
           <% end %>
         </div>

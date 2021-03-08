@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   resources :tweets, only: [:index, :create, :new, :update, :edit]
   resources :matches, only: [:new, :create]
 
- get '/404', to: "errors#not_found"
- get '/422', to: "errors#unacceptable"
- get '/500', to: "errors#internal_error"
+  get '/404', to: "errors#not_found"
+  get '/422', to: "errors#unacceptable"
+  get '/500', to: "errors#internal_error"
+
 end

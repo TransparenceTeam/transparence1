@@ -63,9 +63,9 @@
 
             <div class="d-flex ml-1 justify-content-center space-between">
               <div>
-                <%= link_to "", tweet_path(tweet, is_relevant: true), {method: :patch, class: "btn btn-flat-green mr-3 far fa-check-circle", remote: true, data: {confirm: "Are you sure?"}} %>
+                <%= link_to "", tweet_path(tweet, is_relevant: true), {method: :patch, class: "btn btn-flat-green mr-3 far fa-check-circle"} %>
               </div>
-                <%= link_to "", tweet_path(tweet, is_relevant: false), {method: :patch, class: "btn btn-flat-red mr-3 far fa-times-circle",remote: true, data: {confirm: "Are you sure?"}} %>
+                <%= link_to "", tweet_path(tweet, is_relevant: false), {method: :patch, class: "btn btn-flat-red mr-3 far fa-times-circle"} %>
             </div>
           <% end %>
         </div>
