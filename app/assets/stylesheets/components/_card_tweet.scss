@@ -118,6 +118,7 @@
   width:500px;
 }
 
+
 .law-icon{
   font-size: 16px;
   vertical-align: middle;
@@ -264,5 +265,40 @@
   width: 530px;
   border-radius: 16px;
 }
+
+
+.law-info-summary-1{
+  font-size:24px;
+  font-weight: light;
+  color: $blue
+}
+
+.law-info-summary-2{
+  font-size:16px;
+  font-weight: light;
+  color: $black
+}
+
+.law-info-summary-3{
+  font-size: 12px;
+  vertical-align: middle;
+  padding-left: 14px;
+  padding-right: 14px;
+
+}
+
+.group-info-summary{
+  font-size:12px;
+  font-weight: light;
+  text-align:left
+}
+
+.result-law-1{
+  font-size:12px;
+  font-weight: light;
+  text-align:left
+}
+
+
 
 // select2-container select2-container--default
