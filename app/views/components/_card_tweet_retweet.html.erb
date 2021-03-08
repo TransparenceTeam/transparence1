@@ -19,14 +19,21 @@
       </div>
   <!-- CONTENT TO CHANGE -->
     <% if tweet.content? %>
+
       <div class="tweet-content p-3 ">
+
         <div class="tweet-details-sub-container p-3">
           <%= tweet.content %>
         </div>
 
-        <% if tweet.media != nil %>
-              <div class="tweet-details-sub-container p-3">
-          <!-- placeholder for picture/video -->
+        <% if tweet.media == nil %>
+          <div class="tweet-details-sub-container p-3">
+            <img class="tweet_picture" alt="" src=<%= tweet.picture %> />
+          </div>
+
+        <% else tweet.media? %>
+
+            <div class="tweet-details-sub-container p-3">
               <video controls width="450">
                 <source type="video/mp4" src=<%= tweet.media%> >
                 <source type="video/webm" src=<%= tweet.media%> >
@@ -34,18 +41,7 @@
               </video>
             </div>
 
-
-
-        <% else tweet.picture? %>
-
-           <div class="tweet-details-sub-container p-3">
-        <!-- placeholder for picture/video -->
-            <img class="tweet_picture" alt="" src=<%= tweet.picture %> />
-          </div>
-
-
-
-          </div>
+        </div>
        <% end %>
     <% end %>
 
@@ -61,27 +57,30 @@
           </div>
         </div>
 
-        </div>
+      </div>
+
       <div class="tweet-content p-3 ">
+
         <div class="tweet-details-sub-container p-3">
           <%= tweet.retweet_content %>
         </div>
 
-      <% if tweet.retweet_photo? %>
-        <div class="tweet-details-sub-container p-3">
-      <!-- placeholder for picture/video -->
-          <img class="tweet_picture" alt="avatar" src=<%= tweet.retweet_photo %> />
-        </div>
-      <% else tweet.retweet_media != nil %>
-        <div class="tweet-details-sub-container p-3">
+        <% if tweet.retweet_media == nil %>
+          <div class="tweet-details-sub-container p-3">
         <!-- placeholder for picture/video -->
-          <video controls width="450">
-            <source type="video/mp4" src=<%= tweet.retweet_media%> >
-            <source type="video/webm" src=<%= tweet.retweet_media%> >
-            Sorry, your browser doesn't support embedded videos.
-          </video>
-        </div>
-      <% end %>
+            <img class="tweet_picture" alt="" src=<%= tweet.retweet_photo %> />
+          </div>
+        <% else tweet.retweet_media? %>
+
+          <div class="tweet-details-sub-container p-3">
+          <!-- placeholder for picture/video -->
+            <video controls width="450">
+              <source type="video/mp4" src=<%= tweet.retweet_media%> >
+              <source type="video/webm" src=<%= tweet.retweet_media%> >
+              Sorry, your browser doesn't support embedded videos.
+            </video>
+          </div>
+        <% end %>
 
       </div>
 
@@ -92,7 +91,7 @@
       </div>
 
     </div>
-
+<!-- END OF TWEET CONTAINER -->
     <div class="law-container w-100 h-auto">
 
       <div class=" p-2 law-details align-items-center ">
@@ -124,3 +123,7 @@
 
     </div>
 </div>
+
+
+
+
