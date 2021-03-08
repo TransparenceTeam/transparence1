@@ -1,4 +1,4 @@
-<% unless tweet_id == post.tweet.id %>
+
 
 <div id="<%= "tweet#{tweet.id}" %>"class="card-post d-flex align-items-center flex-column pr-4 pl-4 mt-3 h-auto  ">
     <div class="tweet-container w-100 h-auto">
@@ -22,7 +22,7 @@
 
       <div class="tweet-content p-3 ">
         <div class="tweet-details-sub-container p-3">
-          <%= tweet.translatedtext %>
+          <%= tweet.content %>
         </div>
 
         <% if tweet.media == nil %>
@@ -83,4 +83,4 @@
       <% end %>
     </div>
 </div>
-<% end  %>
+
