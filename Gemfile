@@ -46,7 +46,6 @@ gem 'pry', '~> 0.13.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
-gem 'simple_form'
 gem 'rails-toolkit', '~> 8.4', '>= 8.04.1'
 
 group :development, :test do
