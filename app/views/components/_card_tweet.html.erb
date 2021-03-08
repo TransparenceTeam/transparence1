@@ -1,9 +1,11 @@
+
+
 <div id="<%= "tweet#{tweet.id}" %>"class="card-post d-flex align-items-center flex-column pr-4 pl-4 mt-3 h-auto  ">
     <div class="tweet-container w-100 h-auto">
+
       <div class="politician-info d-flex p-2">
-
-        <div> <img class="avatar" alt="avatar" src=<%= tweet.avatar_https %> /></div>
-
+        <div> <img class="avatar" alt="avatar" src=<%= tweet.avatar_https %> />
+        </div>
         <div class="politician-info-add ml-2">
           <div class="politician-info-add-name">
             <%= tweet.username %>
@@ -20,7 +22,7 @@
 
       <div class="tweet-content p-3 ">
         <div class="tweet-details-sub-container p-3">
-          <%= tweet.translatedtext %>
+          <%= tweet.content %>
         </div>
 
         <% if tweet.media == nil %>
@@ -38,13 +40,14 @@
             </video>
           </div>
         <% end %>
-
+        <% if tweet.retweet_id?%>
+          <%= render 'components/card_tweet_retweet',tweet: tweet %>
+        <% end %>
       </div>
       <!-- CONTENT TO CHANGE -->
       <div class="tweet-additional-info ml-3 mb-2">
         <%= tweet.date %>
       </div>
-
     </div>
 
     <div class="law-container w-100 h-auto">
@@ -63,13 +66,16 @@
 
             <div class="d-flex ml-1 justify-content-center space-between">
               <div>
-                <%= link_to "", tweet_path(tweet, is_relevant: true), {method: :patch, class: "btn btn-flat-green mr-3 far fa-check-circle"} %>
+                <%= link_to "", tweet_path(tweet, is_relevant?: true), {method: :patch, class: "btn btn-flat-green mr-3 far fa-check-circle"} %>
               </div>
-                <%= link_to "", tweet_path(tweet, is_relevant: false), {method: :patch, class: "btn btn-flat-red mr-3 far fa-times-circle"} %>
+              <div>
+                <%= link_to "", tweet_path(tweet, is_relevant?: false), {method: :patch, class: "btn btn-flat-red mr-3 far fa-times-circle"} %>
+              </div>
             </div>
           <% end %>
         </div>
       </div>
+
       <% if tweet.is_relevant? && tweet.post&.matches.blank?  %>
         <div class="h-auto">
           <%= render "components/card_tweet_matchform" %>
@@ -77,3 +83,4 @@
       <% end %>
     </div>
 </div>
+

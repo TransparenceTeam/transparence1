@@ -25,6 +25,8 @@
 @import 'select2/dist/css/select2';
 @import "select2";
 @import "components/progress_bar";
+@import "components/errors";
+@import "components/card_contribute";
 
 
 // Buttons & inputs' radius
@@ -45,3 +47,5 @@ tag {
 .form-control {
   height: auto;
 }
+
+

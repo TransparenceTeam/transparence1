@@ -11,9 +11,9 @@ class TweetsController < ApplicationController
     @project_laws_tags = @project_laws.map {|project_law| { title: "#{project_law.name[0..20]}...", value: project_law.name, id: project_law.id} }.to_json
     @political_parties = policy_scope(PoliticalParty.all)
     @political_group = policy_scope(PoliticalGroup.all)
-
     @post = Post.new
     @match = Match.new
+
   end
 
   def edit

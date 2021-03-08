@@ -1,97 +1,42 @@
-<div id="<%= "tweet#{tweet.id}" %>"class="card-post d-flex align-items-center flex-column pr-4 pl-4 mt-3 h-auto  ">
 
-    <div class="tweet-container w-100 h-auto">
-      <div class="politician-info d-flex p-2">
+<div class="retweet_container p-3">
 
-        <div> <img class="avatar" alt="avatar" src=<%= tweet.avatar_https %> /></div>
+  <div class="politician-info d-flex p-2">
 
-        <div class="politician-info-add ml-2">
-          <div class="politician-info-add-name">
-            <%= tweet.username %>
-          </div>
-          <div class="politician-info-add-username">
-            <p>has retweeted</p>
-          </div>
-        </div>
-        <div class="twitter-icon ml-auto">
-            <span class="fab fa-twitter"></span>
-        </div>
+    <div> <img class="avatar" alt="avatar" src=<%= tweet.retweet_avatar_https %> /></div>
+
+    <div class="politician-info-add ml-2">
+      <div class="politician-info-add-name">
+        <%= tweet.retweet_username %>
       </div>
-  <!-- CONTENT TO CHANGE -->
-    <% if tweet.content? %>
+    </div>
 
-      <div class="tweet-content p-3 ">
+  </div>
 
-        <div class="tweet-details-sub-container p-3">
-          <%= tweet.content %>
-        </div>
+  <div class="tweet-content p-3 ">
 
-        <% if tweet.media == nil %>
-          <div class="tweet-details-sub-container p-3">
-            <img class="tweet_picture" alt="" src=<%= tweet.picture %> />
-          </div>
+    <div class="tweet-details-sub-container p-3">
+      <%= tweet.retweet_content %>
+    </div>
 
-        <% else tweet.media? %>
+    <% if tweet.retweet_media == nil %>
+      <div class="tweet-details-sub-container p-3">
+    <!-- placeholder for picture/video -->
+        <img class="tweet_picture" alt="" src=<%= tweet.retweet_photo %> />
+      </div>
+    <% else tweet.retweet_media? %>
 
-            <div class="tweet-details-sub-container p-3">
-              <video controls width="450">
-                <source type="video/mp4" src=<%= tweet.media%> >
-                <source type="video/webm" src=<%= tweet.media%> >
-                Sorry, your browser doesn't support embedded videos.
-              </video>
-            </div>
-
-        </div>
-       <% end %>
+      <div class="tweet-details-sub-container p-3">
+      <!-- placeholder for picture/video -->
+        <video controls width="450">
+          <source type="video/mp4" src=<%= tweet.retweet_media%> >
+          <source type="video/webm" src=<%= tweet.retweet_media%> >
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </div>
     <% end %>
-
-    <div class="retweet_container p-3">
-
-      <div class="politician-info d-flex p-2">
-
-        <div> <img class="avatar" alt="avatar" src=<%= tweet.retweet_avatar_https %> /></div>
-
-        <div class="politician-info-add ml-2">
-          <div class="politician-info-add-name">
-            <%= tweet.retweet_username %>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="tweet-content p-3 ">
-
-        <div class="tweet-details-sub-container p-3">
-          <%= tweet.retweet_content %>
-        </div>
-
-        <% if tweet.retweet_media == nil %>
-          <div class="tweet-details-sub-container p-3">
-        <!-- placeholder for picture/video -->
-            <img class="tweet_picture" alt="" src=<%= tweet.retweet_photo %> />
-          </div>
-        <% else tweet.retweet_media? %>
-
-          <div class="tweet-details-sub-container p-3">
-          <!-- placeholder for picture/video -->
-            <video controls width="450">
-              <source type="video/mp4" src=<%= tweet.retweet_media%> >
-              <source type="video/webm" src=<%= tweet.retweet_media%> >
-              Sorry, your browser doesn't support embedded videos.
-            </video>
-          </div>
-        <% end %>
-
-      </div>
-
     </div>
-  <!-- CONTENT TO CHANGE -->
-      <div class="tweet-additional-info ml-3 mb-2">
-        <%= tweet.date %>
-      </div>
-
-    </div>
-<!-- END OF TWEET CONTAINER -->
+  
     <div class="law-container w-100 h-auto">
 
       <div class=" p-2 law-details align-items-center ">
@@ -122,10 +67,6 @@
           <%= render "components/card_tweet_matchform" %>
         </div>
       <% end %>
+  </div>
 
-    </div>
 </div>
-
-
-
-

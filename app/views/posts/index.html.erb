@@ -1,12 +1,12 @@
 <%= render 'components/navbar_index'%>
 <div class="main-container-index">
 
-  <div class="container-filter d-flex justify-content-around mt-3 mb-4">
+  <div class="container-filter d-flex justify-content-between mt-3 mb-4">
         <%= render'components/card_filter'  %>
   </div>
 
 
-  <div class="card-container d-flex justify-content-around mt-3 mb-4">
+  <div class="card-container d-flex justify-content-between mt-3 mb-4">
     <div>
       <% @posts.each do |post| %>
 
@@ -43,14 +43,15 @@
     </div>
   </div>
 
-  <div class="suggestions-container d-flex justify-content-around mt-4">
+  <div class="suggestions-container d-flex justify-content-between mt-3 mb-4">
     <div class="d-flex flex-column">
-      <div class="politicians_suggestions p-2">
-        <%= render 'components/card_suggestion_politician' %>
+      <div class="contribute_suggestions">
+        <%= render 'components/card_suggestion_contribute' %>
       </div>
       <div class="footer p-2">
         <%= render 'components/footer' %>
       </div>
     </div>
   </div>
+
 </div>
