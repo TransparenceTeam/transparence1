@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def create
     @match = Match.new(match_params)
