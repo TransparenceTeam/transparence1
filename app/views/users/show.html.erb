@@ -2,11 +2,12 @@
 <div class="main-container-index">
 </div>
 
-<%= render 'components/progress_bar' %>
+
 
 
 
 <% if !@posts.nil? %>
+  <%= render 'components/progress_bar', posts: @posts %>
   <% @posts.each do |post| %>
     <% @tweets.each do |tweet| %>
       <% if post.tweet_id == tweet.id %>
