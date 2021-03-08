@@ -6,7 +6,7 @@ class Tweet < ApplicationRecord
   # has_one :match, :through => :post
   # has_many :matches, :through => :post
   # validates :tweet_id, presence: true, uniqueness: true
-  # before_save :fetch_translated_tweet
+  #before_save :fetch_translated_tweet
 
   private
 

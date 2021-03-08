@@ -4,7 +4,7 @@ class ProjectLaw < ApplicationRecord
   validates :url, presence: true
   has_many :votes
   has_many :matches
-  before_save :fetch_translated_law
+  #before_save :fetch_translated_law
 
   #def last_100
   # projectlaw_100 = Projectlaw.last(1)

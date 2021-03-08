@@ -98,7 +98,6 @@ namespace :db do
 
           if deputy_vote['vote']['scrutin']['titre'].include? "lecture définitive"
             unless ProjectLaw.exists?(scrutin: deputy_vote['vote']['scrutin']['numero'])
-              puts "test"
               new_project_law = ProjectLaw.create!(
                 scrutin: deputy_vote['vote']['scrutin']['numero'],
                 name: project_law_name_cleaning(deputy_vote['vote']['scrutin']['titre']),
