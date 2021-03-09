@@ -2,9 +2,6 @@ import $ from 'jquery';
 import 'select2';
 
 
-console.log("fuck");
-
-
 $(document).ready(function() {
     $('#match_project_law_id').select2({
       allowClear: true,
