@@ -18,8 +18,8 @@
 .banner p {
   font-size: 20px;
   color: white;
-  opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  font-weight: light;
 }
 
 html, body {
@@ -29,7 +29,7 @@ html, body {
 .container-center-home {
   margin: auto;
   width: 80%;
-  padding: 200px;
+  padding: 180px;
   backdrop-filter: blur(3px);
   text-align: center;
 }
