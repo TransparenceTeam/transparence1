@@ -116,10 +116,12 @@
 }
 
 .law-text{
-  font-size:12px;
+  font-size:16px;
   text-align:left;
   line-height:22px;
-  font-weight: bold;
+  // font-weight: bold;
+  // font-family: 'Nunito', sans-serif;
+
 }
 
 
@@ -133,16 +135,18 @@
   // padding-bottom: 16px;
   color: $green;
   padding-bottom: 0;
+  margin-left: 36px;
+  font-size:16px;
 }
 
 .law-summary-title {
 // padding-bottom: 8px;
   color: $green;
-  // border-top: 1px solid $green;
+  border-bottom: 1px solid $green;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
-  font-family: 'Work Sans', sans-serif;
-  font-weight: lighter;
+   // font-family: 'Nunito', sans-serif;
+  // font-weight: lighter;
 
 }
 
@@ -156,12 +160,12 @@
   font-size: 14px;
   vertical-align: middle;
   font-size: 20px;
-  padding-left: 12px;
+  // padding-left: 12px;
   padding-right: 14px;
 }
 
 .result-law {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .card-law-grid{
@@ -262,9 +266,10 @@
   // background-color: $eggshell;
   border-radius:4px;
   font-weight: light;
-  font-size:14px;
+  font-size: 16px;
   // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   // transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
 }
 
 .fa-twitter {
@@ -288,14 +293,19 @@ color: $green;
 }
 
 
+.politician-add-info-add > a {
+  color: $green;
+}
+
+
 .group-info-summary {
   background-color: $eggshell;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  padding-top: 8px;
   padding-bottom: 8px;
-  border-top: 1px solid $green;
+  // border-top: 1px solid $green;
   // border-radius: 4px;
+  padding-left: 36px;
 }
 
 
@@ -310,4 +320,8 @@ color: $green;
 
 .politician-info-add-name {
   color: $green;
+}
+
+.law-date {
+  font-size: 12px;
 }
