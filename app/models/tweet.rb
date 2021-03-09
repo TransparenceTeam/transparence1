@@ -8,6 +8,13 @@ class Tweet < ApplicationRecord
   # validates :tweet_id, presence: true, uniqueness: true
   #before_save :fetch_translated_tweet
 
+  include PgSearch::Model
+  pg_search_scope :search_by_politician,
+    against: [ :name ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   private
 
   def fetch_translated_tweet
