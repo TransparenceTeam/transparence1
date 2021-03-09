@@ -1,6 +1,8 @@
 puts "cleaning up Db"
 Tweet.destroy_all
+Match.destroy_all
 Post.destroy_all
+
 puts "Db is clean"
 
 political_party1 = PoliticalParty.create!(
