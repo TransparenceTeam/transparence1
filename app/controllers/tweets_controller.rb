@@ -34,7 +34,7 @@ class TweetsController < ApplicationController
   def update
     if @tweet.update!(is_relevant?: params[:is_relevant?])
       if @tweet.is_relevant?
-        Post.create(user: current_user, tweet: @tweet)
+        Post.create(user: current_user, tweet: @tweet, name: @tweet.name)
       end
       redirect_to "#{tweets_path}#tweet#{@tweet.id}", notice: "tweet relevant"
     else

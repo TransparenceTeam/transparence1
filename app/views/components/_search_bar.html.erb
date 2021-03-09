@@ -1,11 +1,10 @@
-  <nav class="navbar navbar-light search-bg">
-      <%= form_tag tweets_path, method: "get", class: 'form-inline' do |f| %>
+  <nav class="navbar navbar-light search-bg w-100">
+      <%= form_tag tweets_path, method: "get", class: 'form-inline w-100 justify-content-between' do |f| %>
         <%= text_field_tag :name,
           params[:politician],
           placeholder: "search your politician...",
-          class: "form-control mr-sm-2"
+          class: "form-control mr-sm-2 input-90"
         %>
         <%= button_tag "", class: "btn my-2 my-sm-0 fas fa-search"%>
       <% end %>
   </nav>
-

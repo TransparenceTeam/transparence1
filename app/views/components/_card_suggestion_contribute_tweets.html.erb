@@ -1,0 +1,18 @@
+<div class="suggestion-contribute-container w-100 h-auto">
+  <h4>Help us by contributing</h4>
+  <div class="mt-4 mb-4">
+    <div class="box-1 border-bottom border-top p-2"><%= current_user.posts.count %> contributions made so far.
+     <% if current_user && current_user.is_contributer? && current_user.posts.count < 10  %>
+     Still <%= 10 - current_user.posts.count%> contributions to go to become a moderator.</div>
+     <div class="box-1 border-bottom border-top p-2"><div class="red-contribute mt-2 mb-2"><a class="link mb-2"><%=link_to "Contribute", tweets_path, class: 'btn btn-flat-red' %></a></div>
+    </div>
+    <% elsif current_user && current_user.is_contributer? && current_user.posts.count >= 10 %>
+     <div class="box-1 border-bottom border-top p-2">Congratulations! You can review other posts now.</div>
+     <div class="box-1 border-bottom border-top p-2"><div class="red-contribute mt-2 mb-2"><a class="link mb-2"><%=link_to "Review", tweets_path, class: 'btn btn-flat-red' %></a></div>
+    </div>
+  </div>
+  <% else %>
+    <div class="box-1 border-bottom border-top p-2"><div class="red-contribute mb-2"><a class="link mb-2"><%=link_to "Sign up to contribute", new_user_registration_path, class: 'btn btn-flat-red' %></a>
+    </div></div>
+  <% end %>
+</div>

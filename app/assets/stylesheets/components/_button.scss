@@ -1,6 +1,5 @@
 a:hover {
   text-decoration: none!important;
-
 }
 
 a:link, a:visited {
@@ -109,6 +108,7 @@ color: $green;
 
 
 
+
 .btn-flat-red-light {
   color: $red;
   background-color: transparent;
@@ -124,3 +124,41 @@ color: $green;
   color: $ivory;
   background-color: $red;
 }
+
+.btn-flat-red-1 {
+  color: white!important;
+  width: 200px;
+  border-radius: 16px;
+  background: $red;
+  height: 40px;
+  justify-content:center;
+  margin: 0 auto;
+  vertical-align: middle;
+  font-size:14px;
+
+}
+
+.btn-flat-red-2 {
+  color: white!important;
+  width: 200px;
+  border-radius: 16px;
+  background: $blue;
+  height: 40px;
+  justify-content:center;
+  margin: 0 auto;
+  vertical-align: middle;
+  font-size:14px;
+  border-color: $blue;
+  border-width: 2px;
+}
+
+.btn-flat-blue {
+  color: white!important;
+  padding: 8px 24px;
+  width: 100%;
+  border-radius: 16px;
+  background: $blue;
+  transition: background 0.3s ease;
+}
+
+
