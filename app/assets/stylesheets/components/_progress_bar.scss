@@ -3,12 +3,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30vh;
+  height: 20vh;
 }
 
 .progress {
   width: 50vw;
-  height: 30px;
+  height: 40px;
   background-color: #d8d8d8;
   border-radius: 20px;
 }
@@ -26,3 +26,23 @@
   transition: 1s ease;
   color: white;
 }
+
+p {
+  font-weight: bold;
+}
+
+.title-score {
+  margin: auto;
+  width: 500px;
+  font-family: bril Fatface;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8vh;
+  color: #023618;
+  text-transform: uppercase;
+}
+
+
+

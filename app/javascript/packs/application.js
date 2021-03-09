@@ -8,7 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("bootstrap")
-require ("select2")
+require("select2")
 // require ("packs/custome")
 // require ("packs/post.js")
 import 'bootstrap';
@@ -29,14 +29,16 @@ console.log("Hello from app/javascript/packs/application.js!");
 
 // algoliaSearch();
 
-import { progress } from '../channels/progress-bar.js';
-
-
 import { select2 } from '../channels/select2.js';
 
 document.addEventListener("turbolinks:load", function() {
-  // select2();
+  Select2();
 });
+
+import { progress } from '../channels/progress-bar.js';
+
+
+
 
 
 

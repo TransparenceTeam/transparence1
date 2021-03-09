@@ -7,7 +7,6 @@ $(document).ready(function() {
       allowClear: true,
       placeholder: "Select a law",
       closeOnSelect: true,
-      //multiple: true,
       scrollAfterSelect: true,
     });
 });
@@ -17,8 +16,8 @@ $(document).ready(function() {
       allowClear: true,
       placeholder: "Select a law",
       closeOnSelect: true,
-      //multiple: true,
       scrollAfterSelect: true,
     });
 });
+
 

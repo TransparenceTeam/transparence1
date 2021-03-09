@@ -22,7 +22,7 @@ namespace :db do
       end
 
       def user_timeline_endpoint(twitter_username)
-        JSON.parse(@access_token.request(:get, "#{BASE_URI}statuses/user_timeline.json?screen_name=#{twitter_username}&count=30&tweet_mode=extended")
+        JSON.parse(@access_token.request(:get, "#{BASE_URI}statuses/user_timeline.json?screen_name=#{twitter_username}&count=20&tweet_mode=extended")
         .body)
       end
 
@@ -49,6 +49,7 @@ namespace :db do
       tweets_content.each do |tweet|
         unless Tweet.exists?(tweet_id: tweet['id'])
           new_tweet = Tweet.create!(
+            name: tweet['user']['name'],
             username: tweet['user']['screen_name'],
             content: tweet['full_text'],
             hashtag: tweet['entities']['hashtags'],
@@ -86,6 +87,3 @@ namespace :db do
     end
   end
 end
-
-#rake db:fetch_api_twitter
-
