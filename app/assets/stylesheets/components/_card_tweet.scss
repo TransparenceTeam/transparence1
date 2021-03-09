@@ -166,48 +166,6 @@
     text-align: center;
 }
 
-// .simple_form {
-//   position: auto;
-//   float: none;
-//   text-align : center;
-//   margin-right: auto;
-//   margin-left: auto;
-// }
-// .select2-container--default .select2-selection--single span{
-//   width: 100% !important;
-// }
-
-// .select2-selection.select2-selection--single {
-//   width: 200px !important;
-//   background-color: red !important;
-// }
-
-// .form-group > .select2-container {
-//     width:
-// }
-
-// .select {
-//   max-width: 100%;
-// }
-
-// .dropdown-wrapper {
-//   width: 100%;
-// }
-
-
-// .select2-container {
-//   width: 100% !important;
-//   max-width: 100%;
-// }
-
-// .select2-selection {
-//   width: 100%;
-// }
-
-.form-control {
-}
-
-
 .select2-selection--single {
   width: 100% !important;
   text-align: center;
@@ -268,20 +226,22 @@
 
 
 .law-info-summary-1{
-  font-size:24px;
+  font-size:20px;
   font-weight: light;
-  color: $blue
+  color: $green;
+  // padding-bottom: 0;
 }
-
 .law-info-summary-2{
   font-size:16px;
   font-weight: light;
-  color: $black
+  color: $black;
+  margin-bottom: 0;
+
 }
 
 .law-info-summary-3{
   font-size: 12px;
-  vertical-align: middle;
+  // vertical-align: middle;
   padding-left: 14px;
   padding-right: 14px;
 
@@ -290,13 +250,33 @@
 .group-info-summary{
   font-size:12px;
   font-weight: light;
-  text-align:left
+  text-align:left;
 }
 
 .result-law-1{
   font-size:12px;
   font-weight: light;
-  text-align:left
+  text-align:left;
+}
+
+.tweet-details-sub-container > img {
+  object-fit: fill;
+  margin: auto;
+  width: 100%;
+}
+
+.tweet-details-sub-container > video {
+  object-fit: fill;
+  margin: auto;
+  width: 100%;
+  border-radius: 8px;
+   border: 2px solid $green;
+}
+
+.retweet_container {
+  border: 1px solid $eggshell;
+  border-width: thin;
+  border-radius: 8px;
 }
 
 

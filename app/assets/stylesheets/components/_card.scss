@@ -106,6 +106,12 @@
 .law-details{
   // margin: auto;
   width: 100%;
+  // background-color: $ivory;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  // border-color: $green;
+  // border-style: solid;
+  // border-radius: 4px;
 
 }
 
@@ -124,11 +130,20 @@
 }
 
 .law-info-summary{
-  padding-bottom: 16px;
+  // padding-bottom: 16px;
+  color: $green;
+  padding-bottom: 0;
 }
 
 .law-summary-title {
 // padding-bottom: 8px;
+  color: $green;
+  // border-top: 1px solid $green;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: lighter;
+
 }
 
 .law-icon{
@@ -141,7 +156,7 @@
   font-size: 14px;
   vertical-align: middle;
   font-size: 20px;
-  padding-left: 14px;
+  padding-left: 12px;
   padding-right: 14px;
 }
 
@@ -167,7 +182,7 @@
 
 .politician-info-add {
   font-size:12px;
-  color: $black
+  color: $green;
 }
 
 .political-party-header {
@@ -178,7 +193,7 @@
 
 .politician-info-add-username {
   font-size:12px;
-  color: $light-gray
+  color: $green;
 }
 
 .law-grid {
@@ -247,7 +262,7 @@
   // background-color: $eggshell;
   border-radius:4px;
   font-weight: light;
-  font-size:12px;
+  font-size:14px;
   // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   // transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
@@ -265,8 +280,34 @@
 .icons {
 display: flex;
 align-items: flex-start;
+color: $green;
 }
 
 .link a:hover {
   text-decoration: none;
+}
+
+
+.group-info-summary {
+  background-color: $eggshell;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-top: 1px solid $green;
+  // border-radius: 4px;
+}
+
+
+.law-info-summary-1 {
+  color: $green;
+}
+
+.political-group-law {
+  color: $green;
+}
+
+
+.politician-info-add-name {
+  color: $green;
 }
