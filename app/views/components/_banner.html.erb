@@ -1,13 +1,12 @@
-<div class="banner"style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1520500807606-4ac9ae633574?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2850&q=80);">
+<div class="banner"style="background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)), url(https://images.unsplash.com/photo-1520500807606-4ac9ae633574?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2850&q=80);">
   <div class="container-center-home">
     <div class="small-container text-align-center m-10">
       <h1>We fact check communications of politicians. </h1>
-      <p class= "p-2">by comparing what they tweet with how they actually vote at the Parliament</p>
-      <div class="d-flex flex-column">
-        <div class="d-flex justify-content-center mr-10 ml-10 "><%= link_to "Start browsing", posts_path(@posts), class: 'btn btn-flat-red-1' %></div>
-        <% unless current_user %>
-          <div class="d-flex justify-content-center"><%=link_to "Sign up to contribute", new_user_registration_path, class: 'btn btn-flat-green' %></div>
-        <% end %>
+      <p class= "p-2 mt-2 font-weight-light text-white">Compare what politicians tweet to how they actually vote at the Parliament.</p>
+      <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mr-2"><%= link_to "Start browsing now", posts_path(@posts), class: 'btn btn-flat-red' %></div>
+        <div class="d-flex justify-content-center ml-2"><%=link_to "Sign up to contribute", new_user_registration_path, class: 'btn btn-flat-blue' %></div>
+
       </div>
     </div>
   </div>
