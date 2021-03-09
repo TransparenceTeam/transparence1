@@ -67,7 +67,7 @@ politician3 = Politician.create!(
   bio: "Nicolas Paul Stéphane Sarközy de Nagy-Bocsa (/sɑːrˈkoʊzi/; French: [nikɔla pɔl stefan saʁkɔzi də naʒi bɔksa] (About this soundlisten); born 28 January 1955) is a retired French politician who served as President of France and ex officio Co-Prince of Andorra from 16 May 2007 until 15 May 2012.",
   linkedin_url: 'https://www.linkedin.com/in/nicolassarkozy/',
   wikipedia_url: "https://en.wikipedia.org/wiki/Nicolas_Sarkozy",
-  political_party_id: 1
+  political_party_id: 1,
   avatar: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Nicolas_Sarkozy_in_2010.jpg"
 )
 puts "politician #{politician3.id} has been created"
