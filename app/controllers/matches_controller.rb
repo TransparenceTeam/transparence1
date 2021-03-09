@@ -9,7 +9,8 @@ class MatchesController < ApplicationController
     if @match.save
       Tweet.find(Post.where(id: @match.post_id)[0].tweet_id).update!(is_selected?: true)
     end
-    redirect_to tweets_path
+    redirect_to "#{tweets_path}#tweet#{Tweet.find(Post.where(id: @match.post_id)[0].tweet_id).id + 1}", notice: "tweet relevant"
+
   end
 
   private
@@ -20,3 +21,4 @@ class MatchesController < ApplicationController
 end
 
 
+#Tweet.find(Post.where(id: @match.post_id)[0].tweet_id).id

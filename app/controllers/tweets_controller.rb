@@ -25,7 +25,7 @@ class TweetsController < ApplicationController
       if @tweet.is_relevant?
         Post.create(user: current_user, tweet: @tweet)
       end
-      redirect_to tweets_path, notice: "tweet relevant"
+      redirect_to "#{tweets_path}#tweet#{@tweet.id}", notice: "tweet relevant"
     else
       render "edit"
     end
