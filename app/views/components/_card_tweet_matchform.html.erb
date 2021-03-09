@@ -6,13 +6,13 @@
       <%= simple_form_for @match, :html=> { class: 'form-control' } do |f| %>
 
           <div class="h-auto select_law">
-            <div><%= f.label "Pick the most relevant law from the list:"  %></div>
-            <div class=""><%= f.select :project_law_id, options_for_select(ProjectLaw.all.map{ |u| [u.name, u.id]}),input_html: { class: 'select' } %></div>
+            <%= f.label "Pick the most relevant law from the list:"  %>
+            <%= f.select :project_law_id, options_for_select(ProjectLaw.all.map{ |u| [u.name, u.id]})%>
           </div>
 
         <div class="h-auto select_law">
           <%= f.label "Which topic would you most closely associate the tweet with?"  %>
-          <%= f.select :policy_area_id, options_for_select(PolicyArea.all.map{ |u| [u.category, u.id] }), input_html: { class: 'select' }%>
+          <%= f.select :policy_area_id, options_for_select(PolicyArea.all.map{ |u| [u.category, u.id] })%>
         </div>
         <%= f.hidden_field :post_id, value: @posts.last.id %>
         <div class="select-form-tweet">
