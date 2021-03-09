@@ -1,6 +1,5 @@
 a:hover {
   text-decoration: none!important;
-
 }
 
 a:link, a:visited {
@@ -105,4 +104,12 @@ color: $black;
 #user_is_contributer {
   position: absolute;
   left: 60%;
+}
+
+.btn-flat-red-1 {
+  color: white!important;
+  width: 50%;
+  border-radius: 16px;
+  background: $red;
+  transition: background 0.3s ease;
 }
