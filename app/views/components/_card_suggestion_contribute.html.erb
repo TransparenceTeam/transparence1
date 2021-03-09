@@ -1,4 +1,10 @@
 <div class="suggestion-contribute-container w-100 h-auto">
+    <div class="mt-2 mb-2 p-2">
+    <div class="contribute">◆ Provide context to the tweet of the politicians.</div>
+    <div class="contribute">◆ Compare politicians' tweets with their actions (their votes).</div>
+    <div class="contribute">◆ Match politicians' tweets with the laws they vote for or against.</div>
+    <div class="contribute">◆ Make the statements of the politicians more transparent.</div>
+  </div>
   <% if current_user && current_user.is_contributer? %>
     <div class="red-contribute mb-2"><a class="link mb-2"><%=link_to "Contribute", tweets_path, class: 'btn btn-flat-red' %></a>
     </div>
@@ -6,10 +12,5 @@
     <div class="red-contribute mb-2"><a class="link mb-2"><%=link_to "Sign up to contribute", new_user_registration_path, class: 'btn btn-flat-red' %></a>
     </div>
   <% end %>
-  <div class="mt-2 mb-2 p-2">
-    <div class="contribute">◆ Provide context to the tweet of the politicians.</div>
-    <div class="contribute">◆ Compare politicians' tweets with their actions (their votes).</div>
-    <div class="contribute">◆ Match politicians' tweets with the laws they vote for or against.</div>
-    <div class="contribute">◆ Make the statements of the politicians more transparent.</div>
-  </div>
+
 </div>

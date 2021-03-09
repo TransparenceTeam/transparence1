@@ -28,7 +28,7 @@
           <span class="fab fa-twitter"></span>
       </div>
     </div>
-
+<!-- Start of TWEET -->
     <div class="tweet-content pl-3 pr-3 ">
       <div class="tweet-details-sub-container p-3">
         <%= tweet.content %>
@@ -36,6 +36,10 @@
       <div class="tweet-media p-3">
       <%= render "components/card_post_media", tweet: tweet  %>
       </div>
+
+      <% if tweet.retweet_id?%>
+          <%= render 'components/card_post_retweet',tweet: tweet %>
+      <% end %>
     </div>
 
     <div class="tweet-footer d-flex justify-content-between align-items-center">
@@ -69,8 +73,8 @@
 
         </div>
        <!--  main icons -->
-        <div class="law-info-summary p-2 w-100 d-flex  justify-content-center font-weight-light ">
-          <div class= "d-flex p-2 law-info-summary-1 ">
+        <div class="law-info-summary  w-100 d-flex  justify-content-center font-weight-light ">
+          <div class= "d-flex  law-info-summary-1 ">
 
             <div>
               <i class="fas fa-vote-yea result-icon"></i>
@@ -83,7 +87,7 @@
           </div>
 
 
-          <div class='d-flex p-2 result-law law-info-summary-2'>
+          <div class='d-flex pb-0 result-law law-info-summary-2'>
 
             <div class= "d-flex ml-4  " >
               <div>
@@ -91,7 +95,8 @@
               </div>
 
               <div class= " d-flex ml-1">
-                <p><%= law.sum_for %> for</p>
+                <div><%= law.sum_for %> for</div>
+
               </div>
             </div>
 
@@ -101,7 +106,7 @@
               </div>
 
               <div class= "ml-1">
-                <p><%= law.sum_against %> against</p>
+                <div><%= law.sum_against %> against</div>
               </div>
             </div>
 
@@ -111,8 +116,7 @@
               </div>
 
               <div class= "ml-1">
-                <p><%= law.sum_abstention %> abstained</p>
-
+                <div><%= law.sum_abstention %> abstained</div>
               </div>
             </div>
           </div>
@@ -120,11 +124,11 @@
 
 
        <!--  closing icons -->
-        <div class="d-flex p-2 law-info-summary-3">
+        <div class="d-flex pt-1 law-info-summary-3">
 
 
           <div class="mr-3">
-            <%= link_to law.url_nojson, :target =>"_blank", class: "fas fa-external-link-alt law-info-summary-3 " do %>
+             <%= link_to law.url_nojson, :target =>"_blank", class: "fas fa-external-link-alt law-info-summary-3 " do %>
             <% end %>
           </div>
 
@@ -136,7 +140,7 @@
 
       <div class="group-info-summary w-100 d-flex align-items-center justify-content-center ">
 
-          <div class= "d-flex">
+          <div class= "d-flex political-group-law">
 
             <div class= "">
               <i class="fas fa-users result-icon pl-0"></i>
@@ -149,11 +153,11 @@
           </div>
 
 
-          <div class='d-flex p-2 result-law-1 d-flex align-items-center justify-content-between' >
+          <div class='d-flex p-1 result-law-1 d-flex align-items-center justify-content-between' >
             <% @project_laws.columns.each do |column| %>
               <% if column.name.include? "#{group.ref}_"  %>
 
-                <div class= "d-flex ml-4 align-items-center " >
+                <div class= "d-flex  ml-4 align-items-center " >
                   <div>
                     <i class="far fa-check-circle votes_for"></i>
                   </div>
