@@ -1,8 +1,11 @@
   <nav class="navbar navbar-light search-bg">
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="search" aria-label="Search">
-        <button class="btn my-2 my-sm-0 fas fa-search" type="submit"></button>
-      </form>
+      <%= form_tag tweets_path, method: "get", class: 'form-inline' do |f| %>
+        <%= text_field_tag :name,
+          params[:politician],
+          placeholder: "search your politician...",
+          class: "form-control mr-sm-2"
+        %>
+        <%= button_tag "", class: "btn my-2 my-sm-0 fas fa-search"%>
+      <% end %>
   </nav>
-
 
