@@ -1,11 +1,8 @@
 <%= render 'components/navbar_index'%>
 <div class="main-container-index">
-</div>
 
 
-
-
-
+<div class="container justify-content-center">
 <% if !@posts.nil? %>
   <%= render 'components/progress_bar', posts: @posts %>
   <% @posts.each do |post| %>
@@ -40,4 +37,4 @@
     <% end %>
   <% end %>
 <% end %>
-
+</div>
