@@ -3,7 +3,7 @@ class TweetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @tweets = policy_scope(Tweet.where(is_relevant?: nil).or(Tweet.where(is_relevant?: true)).order(date: "DESC"))
+    @tweets = policy_scope(Tweet.where(is_relevant?: nil, is_selected?: false).or(Tweet.where(is_relevant?: true, is_selected?: false)).order(date: "DESC"))
     @posts = policy_scope(Post.all)
     @politicians = policy_scope(Politician.all)
     @policy_areas = policy_scope(PolicyArea.all)
