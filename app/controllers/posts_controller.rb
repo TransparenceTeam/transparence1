@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @posts = policy_scope(Post.joins(:matches).where.not(matches: nil).order(id: "DESC"))
+
     @tweets = policy_scope(Tweet.all)
     @politicians = policy_scope(Politician.all)
     @political_parties = policy_scope(PoliticalParty.all)
@@ -11,6 +11,12 @@ class PostsController < ApplicationController
     @policy_areas = policy_scope(PolicyArea.all)
     @project_laws = policy_scope(ProjectLaw.all)
     @political_groups = policy_scope(PoliticalGroup.all)
+
+    if params[:name].present?
+      @posts = policy_scope(Post.joins(:matches).where.not(matches: nil).order(id: "DESC")).search_by_politico(params[:name])
+    else
+      @posts = policy_scope(Post.joins(:matches).where.not(matches: nil).order(id: "DESC"))
+    end
   end
 
   def new
