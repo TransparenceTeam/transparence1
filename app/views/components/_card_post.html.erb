@@ -7,15 +7,15 @@
       <div>
         <img class="avatar-politician" alt="avatar" src=<%= tweet.avatar_https %> />
       </div>
+
       <div class="politician-info-add ml-2">
         <div class="politician-info-add-name">
-
           <div class="link"><%= link_to tweet.username, politician_path(tweet.politician_id) %></div>
         </div>
+
         <div class="politician-info-add-username">
-          <div class= "political-party-header font-weight-bold">
-            <div class="link"><a href=<%= political_party.website_url%>, target="_blank" ><%= political_party.name %></a>
-            </div>
+          <div class= "political-party-header">
+            <div class="link"><a href=<%= political_party.website_url%>, target="_blank" ><%= political_party.name %></a></div>
           </div>
         </div>
 
@@ -24,21 +24,25 @@
         </div>
 
        </div>
+
        <div class="twitter-icon ml-auto">
           <span class="fab fa-twitter"></span>
       </div>
+
     </div>
-<!-- Start of TWEET -->
+      <!-- Start of TWEET -->
     <div class="tweet-content pl-3 pr-3 ">
+
       <div class="tweet-details-sub-container p-3">
         <%= tweet.content %>
       </div>
+
       <div class="tweet-media p-3">
-      <%= render "components/card_post_media", tweet: tweet  %>
+        <%= render "components/card_post_media", tweet: tweet  %>
       </div>
 
       <% if tweet.retweet_id?%>
-          <%= render 'components/card_post_retweet',tweet: tweet %>
+        <%= render 'components/card_post_retweet',tweet: tweet %>
       <% end %>
     </div>
 
@@ -51,29 +55,33 @@
         <div class="tag-container align-items-center d-flex"><%= policy_area.category %><span class="fas fa-tag"></span></div>
       </div>
     </div>
-
   </div>
 
   <div class="law-container w-100 h-auto">
-
 
     <div class="p-3 law-details align-items-center">
      <!--  title and icon -->
       <div class = law-details-sub-container p-3 w-100>
 
-        <div class= "d-flex w-100 align-items-center p-3 law-summary-title">
+        <div class= "d-flex w-100 align-items-center p-2 law-summary-title justify-content-between">
 
-          <div>
-            <span class="fas fa-university law-icon ml-2 mr-2"></span>
+          <div class="d-flex align-items-center">
+            <div>
+              <span class="fas fa-university law-icon ml-2 mr-2"></span>
+            </div>
+
+            <div class="ml-3 law-text">
+              <%= law.name %>
+            </div>
           </div>
 
-          <div class="ml-3 law-text">
-            <%= law.name %> (<%= law.date %>)
+          <div class="ml-3 law-date">
+            <%= law.date %>
           </div>
 
         </div>
        <!--  main icons -->
-        <div class="law-info-summary  w-100 d-flex  justify-content-center font-weight-light ">
+        <div class="law-info-summary p-2 w-auto d-flex justify-content-between ">
           <div class= "d-flex  law-info-summary-1 ">
 
             <div>
@@ -81,13 +89,13 @@
             </div>
 
             <div class="ml-1">
-              <%= law.position_law  %>
+              <div>Result: <%= law.position_law  %></div>
             </div>
 
           </div>
 
 
-          <div class='d-flex pb-0 result-law law-info-summary-2'>
+          <div class='d-flex pb-0 result-law law-info-summary-2 '>
 
             <div class= "d-flex ml-4  " >
               <div>
@@ -95,7 +103,7 @@
               </div>
 
               <div class= " d-flex ml-1">
-                <div><%= law.sum_for %> for</div>
+                <div> <%= law.sum_for %> for</div>
 
               </div>
             </div>
@@ -123,77 +131,66 @@
 
 
 
-       <!--  closing icons -->
-        <div class="d-flex pt-1 law-info-summary-3">
-
-
-          <div class="mr-3">
-             <%= link_to law.url_nojson, :target =>"_blank", class: "fas fa-external-link-alt law-info-summary-3 " do %>
-            <% end %>
-          </div>
-
+              <!--  closing icons -->
 
         </div>
-    </div>
 
-    <div class="p-2 law-details align-items-center">
+        <div class="p-2 law-details align-items-center">
 
-      <div class="group-info-summary w-100 d-flex align-items-center justify-content-center ">
+          <div class="group-info-summary w-auto d-flex align-items-center justify-content-between  ">
 
-          <div class= "d-flex political-group-law">
+              <div class= "d-flex political-group-law">
 
-            <div class= "">
-              <i class="fas fa-users result-icon pl-0"></i>
+                <div class= "">
+                  <i class="fas fa-users result-icon pl-0"></i>
+                </div>
+
+                <div class="ml-1">
+                   <%= group.name%>
+                </div>
+
+                </div>
+
+                <div class='d-flex result-law-1 d-flex align-items-center justify-content-between' >
+                  <% @project_laws.columns.each do |column| %>
+                    <% if column.name.include? "#{group.ref}_"  %>
+
+                      <div class= "d-flex  ml-4 align-items-center " >
+                        <div>
+                          <i class="far fa-check-circle votes_for"></i>
+                        </div>
+
+                        <div class= "ml-1">
+                          <div><%= law[column.name].split("-")[1].to_i%> for</div>
+                        </div>
+                      </div>
+
+                      <div class= "d-flex ml-4">
+                        <div>
+                          <i class="far fa-times-circle votes_against"></i>
+                        </div>
+
+                        <div class= "ml-1">
+                         <div><%= law[column.name].split("-")[2].to_i%> against</div>
+                        </div>
+                      </div>
+
+                      <div class= "d-flex  ml-4">
+                        <div>
+                          <i class="fas fa-ban votes_abstained"></i>
+                        </div>
+
+                        <div class= "ml-1">
+                          <div><%= law[column.name].split("-")[3].to_i%> abstained</div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
             </div>
-
-            <div class="ml-1">
-               <%= group.name%>
-            </div>
-
+             <!--closing law details -->
           </div>
-
-
-          <div class='d-flex p-1 result-law-1 d-flex align-items-center justify-content-between' >
-            <% @project_laws.columns.each do |column| %>
-              <% if column.name.include? "#{group.ref}_"  %>
-
-                <div class= "d-flex  ml-4 align-items-center " >
-                  <div>
-                    <i class="far fa-check-circle votes_for"></i>
-                  </div>
-
-                  <div class= "ml-1">
-                    <div><%= law[column.name].split("-")[1].to_i%> for</div>
-                  </div>
-                </div>
-
-                <div class= "d-flex ml-4">
-                  <div>
-                    <i class="far fa-times-circle votes_against"></i>
-                  </div>
-
-                  <div class= "ml-1">
-                   <div><%= law[column.name].split("-")[2].to_i%> against</div>
-                  </div>
-                </div>
-
-                <div class= "d-flex  ml-4">
-                  <div>
-                    <i class="fas fa-ban votes_abstained"></i>
-                  </div>
-
-                  <div class= "ml-1">
-                    <div><%= law[column.name].split("-")[3].to_i%> abstained</div>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-
-    </div>
-     <!--closing law details -->
-     </div>
-  </div>
 
     <div class="law-grid collapse ml-2 mr-2 mt-2 mb-2" id="expand-<%= post.id%>">
       <% @project_laws.columns.each do |column| %>
@@ -288,16 +285,23 @@
   </div>
 
     <!-- icons to share and like -->
-    <div class="icons w-100 m-auto justify-content-between pt-3 pl-3 pr-3">
+    <div class="icons w-100 m-auto justify-content-between pt-1 pl-3 pr-3">
       <div class= "icon d-flex">
         <div class="p-2"><i class="fas fa-star fa-lg"></i></div>
         <div class="p-2"> <i class="far fa-heart fa-lg"></i></div>
         <div class="p-2"> <i class="fas fa-share-alt fa-lg"></i></div>
       </div>
 
-      <div>
-         <a class="fas fa-expand-arrows-alt fa-lg" data-bs-toggle="collapse" href="#expand-<%= post.id%>"role="button" aria-expanded="false" aria-controls="collapseExample"></a>
+      <div class="mr-3">
+       <button class="btn-flat-red-light" data-bs-toggle="collapse" href="#expand-<%= post.id%>"role="button" aria-expanded="false" aria-controls="collapseExample">See more</button>
       </div>
+
+      <div>
+        <%= link_to law.url_nojson, :target =>"_blank", class: "fas fa-external-link-alt law-info-summary-3 " do %>
+      <% end %>
+
+      </div>
+
     </div>
 
   </div>
