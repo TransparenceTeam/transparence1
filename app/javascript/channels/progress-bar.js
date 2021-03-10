@@ -17,5 +17,4 @@ const progressBar = () => {
 
 }
 
-
 window.onload = progressBar();
