@@ -26,11 +26,14 @@
         </div>
 
         <% if tweet.media == nil %>
+
           <div class="tweet-details-sub-container p-3">
         <!-- placeholder for picture/video -->
             <img class="tweet_picture" alt="" src=<%= tweet.picture %> />
           </div>
+
         <% else tweet.media?  %>
+
            <div class="tweet-details-sub-container p-3">
           <!-- placeholder for picture/video -->
             <video controls width="450">
@@ -39,6 +42,7 @@
               Sorry, your browser doesn't support embedded videos.
             </video>
           </div>
+
         <% end %>
         <% if tweet.retweet_id?%>
           <%= render 'components/card_tweet_retweet',tweet: tweet %>

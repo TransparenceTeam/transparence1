@@ -9,17 +9,20 @@
       </div>
 
       <div class="politician-info-add ml-2">
-        <div class="politician-info-add-name">
-          <div class="link"><%= link_to tweet.username, politician_path(tweet.politician_id) %></div>
-        </div>
 
-        <div class="politician-info-add-username">
-          <div class= "political-party-header">
-            <div class="link"><a href=<%= political_party.website_url%>, target="_blank" ><%= political_party.name %></a></div>
+        <div class="d-flex align-items-center pt-2">
+          <div class="politician-info-add-name">
+            <div class="link-politician-name"><%= link_to tweet.username, politician_path(tweet.politician_id) %></div>
+          </div>
+
+          <div class="politician-info-add-username ml-2">
+            <div class= "political-party-header">
+              <div class="link-political-group"><a href=<%= political_party.website_url%>, target="_blank" ><%= political_party.name %></a></div>
+            </div>
           </div>
         </div>
 
-        <div class="politician-info-add-username">
+        <div class="politician-info-add-role">
           <div class= ""><%= politician.role %></div>
         </div>
 
@@ -36,10 +39,11 @@
       <div class="tweet-details-sub-container p-3">
         <%= tweet.content %>
       </div>
-
+        <% if tweet.media? || tweet.picture? %>
       <div class="tweet-media p-3">
         <%= render "components/card_post_media", tweet: tweet  %>
       </div>
+        <% end %>
 
       <% if tweet.retweet_id?%>
         <%= render 'components/card_post_retweet',tweet: tweet %>
@@ -85,7 +89,7 @@
           <div class= "d-flex  law-info-summary-1 ">
 
             <div>
-              <i class="fas fa-vote-yea result-icon"></i>
+              <i class="fas fa-vote-yea result-icon pl-3"></i>
             </div>
 
             <div class="ml-1">
@@ -142,7 +146,7 @@
               <div class= "d-flex political-group-law">
 
                 <div class= "">
-                  <i class="fas fa-users result-icon pl-0"></i>
+                  <i class="fas fa-users result-icon pl-3"></i>
                 </div>
 
                 <div class="ml-1">
