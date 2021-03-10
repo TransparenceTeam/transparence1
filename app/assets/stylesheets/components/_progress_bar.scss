@@ -3,12 +3,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20vh;
+  height: 5vh;
+  position: relative;
 }
 
 .progress {
   width: 50vw;
-  height: 40px;
+  height: 3vh;
   background-color: #d8d8d8;
   border-radius: 20px;
 }
@@ -33,7 +34,8 @@ p {
 
 .title-score {
   margin: auto;
-  width: 500px;
+  height: 20vh;
+  width: 60%;
   font-family: bril Fatface;
   font-weight: bold;
   display: flex;
@@ -44,5 +46,67 @@ p {
   text-transform: uppercase;
 }
 
+
+.graduation-container {
+  margin: auto;
+  height: 10px;
+  width: 60vw;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+
+  }
+
+.level {
+  display: flex;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background-color: #d8d8d8;
+  border-radius: 50%;
+  margin: -11px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+.bar-icon {
+  color: #023618;
+  margin-top: 4px;
+}
+
+.graduation-description-container {
+  margin: auto;
+  height: 10px;
+  width: 35vw;
+  display: flex;
+  justify-content: space-between;;
+  position: absolute;
+}
+
+.level-description {
+  width: 100px;
+  height: 100px;
+  padding-top: 40px;
+}
+
+.title-description {
+  font-family: bril Fatface;
+  font-weight: bold;
+  color: #023618;
+  font-size: 4vh;
+}
+
+.result-container {
+  text-align: center;
+  padding-top: 120px;
+
+}
+
+.result-container h1 {
+  color: #023618;
+  font-family: bril Fatface;
+  font-weight: bold;
+  font-size: 5vh;
+}
 
 
