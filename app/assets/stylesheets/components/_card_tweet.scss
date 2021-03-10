@@ -280,20 +280,21 @@
   border: 1px solid $eggshell;
   border-width: thin;
   border-radius: 8px;
+
 }
 
 
 .law-text-1{
-  font-size:20px;
+  font-size:16px;
   text-align:center;
-  font-family: 'Lora';
-
+  // font-family: 'Lora';
 }
 
 .law-text-2 {
   font-size:24px;
   text-align:center;
-  font-family: 'Cormoran';
+  font-family: 'Lora';
+  font-weight: bolder;
 }
 
 a:hover {

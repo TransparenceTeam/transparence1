@@ -1,11 +1,12 @@
 import $ from 'jquery';
 
-const progress = document.querySelector('.progress-done');
-const data = document.querySelector('.progress-done');
-const value = document.querySelector('.visualized-value');
-const result = (gon.posts * 100) / 50;
 
-if (data) {
+const progressBar = () => {
+  const progress = document.querySelector('.progress-done');
+  const data = document.querySelector('.progress-done');
+  const value = document.querySelector('.visualized-value');
+  const result = (gon.posts * 100) / 50;
+
   data.setAttribute('data-done', result);
   value.innerHTML = `${result}%`;
 
@@ -17,6 +18,4 @@ if (data) {
 }
 
 
-
-
-export { progress };
+window.onload = progressBar();
