@@ -1,10 +1,11 @@
-<div class="categories-container w-100">
-  <h4>Categories</h4>
-  <ul id="categories-list">
+<div class="categories-container mt-3 w-100 h-auto">
+  <div class="law-text-2 pb-3">Categories</div>
+
     <% @policy_areas.each do |policy| %>
-      <div class="category-box">
-        <li><i class="fas fa-dot-circle"></i><%= policy.category%></li>
+      <div class="d-flex pl-3">
+        <div class="contribute box-1 tag-icon p-2">
+          <div class="fas fa-tag pr-2"></div><%= policy.category%>
+        </div>
       </div>
     <% end %>
-  </ul>
 </div>

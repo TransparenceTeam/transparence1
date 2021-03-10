@@ -5,7 +5,7 @@
   padding-right: 16px;
   font-size:24px;
   color: $green;
-
+  // font-family: 'lora'
 }
 
 .categories-container {
@@ -22,7 +22,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 5rem;
-  font-family: 'lora'
+  // font-family: 'lora'
 }
 
 #categories-list ul li{
@@ -51,14 +51,19 @@ ul {
   border-radius: 8px;
   margin: 10px;
   padding: 2px;
-  border-bottom-color: #F4ECD3
+  border-bottom-color: #F4ECD3;
+  font-size: 14px;
 }
 
 .box-1{
   border-color: #F4ECD3!important;
-  font-family: 'lora';
+  // font-family: 'lora';
   font-size: 14px;
   font-weight: light;
+}
+
+.fas .fa-tag {
+  color: $red;
 }
 
 
