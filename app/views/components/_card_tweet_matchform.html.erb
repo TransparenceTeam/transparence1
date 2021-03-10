@@ -3,14 +3,23 @@
   <div class= " align-items-center w-100  ">
     <div class="form-outline simple_form">
 
+      <div class="p-2 law-text-1 d-flex justify-content-center">
+        <div class="justify-content-center">
+          Final step! Let's build the connection between the tweet and the law :)
+        </div>
+      </div>
+
+
       <%= simple_form_for @match, :html=> { class: 'form-control' } do |f| %>
 
-          <div class="h-auto select_law">
+          <div class="h-auto select_law p-2">
             <%= f.label "Pick the most relevant law from the list:"  %>
             <%= f.select :project_law_id, options_for_select(ProjectLaw.all.map{ |u| [u.name, u.id]})%>
           </div>
 
-        <div class="h-auto select_law">
+          <div class="box-1 border-bottom p-1"></div>
+
+        <div class="h-auto select_law p-2">
           <%= f.label "Which topic would you most closely associate the tweet with?"  %>
           <%= f.select :policy_area_id, options_for_select(PolicyArea.all.map{ |u| [u.category, u.id] })%>
         </div>

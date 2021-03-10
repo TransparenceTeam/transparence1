@@ -1,19 +1,19 @@
 
-.progress-container {
+.progress-1-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 20vh;
 }
 
-.progress {
+.progress-1 {
   width: 50vw;
   height: 40px;
   background-color: #d8d8d8;
   border-radius: 20px;
 }
 
-.progress-done {
+.progress-1-done {
   height: 100%;
   width: 0;
   background: linear-gradient(to left, #F2709C, #FF9472);
