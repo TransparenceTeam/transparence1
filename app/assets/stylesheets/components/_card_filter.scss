@@ -13,7 +13,7 @@
   // border-radius: 16px;
   height: 600px;
   width: 600px;
-  padding: 8px;
+  padding: 20px;
   color: $black;
   font-size: 16px;
   // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -22,6 +22,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 5rem;
+  font-family: 'lora'
 }
 
 #categories-list ul li{
@@ -55,6 +56,9 @@ ul {
 
 .box-1{
   border-color: #F4ECD3!important;
+  font-family: 'lora';
+  font-size: 14px;
+  font-weight: light;
 }
 
 
