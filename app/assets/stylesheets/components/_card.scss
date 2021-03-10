@@ -109,7 +109,7 @@
   // background-color: $ivory;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  // border-color: $green;
+ // border-color: 2px solid $green;
   // border-style: solid;
   // border-radius: 4px;
 
@@ -119,7 +119,7 @@
   font-size:16px;
   text-align:left;
   line-height:22px;
-  // font-weight: bold;
+  font-weight: bold;
   // font-family: 'Nunito', sans-serif;
 
 }
@@ -133,20 +133,24 @@
 
 .law-info-summary{
   // padding-bottom: 16px;
-  color: $green;
+  color: $black;
   padding-bottom: 0;
-  margin-left: 36px;
+  // margin-left: 36px;
   font-size:16px;
 }
 
 .law-summary-title {
 // padding-bottom: 8px;
-  color: $green;
-  border-bottom: 1px solid $green;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  color: $black;
+  border-top: 1px solid $eggshell;
+  border-left: 1px solid $eggshell;
+  border-right: 1px solid $eggshell;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
    // font-family: 'Nunito', sans-serif;
   // font-weight: lighter;
+  background-color: $ivory;
+
 
 }
 
@@ -161,7 +165,7 @@
   vertical-align: middle;
   font-size: 20px;
   // padding-left: 12px;
-  padding-right: 14px;
+  // padding-right: 14px;
   // padding-left: 2px;
   // border-left: 1px solid $green;
 }
@@ -173,7 +177,6 @@
 .card-law-grid{
   height: 120px;
   border-radius: 4px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.1);
   display: flex;
   justify-content: space-around;
   font-size: 12px;
@@ -188,7 +191,7 @@
 
 .politician-info-add {
   font-size:12px;
-  color: $green;
+  color: $black;
 }
 
 .political-party-header {
@@ -199,7 +202,7 @@
 
 .politician-info-add-username {
   font-size:12px;
-  color: $green;
+  color: $black;
 }
 
 .politician-info-add-role {
@@ -256,16 +259,18 @@
 
 .law-info-summary{
   font-size:12px;
+  // font-weight: bolder;
 }
 
 
 .law-details-sub-container{
   background-color: $eggshell;
-  border-radius:4px;
+  border-radius:8px;
   font-weight: light;
   font-size:12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  border-color: 1px solid $red;
 }
 
 
@@ -292,7 +297,7 @@
 .icons {
 display: flex;
 align-items: flex-start;
-color: $green;
+color: $black;
 }
 
 .link a:hover {
@@ -301,7 +306,7 @@ color: $green;
 
 
 .politician-add-info-add > a {
-  color: $green;
+  color: $black;
 }
 
 
@@ -310,23 +315,24 @@ color: $green;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   padding-bottom: 8px;
-  // border-top: 1px solid $green;
+  // border-top: 1px solid $ivory;
   // border-radius: 4px;
-  padding-left: 36px;
+  // padding-left: 36px;
+  // font-weight: bolder;
 }
 
 
 .law-info-summary-1 {
-  color: $green;
+  color: $black;
 }
 
 .political-group-law {
-  color: $green;
+  color: $black;
 }
 
 
 .politician-info-add-name {
-  color: $green;
+  color: $black;
 }
 
 .law-date {
