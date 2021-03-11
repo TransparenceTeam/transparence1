@@ -3,14 +3,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5vh;
+  height: auto;
   position: relative;
+  margin-bottom: 40px;
 }
 
 .progress-1 {
   width: 50vw;
   height: 3vh;
-  background-color: #d8d8d8;
+  background-color: $ivory;
   border-radius: 20px;
 }
 
@@ -36,14 +37,14 @@ p {
   margin: auto;
   height: 20vh;
   width: 60%;
-  font-family: bril Fatface;
+  font-family: 'Lora';
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 8vh;
-  color: #023618;
-  text-transform: uppercase;
+  font-size: 40px;
+  color: $green;
+  // text-transform: uppercase;
 }
 
 
@@ -62,7 +63,7 @@ p {
   justify-content: center;
   width: 35px;
   height: 35px;
-  background-color: #d8d8d8;
+  background-color: $ivory;
   border-radius: 50%;
   margin: -11px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -70,7 +71,7 @@ p {
 
 
 .bar-icon {
-  color: #023618;
+  color: $red;
   margin-top: 4px;
 }
 
@@ -87,26 +88,50 @@ p {
   width: 100px;
   height: 100px;
   padding-top: 40px;
+
 }
 
 .title-description {
-  font-family: bril Fatface;
+  font-family: 'Nunito';
   font-weight: bold;
-  color: #023618;
-  font-size: 4vh;
+  color: $red;
+  font-size: 24px;
 }
 
 .result-container {
+  align-items: center;
   text-align: center;
-  padding-top: 120px;
+  // padding-top: 120px;
 
 }
 
 .result-container h1 {
-  color: #023618;
-  font-family: bril Fatface;
-  font-weight: bold;
-  font-size: 5vh;
+  color: $black;
+  font-family: 'Nunito';
+  // font-weight: bold;
+  font-size: 24px;
+  // border-top: 10px solid $ivory;
+  text-align: left;
+  padding-left: 36px;
+  padding-bottom: 20px;
+}
+
+.main-progress {
+  background-color: $eggshell;
+  border-radius: 8px;
+  height: 320px;
+  width: 100%;
+  // align-items: left;
+}
+
+.progress-cards {
+  margin: auto;
+}
+
+.user-profil {
+  width: 100%;
+  margin: auto;
+  align-items: center;
 }
 
 

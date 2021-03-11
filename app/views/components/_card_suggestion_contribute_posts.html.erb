@@ -1,6 +1,6 @@
 <div class="suggestion-contribute-container w-100 h-auto mt-3">
   <% if current_user && current_user.is_contributer? %>
-    <div class="law-text-2 mt-3 card-title">All of your progress so far:</div>
+    <div class="law-text-2 mt-3 card-title">All of your progress so far</div>
   <% else %>
     <div class="law-text-2 mt-3 card-title">Support us by contributing</div>
   <% end %>
@@ -9,7 +9,7 @@
        <% if current_user && current_user.is_contributer? && current_user.posts.count < 10  %>
         <div class="box-1 border-bottom p-2"><%= current_user.posts.count %> contributions made. </div>
         <div class="box-1 border-top border-bottom p-2">Still <%= 10 - current_user.posts.count%> contributions to go to become a moderator.</div>
-       <div class="box-1 border-bottom border-top p-2"><div class="red-contribute mt-2 mb-2"><a class="link mb-2"><%=link_to "Contribute", posts_path, class: 'btn btn-flat-red' %></a></div>
+       <div class="box-1 border-bottom border-top p-2"><div class="red-contribute mt-2 mb-2"><a class="link mb-2"><%=link_to "Contribute", tweets_path, class: 'btn btn-flat-red' %></a></div>
       </div>
 
       <% elsif current_user && current_user.is_contributer? && current_user.posts.count >= 10 %>
