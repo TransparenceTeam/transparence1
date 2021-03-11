@@ -30,6 +30,7 @@ class PostsController < ApplicationController
     authorize @post
     if @post.save
       redirect_to posts_path
+      # sweetalert_success('Your resource is created and available.', 'Successfully created', persistent: 'Awesome!')
     else
       render 'new'
     end

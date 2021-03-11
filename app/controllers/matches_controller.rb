@@ -5,6 +5,7 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
     @match.user = current_user
     authorize @match
+
     @match.save
     if @match.save
       Tweet.find(Post.where(id: @match.post_id)[0].tweet_id).update!(is_selected?: true)
