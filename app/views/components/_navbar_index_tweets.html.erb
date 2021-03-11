@@ -1,12 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex">
-  <a class="navbar-brand d-flex justify-content-between" href="#">
-    <h2 class="title">Transparence</h2>
-  </a>
+  <div class="title-search d-flex w-100">
+    <a class="navbar-brand d-flex justify-content-between" href="#">
+      <h2 class="title">Transparence</h2>
+    </a>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-    <div class="d-flex justify-content-between"> <%= render 'components/search_bar_tweets'%></div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="searchbar d-flex justify-content-between"> <%= render 'components/search_bar_tweets'%></div>
+  </div>
 
   <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
     <div class="links w-100">
