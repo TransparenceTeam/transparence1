@@ -43,7 +43,7 @@ politician1 = Politician.create!(
   bio: "Jean-Luc Antoine Pierre Mélenchon, born 19 August 1951 is a French politician serving as the member of the National Assembly for the 4th constituency of Bouches-du-Rhône since 2017.",
   linkedin_url: 'https://www.linkedin.com/in/jlmelenchon/',
   wikipedia_url: "https://en.wikipedia.org/wiki/Jean-Luc_M%C3%A9lenchon",
-  political_party_id: 3,
+  political_party_id: 1,
   avatar: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Jean_Luc_MELENCHON_in_the_European_Parliament_in_Strasbourg%2C_2016_%28cropped%29.jpg"
 )
 puts "politician #{politician1.id} has been created"
@@ -69,7 +69,7 @@ politician3 = Politician.create!(
   bio: "Nicolas Paul Stéphane Sarközy de Nagy-Bocsa (/sɑːrˈkoʊzi/; French: [nikɔla pɔl stefan saʁkɔzi də naʒi bɔksa] (About this soundlisten); born 28 January 1955) is a retired French politician who served as President of France and ex officio Co-Prince of Andorra from 16 May 2007 until 15 May 2012.",
   linkedin_url: 'https://www.linkedin.com/in/nicolassarkozy/',
   wikipedia_url: "https://en.wikipedia.org/wiki/Nicolas_Sarkozy",
-  political_party_id: 1,
+  political_party_id: 3,
   avatar: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Nicolas_Sarkozy_in_2010.jpg"
 )
 puts "politician #{politician3.id} has been created"
