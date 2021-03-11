@@ -34,6 +34,7 @@ class TweetsController < ApplicationController
   def update
     if @tweet.update!(is_relevant?: params[:is_relevant?])
       if @tweet.is_relevant?
+        sweetalert_success('Your resource is created and available.', 'Successfully created', persistent: 'Awesome!')
         Post.create(user: current_user, tweet: @tweet, name: @tweet.name)
       end
       redirect_to "#{tweets_path}#Tweet#{@tweet.id}", notice: "tweet relevant"
