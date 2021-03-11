@@ -7,14 +7,18 @@ const progressBar = () => {
   const value = document.querySelector('.visualized-value');
   const result = (gon.posts * 100) / 50;
 
-  data.setAttribute('data-done', result);
-  value.innerHTML = `${result}%`;
+  if (data) {
 
-  setTimeout(() => {
-    progress.style.width = progress.getAttribute('data-done') + '%';
-    progress.style.opacity = 1;
-  }, 500)
+    data.setAttribute('data-done', result);
+    value.innerHTML = `${result}%`;
+
+    setTimeout(() => {
+      progress.style.width = progress.getAttribute('data-done') + '%';
+      progress.style.opacity = 1;
+    }, 500)
+
+  }
 
 }
 
-window.onload = progressBar();
+export { progressBar }

@@ -12,7 +12,7 @@ require("select2")
 // require ("packs/custome")
 // require ("packs/post.js")
 import 'bootstrap';
-import swal from 'sweetalert';
+//import swal from 'sweetalert';
 
 
 
@@ -32,6 +32,7 @@ import { select2 } from '../channels/select2.js';
 import { progressBar } from '../channels/progress-bar.js';
 
 document.addEventListener("turbolinks:load", function() {
+  progressBar();
 });
 
 // import  { initSweetalert } from '../channels/init_sweetalert.js';
