@@ -14,7 +14,7 @@
 
           <div class="h-auto select_law p-2">
             <%= f.label "Pick the most relevant law from the list:"  %>
-            <%= f.select :project_law_id, options_for_select(ProjectLaw.all.map{ |u| [u.name, u.id]})%>
+            <%= f.select :project_law_id, options_for_select(ProjectLaw.where(year: [2020, 2021]).order(date: :asc).map{ |u| [u.name, u.id]})%>
           </div>
 
           <div class="box-1 border-bottom p-1"></div>

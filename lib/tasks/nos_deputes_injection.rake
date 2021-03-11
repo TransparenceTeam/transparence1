@@ -9,13 +9,12 @@ namespace :db do
 
 
     def project_law_name_cleaning(law)
-      new_law = law.gsub("(lecture définitive)", "")
-      if new_law.include? "l'ensemble du"
-        up_to_date_law = new_law.gsub("l'ensemble du ","")
-      else
-        up_to_date_law = new_law
-      end
-      up_to_date_law.capitalize
+      new_law = law.gsub("(lecture définitive)", "").gsub("l'ensemble de la ","").gsub("(texte de la commisison mixte paritaire)", "").gsub("(première lecture)","").gsub("(premiere lecture)","").gsub("(deuxième lecture)","").gsub("(nouvelle lecture)","").gsub("(texte de la commission mixte paritaire)","").gsub("l'ensemble du ","").gsub("(lecture défintive)", "")
+      up_to_date_law = new_law.capitalize
+    end
+
+    def get_year(date)
+      date[0..3]
     end
 
     deputies_url = 'https://www.nosdeputes.fr/deputes/json'
@@ -96,14 +95,15 @@ namespace :db do
       json_deputy['votes'].each do |deputy_vote|
         if !deputy_vote['vote']['scrutin']['titre'].nil? && !deputy_vote['vote']['scrutin']['numero'].nil?
 
-          if deputy_vote['vote']['scrutin']['titre'].include? "lecture définitive"
-            unless ProjectLaw.exists?(scrutin: deputy_vote['vote']['scrutin']['numero'])
+          if deputy_vote['vote']['scrutin']['titre'].include? "l'ensemble"
+            unless ProjectLaw.exists?(name: project_law_name_cleaning(deputy_vote['vote']['scrutin']['titre']))
               new_project_law = ProjectLaw.create!(
                 scrutin: deputy_vote['vote']['scrutin']['numero'],
                 name: project_law_name_cleaning(deputy_vote['vote']['scrutin']['titre']),
                 url_nojson: deputy_vote['vote']['scrutin']['url_nosdeputes'],
                 url: deputy_vote['vote']['scrutin']['url_nosdeputes_api'],
                 date: Time.new(deputy_vote['vote']['scrutin']['date']).strftime('%a %d %b %Y'),
+                year: get_year(deputy_vote['vote']['scrutin']['date']),
                 position_law: deputy_vote['vote']['scrutin']['sort'].capitalize,
                 sum: deputy_vote['vote']['scrutin']['nombre_votants'],
                 sum_for: deputy_vote['vote']['scrutin']['nombre_pours'],
@@ -111,6 +111,7 @@ namespace :db do
                 sum_abstention: deputy_vote['vote']['scrutin']['nombre_abstentions'],
                 owner: deputy_vote['vote']['scrutin']['demandeurs'][0]['demandeur']
               )
+              #puts "id: #{new_project_law.id} scrutin: #{new_project_law.scrutin} date: #{new_project_law.date} #{new_project_law.name}"
               puts "scrutin nb  #{new_project_law.scrutin} (id #{new_project_law.id}) has been created"
             end
           end
