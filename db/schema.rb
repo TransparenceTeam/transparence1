@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_191058) do
+ActiveRecord::Schema.define(version: 2021_03_11_113212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_191058) do
     t.string "position_law"
     t.string "url_nojson"
     t.string "translatedtext"
+    t.integer "year"
   end
 
   create_table "tweets", force: :cascade do |t|
