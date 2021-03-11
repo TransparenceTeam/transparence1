@@ -12,6 +12,8 @@ require("select2")
 // require ("packs/custome")
 // require ("packs/post.js")
 import 'bootstrap';
+import swal from 'sweetalert';
+
 
 
 console.log("Hello from app/javascript/packs/application.js!");
@@ -22,7 +24,8 @@ console.log("Hello from app/javascript/packs/application.js!");
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
+//= require sweetalert2
+//= require sweet-alert2-rails
 
 
 import { select2 } from '../channels/select2.js';
@@ -31,6 +34,19 @@ import { progressBar } from '../channels/progress-bar.js';
 document.addEventListener("turbolinks:load", function() {
 });
 
+// import  { initSweetalert } from '../channels/init_sweetalert.js';
+
+
+// initSweetalert('.btn-flat-green', {
+//   title: "Are you sure?",
+//   text: "This action cannot be reversed",
+//   icon: "warning"
+// }, (value) => {
+//   if (value) { console.log("hello")
+//     const link = document.querySelector('#sweet-alert-demo');
+//     link.click();
+//   }
+// });
 
 
 
