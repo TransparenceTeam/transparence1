@@ -1,5 +1,6 @@
 .footer {
   padding-left: 24px;
+  height: auto;
 }
 
 .footer-links {
@@ -8,6 +9,7 @@
 .footer-links a {
   opacity: 0.5;
   text-decoration: none;
+  font-size: 24px;
 }
 .footer-links a:hover {
   opacity: 1;
@@ -24,4 +26,8 @@
 
 .footer-copyright a {
   color: $light-gray;
+}
+
+.fa-github {
+  font-size: 24px;
 }

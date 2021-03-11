@@ -1,41 +1,46 @@
-<div class="score-container">
-  <h1 class="title-score" title-score>Your score...</h1>
-</div>
+<div class="main-progress">
 
-<div class="progress-1-container">
-  <div class="progress-1">
-    <div class="progress-1-done" data-done="10">
-      <p class ="visualized-value"></p>
+    <div class="score-container">
+      <h3 class="title-score" title-score>Your Progress</h3>
+    </div>
+    <div class="result-container">
+      <h1>You have created <%= @posts.count %> posts:</h1>
+    </div>
+
+  <div class="progress-1-container">
+    <div class="progress-1">
+      <div class="progress-1-done" data-done="10">
+        <p class ="visualized-value"></p>
+      </div>
+    </div>
+    <div class="graduation-container">
+      <div class="level">
+        <i class="bar-icon fas fa-arrow-alt-circle-down fa-2x"></i>
+      </div>
+      <div class="level">
+        <i class="bar-icon fas fa-arrow-alt-circle-down fa-2x"></i>
+      </div>
+      <div class="level">
+        <i class="bar-icon fas fa-arrow-alt-circle-down fa-2x"></i>
+      </div>
+    </div>
+
+    <div class="graduation-description-container">
+      <div class="level-description">
+        <h1 class="title-description">Beginner</h1>
+
+      </div>
+      <div class="level-description">
+        <h1 class="title-description">Advanced</h1>
+      </div>
+      <div class="level-description">
+        <h1 class="title-description">Moderator</h1>
+      </div>
     </div>
   </div>
-  <div class="graduation-container">
-    <div class="level">
-      <i class="bar-icon fas fa-arrow-alt-circle-down fa-2x"></i>
-    </div>
-    <div class="level">
-      <i class="bar-icon fas fa-arrow-alt-circle-down fa-2x"></i>
-    </div>
-    <div class="level">
-      <i class="bar-icon fas fa-arrow-alt-circle-down fa-2x"></i>
-    </div>
-  </div>
-  <div class="graduation-description-container">
-    <div class="level-description">
-      <h1 class="title-description">Beginner</h1>
 
-    </div>
-    <div class="level-description">
-      <h1 class="title-description">Advanced</h1>
-    </div>
-    <div class="level-description">
-      <h1 class="title-description">Moderator</h1>
-    </div>
-  </div>
 </div>
 
-<div class="result-container">
-  <h1>You have created <%= @posts.count %> posts:</h1>
-</div>
 
 
 

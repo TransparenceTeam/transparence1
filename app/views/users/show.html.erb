@@ -2,7 +2,7 @@
 <div class="main-container-index">
 
 
-<div class="container justify-content-center">
+<div class="container user-profil justify-content-center">
 <% if !@posts.nil? %>
     <%= render 'components/progress_bar', posts: @posts %>
   <% @posts.each do |post| %>
@@ -20,7 +20,7 @@
                           <% if match.project_law_id == law.id %>
                             <% @political_groups.each do |group|%>
                               <% if political_party.political_group_id == group.id %>
-                              <div></div>
+                              <div class=""><%= render 'components/card_post', tweet: tweet, political_party: political_party, politician: politician, policy_area: policy_area, law: law, group: group, post: post %></div>
                               <% end %>
                             <% end %>
                           <% end %>

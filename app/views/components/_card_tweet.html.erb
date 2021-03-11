@@ -70,10 +70,10 @@
 
             <div class="d-flex ml-1 justify-content-center space-between p-2">
               <div class="mr-3">
-                <%= link_to "", tweet_path(tweet, is_relevant?: true), {method: :patch, class: "btn btn-flat-green mr-3 far fa-check-circle"} %>
+                <%= link_to "", tweet_path(tweet, is_relevant?: true), {method: :patch, class: "btn btn-flat-green-form mr-3 far fa-check-circle"} %>
               </div>
               <div class="ml-3">
-                <%= link_to "", tweet_path(tweet, is_relevant?: false), {method: :patch, class: "btn btn-flat-red mr-3 far fa-times-circle"} %>
+                <%= link_to "", tweet_path(tweet, is_relevant?: false), {method: :patch, class: "btn btn-flat-red-form mr-3 far fa-times-circle"} %>
               </div>
             </div>
           <% end %>
