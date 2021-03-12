@@ -1,6 +1,13 @@
 <%= render 'components/navbar_index_posts'%>
 <div class="main-container-index">
   <% if !@posts.nil? %>
+
+   <div class="container user-profil d-flex justify-content-around mt-3 mb-4">
+    <div class="d-flex flex-column mt-3">
+      <%= render 'components/progress_bar', posts: @posts %>
+    </div>
+  </div>
+
     <div class="card-container d-flex justify-content-around mt-3 mb-4 ml-10">
       <div>
         <% @posts.each do |post| %>
@@ -38,14 +45,7 @@
     </div>
   </div>
 
-  <div class="container user-profil d-flex justify-content-around mt-3 mb-4">
-    <div class="d-flex flex-column mt-3">
-      <%= render 'components/progress_bar', posts: @posts %>
-      <div class="footer p-2 footer-show">
-        <%= render 'components/footer' %>
-      </div>
-    </div>
-  </div>
+
 
 
 </div>
