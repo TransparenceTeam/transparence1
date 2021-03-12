@@ -25,8 +25,6 @@ console.log("Hello from app/javascript/packs/application.js!");
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-//= require sweetalert2
-//= require sweet-alert2-rails
 
 
 import { select2 } from '../channels/select2.js';

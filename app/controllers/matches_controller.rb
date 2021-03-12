@@ -20,6 +20,3 @@ class MatchesController < ApplicationController
     params.require(:match).permit(:post_id, :policy_area_id, :project_law_id)
   end
 end
-
-
-#Tweet.find(Post.where(id: @match.post_id)[0].tweet_id).id
