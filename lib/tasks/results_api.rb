@@ -7,51 +7,21 @@ class VoteResults
     deputies = Deputy.all
     political_groups = PoliticalGroup.all
 
-    lrem_for = 0
-    lrem_against = 0
-    lrem_abstention = 0
-
-    modem_for = 0
-    modem_for_against = 0
-    modem_for_abstention = 0
-
-    soc_for = 0
-    soc_against = 0
-    soc_abstention = 0
-
-    lr_for = 0
-    lr_against = 0
-    lr_abstention = 0
-
-    gdr_for = 0
-    gdr_against = 0
-    gdr_abstention = 0
-
-    lt_for = 0
-    lt_against = 0
-    lt_abstention = 0
-
-    ae_for = 0
-    ae_against = 0
-    ae_abstention = 0
-
-    udi_for = 0
-    udi_against = 0
-    udi_abstention = 0
-
-    ni_for = 0
-    ni_against = 0
-    ni_abstention = 0
-
-    lfi_for = 0
-    lfi_against = 0
-    lfi_abstention = 0
-
-    uai_for = 0
-    uai_against = 0
-    uai_abstention = 0
 
     project_laws.each do |law|
+
+      lrem_for = lrem_against = lrem_abstention = 0
+      modem_for = modem_for_against = modem_for_abstention = 0
+      soc_for = soc_against = soc_abstention = 0
+      lr_for = lr_against = lr_abstention = 0
+      gdr_for = gdr_against = gdr_abstention = 0
+      lt_for = lt_against = lt_abstention = 0
+      ae_for = ae_against = ae_abstention = 0
+      udi_for = udi_against = udi_abstention = 0
+      ni_for = ni_against = ni_abstention = 0
+      lfi_for = lfi_against = lfi_abstention =  0
+      uai_for = uai_against = uai_abstention = 0
+
       votes.each do |vote|
         if law.id == vote.project_law_id
           deputies.each do |deputy|
