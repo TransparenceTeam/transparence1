@@ -2,9 +2,17 @@
   <div class="law-text-2 pb-3">Categories</div>
 
     <% @policy_areas.each do |policy| %>
-      <div class="d-flex pl-3">
-        <div class="contribute box-1 tag-icon p-2">
-          <div class="fas fa-tag pr-2"></div><%= policy.category%>
+      <div class=" tag-style border-bottom">
+        <div class="contribute d-flex box-1 justify-content-between tag-icon p-2 ">
+
+          <div>
+            <i class="fas fa-tag pr-2"></i><%= policy.category%>
+          </div>
+
+          <div>
+            <i class="far fa-dot-circle filter-icon"></i>
+          </div>
+
         </div>
       </div>
     <% end %>

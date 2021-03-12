@@ -2,13 +2,13 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 90%;
+  height: 85%;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
 
 .banner h1 {
   margin: auto;
-  color: white;
+  color: $ivory;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
   opacity: .95;
   font-size: 40px;
@@ -17,7 +17,7 @@
 
 .banner p {
   font-size: 20px;
-  color: white;
+  color: $ivory;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
   font-weight: light;
 }
@@ -30,7 +30,7 @@ html, body {
   margin: auto;
   width: 80%;
   padding: 180px;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(2px);
   text-align: center;
 }
 
