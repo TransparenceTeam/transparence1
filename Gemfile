@@ -30,7 +30,8 @@ gem 'jquery-rails'
 gem 'hogan_assets'
 gem "select2-rails"
 gem 'faraday'
-gem 'sweetify', '~> 2.0'
+# gem 'sweetify', '~> 2.0'
+gem 'data-confirm-modal'
 
 
 # Use Redis adapter to run Action Cable in production
