@@ -238,6 +238,7 @@
   font-weight: light;
   color: $black;
   margin-bottom: 0;
+  width: 280px;
 
 }
 
@@ -305,4 +306,8 @@ a:hover {
 
 .fa-dot-circle {
   color: $green;
+}
+
+.flex-even {
+  flex: 1;
 }

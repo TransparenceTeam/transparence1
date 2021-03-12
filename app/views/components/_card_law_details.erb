@@ -1,0 +1,53 @@
+<div class="law-info-summary p-2 w-auto d-flex justify-content-between ">
+  <div class= "d-flex  law-info-summary-1 ">
+
+    <div>
+      <i class="fas fa-vote-yea result-icon pl-2 pr-4"></i>
+    </div>
+
+    <div class="ml-1">
+      <div>Result: <%= law.position_law  %></div>
+    </div>
+
+  </div>
+
+
+  <div class='d-flex pb-0 result-law law-info-summary-2 '>
+
+    <div class= "d-flex ml-4  " >
+      <div>
+        <i class="far fa-check-circle votes_for"></i>
+      </div>
+
+      <div class= " d-flex ml-1">
+        <div> <%= law.sum_for %> for</div>
+
+      </div>
+    </div>
+
+    <div class= "d-flex ml-4">
+      <div>
+        <i class="far fa-times-circle votes_against"></i>
+      </div>
+
+      <div class= "ml-1">
+        <div><%= law.sum_against %> against</div>
+      </div>
+    </div>
+
+    <div class= "d-flex  ml-4">
+      <div>
+        <i class="fas fa-ban votes_abstained"></i>
+      </div>
+
+      <div class= "ml-1">
+        <div><%= law.sum_abstention %> abstained</div>
+      </div>
+    </div>
+  </div>
+
+
+
+      <!--  closing icons -->
+
+</div>
