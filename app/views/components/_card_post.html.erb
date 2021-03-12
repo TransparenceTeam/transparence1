@@ -101,7 +101,7 @@
 
           <div class='d-flex pb-0 result-law law-info-summary-2 '>
 
-            <div class= "d-flex ml-4  " >
+            <div class= "d-flex flex-even " >
               <div>
                 <i class="far fa-check-circle votes_for"></i>
               </div>
@@ -112,7 +112,7 @@
               </div>
             </div>
 
-            <div class= "d-flex ml-4">
+            <div class= "d-flex flex-even">
               <div>
                 <i class="far fa-times-circle votes_against"></i>
               </div>
@@ -122,7 +122,7 @@
               </div>
             </div>
 
-            <div class= "d-flex  ml-4">
+            <div class= "d-flex  flex-even">
               <div>
                 <i class="fas fa-ban votes_abstained"></i>
               </div>
@@ -131,70 +131,81 @@
                 <div><%= law.sum_abstention %> abstained</div>
               </div>
             </div>
+
+
           </div>
-
-
-
-              <!--  closing icons -->
 
         </div>
 
-        <div class="p-2 law-details align-items-center">
+        <!--  Testing1 -->
 
-          <div class="group-info-summary w-auto d-flex align-items-center justify-content-between  ">
 
-              <div class= "d-flex political-group-law">
+        <div class="law-info-summary p-2 w-auto d-flex justify-content-between ">
 
-                <div class= "">
-                  <i class="fas fa-users result-icon pl-2 pr-4"></i>
-                </div>
 
-                <div class="ml-1">
-                   <%= group.name%>
-                </div>
+<!--           First pair of icons -->
+          <div class= "d-flex political-group-law">
 
-                </div>
-
-                <div class='d-flex result-law-1 d-flex align-items-center justify-content-between' >
-                  <% @project_laws.columns.each do |column| %>
-                    <% if column.name.include? "#{group.ref}_"  %>
-
-                      <div class= "d-flex  ml-4 align-items-center " >
-                        <div>
-                          <i class="far fa-check-circle votes_for"></i>
-                        </div>
-
-                        <div class= "ml-1">
-                          <div><%= law[column.name].split("-")[1].to_i%> for</div>
-                        </div>
-                      </div>
-
-                      <div class= "d-flex ml-4">
-                        <div>
-                          <i class="far fa-times-circle votes_against"></i>
-                        </div>
-
-                        <div class= "ml-1">
-                         <div><%= law[column.name].split("-")[2].to_i%> against</div>
-                        </div>
-                      </div>
-
-                      <div class= "d-flex  ml-4">
-                        <div>
-                          <i class="fas fa-ban votes_abstained"></i>
-                        </div>
-
-                        <div class= "ml-1">
-                          <div><%= law[column.name].split("-")[3].to_i%> abstained</div>
-                        </div>
-                      </div>
-                    <% end %>
-                  <% end %>
-                </div>
+              <div class= "">
+                <i class="fas fa-users result-icon pl-2 pr-4"></i>
               </div>
-            </div>
-             <!--closing law details -->
+
+              <div class="ml-1">
+                 <%= group.name%>
+              </div>
+
           </div>
+
+<!--        First pair of icons closing -->
+
+
+          <div class='d-flex pb-0 result-law law-info-summary-2  '>
+      <!--     After beginning of secon sub container  -->
+            <% @project_laws.columns.each do |column| %>
+              <% if column.name.include? "#{group.ref}_"  %>
+
+              <!-- remember to close ends -->
+                    <div class= "d-flex   flex-even " >
+                      <div>
+                        <i class="far fa-check-circle votes_for"></i>
+                      </div>
+
+                      <div class= "ml-1">
+                        <div><%= law[column.name].split("-")[1].to_i%> for</div>
+                      </div>
+                    </div>
+
+                    <div class= "d-flex  flex-even">
+                      <div>
+                        <i class="far fa-times-circle votes_against"></i>
+                      </div>
+
+                      <div class= "ml-1">
+                       <div><%= law[column.name].split("-")[2].to_i%> against</div>
+                      </div>
+                    </div>
+
+                    <div class= "d-flex  flex-even">
+                      <div>
+                        <i class="fas fa-ban votes_abstained"></i>
+                      </div>
+
+                      <div class= "ml-1">
+                        <div><%= law[column.name].split("-")[3].to_i%> abstained</div>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+          </div>
+      </div>
+
+
+
+
+
+
+        <!--  Testing 1  end-->
+
 
     <div class="law-grid collapse ml-2 mr-2 mt-2 mb-2" id="expand-<%= post.id%>">
       <% @project_laws.columns.each do |column| %>
