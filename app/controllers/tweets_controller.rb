@@ -36,7 +36,7 @@ class TweetsController < ApplicationController
       if @tweet.is_relevant?
         Post.create(user: current_user, tweet: @tweet, name: @tweet.name)
       end
-      redirect_to "#{tweets_path}#Tweet#{@tweet.id}", notice: "tweet relevant"
+      redirect_to "#{tweets_path}#tweet#{@tweet.id}", notice: "tweet relevant"
     else
       render "edit"
     end
@@ -57,9 +57,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id]) if params[:id]
   end
 
-  # def set_post
-  #   @post = Post.find(params[:id]) if params[:id]
-  # end
+
 
   def set_match
     @match = Match.find(params[:id])
@@ -70,6 +68,4 @@ class TweetsController < ApplicationController
   end
 
 end
-
-#        <%= number_field :post_id, :value => @post.id %>
 
