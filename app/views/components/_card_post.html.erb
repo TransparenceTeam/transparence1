@@ -15,7 +15,7 @@
             <div class="link-politician-name"><%= link_to tweet.name, politician_path(tweet.politician_id) %></div>
           </div>
 
-          <div class="politician-info-add-username ml-2">
+          <div class="politician-info-add-username ml-1">
             <div class= "political-party-header">
               <div class="link-political-group"><a href=<%= political_party.website_url%>, target="_blank" ><%= political_party.name %></a></div>
             </div>
@@ -300,7 +300,7 @@
        <button class="btn-flat-red-light" data-bs-toggle="collapse" href="#expand-<%= post.id%>"role="button" aria-expanded="false" aria-controls="collapseExample">Other political groups</button>
       </div>
 
-      <div>
+      <div class="icons justify-content-between pt-1 pl-3 ">
         <%= link_to law.url_nojson, :target =>"_blank", class: "fas fa-external-link-alt law-info-summary-3 " do %>
       <% end %>
 

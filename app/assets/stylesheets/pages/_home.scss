@@ -1,1 +1,64 @@
 // Specific CSS for your home-page
+
+
+.container-center-home-second {
+  margin: auto;
+  width: 80%;
+  backdrop-filter: blur(2px);
+  text-align: center;
+}
+
+
+.container-center-home-first {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  backdrop-filter: blur(2px);
+  text-align: center;
+
+}
+
+
+.banner-second {
+  // background-size: cover;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  height: 45%;
+  margin-top: auto;
+  margin-bottom: auto;
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+
+}
+
+.home-image {
+  max-width: 500px;
+  max-height: 300px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.small-container-home-first {
+  max-width: 500px;
+  max-height: 300px;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: left;
+}
+
+
+.small-container-home-second {
+  max-width: 500px;
+  max-height: 300px;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: left;
+}
+
+.full-width {
+  height: 1px;
+  background-color: $black;
+}
+
+.home-footer {
+height: 10%;
+}

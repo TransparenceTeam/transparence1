@@ -29,13 +29,13 @@
   list-style: none;
   margin: 0px;
   padding: 0;
-  border-bottom-color: #F4ECD3
+  border-bottom-color: $eggshell;
 }
 
 ul {
   list-style: none;
   -webkit-padding-start: 0;
-  border-bottom-color: #F4ECD3
+  border-bottom-color: $eggshell;
 }
 
 
@@ -51,19 +51,47 @@ ul {
   border-radius: 8px;
   margin: 10px;
   padding: 2px;
-  border-bottom-color: #F4ECD3;
+  // border-bottom-color: $eggshell;
   font-size: 14px;
 }
 
 .box-1{
-
   border-color: $ivory;
   font-size: 14px;
   font-weight: light;
+  // border: 1px solid $eggshell;
 }
 
-.fas .fa-tag {
+.fa-tag {
   color: $red;
+}
+
+.tag-style {
+  border-bottom-color-style: 1px solid $eggshell;
+}
+
+.step-style > h5{
+  color: $red;
+  font-weight: bolder;
+}
+
+.step-style{
+  border-bottom-color-style: 4px solid red;
+  border-color: red;
+}
+
+.category-box-step {
+  background-color: $ivory;
+  width: auto;
+  border-radius: 8px;
+  margin: 10px;
+  // border-bottom-color: $eggshell;
+  font-size: 14px;
+}
+
+
+.card-filter {
+  color: $green;
 }
 
 
