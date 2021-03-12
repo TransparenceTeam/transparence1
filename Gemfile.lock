@@ -279,8 +279,6 @@ GEM
     sshkit (1.21.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    sweetify (2.0.0)
-      actionpack
     syntax (1.2.2)
     thor (1.1.0)
     thread_safe (0.3.6)
@@ -364,7 +362,6 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
-  sweetify (~> 2.0)
   turbolinks (~> 5)
   twitter (~> 6.2)
   typhoeus
