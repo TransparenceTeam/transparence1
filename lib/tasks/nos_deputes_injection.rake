@@ -34,7 +34,7 @@ namespace :db do
       end
     end
 
-    puts "step 1 done"
+    puts "step 1 done (political group)"
 
     json_deputies['deputes'].each do |deputy|
       if !deputy['depute']['groupe_sigle'].nil?
@@ -60,7 +60,7 @@ namespace :db do
       end
     end
 
-    puts "step 2 done"
+    puts "step 2 done (deputies)"
 
     deputies = Deputy.all
 
@@ -119,7 +119,7 @@ namespace :db do
       end
     end
 
-    puts "step 3 done"
+    puts "step 3 done (project laws)"
 
     votes = ProjectLaw.all
     votes.each do |vote|
@@ -143,15 +143,12 @@ namespace :db do
         end
 
         if !scrutin['vote']['position'].nil?
-          unless Vote.exists?(deputy_id: Deputy.where(name: deputy_name).first.id) &&
-            Vote.exists?(project_law_id: ProjectLaw.where(scrutin: scrutin['vote']['scrutin']['numero']).first.id)
             new_vote = Vote.create!(
               deputy_id: Deputy.where(name: deputy_name).first.id,
               project_law_id: ProjectLaw.where(scrutin: scrutin['vote']['scrutin']['numero']).first.id,
               position: scrutin['vote']['position']
             )
             puts "Vote id #{new_vote.id} has been created"
-          end
         end
       end
     end
@@ -159,6 +156,6 @@ namespace :db do
 
     api_results = VoteResults.new
     api_results.execute
-    puts "step 5 done"
+    #puts "step 5 done"
   end
 end
