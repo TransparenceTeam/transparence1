@@ -290,7 +290,7 @@
 
     <!-- icons to share and like -->
     <div class="icons w-100 m-auto justify-content-between pt-1 pl-3 pr-3">
-      <div class= "icon d-flex">
+      <div class= "icon d-flex mb-3">
         <div class="p-2"><i class="fas fa-star fa-lg"></i></div>
         <div class="p-2"> <i class="far fa-heart fa-lg"></i></div>
         <div class="p-2"> <i class="fas fa-share-alt fa-lg"></i></div>
@@ -300,8 +300,8 @@
        <button class="btn-flat-red-light" data-bs-toggle="collapse" href="#expand-<%= post.id%>"role="button" aria-expanded="false" aria-controls="collapseExample">Other political groups</button>
       </div>
 
-      <div class="icons justify-content-between pt-1 pl-3 ">
-        <%= link_to law.url_nojson, :target =>"_blank", class: "fas fa-external-link-alt law-info-summary-3 " do %>
+      <div>
+        <%= link_to law.url_nojson, :target =>"_blank", class: "fas fa-external-link-alt law-info-summary-3 mt-2" do %>
       <% end %>
 
       </div>
