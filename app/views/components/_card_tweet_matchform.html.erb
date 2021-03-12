@@ -23,9 +23,12 @@
           <%= f.label "Which topic would you most closely associate the tweet with?"  %>
           <%= f.select :policy_area_id, options_for_select(PolicyArea.all.map{ |u| [u.category, u.id] })%>
         </div>
-        <%= f.hidden_field :post_id, value: @posts.last.id %>
-        <div class="select-form-tweet">
-          <%= submit_tag "Validate" , class: "btn btn-flat-green w-50 far m-3 fa-check-circle", id: "sweet-alert-demo"%>
+        <div>
+          <%= f.hidden_field :post_id, value: @posts.last.id %>
+        </div>
+
+        <div class="select-form-tweet-7">
+          <%= submit_tag "Validate" , class: "btn btn-flat-green w-50 far m-3 fa-check-circle", data: {confirm: 'Our whole philosophy is one of transparency. Keep up the good work! ',  title: 'Nice Work! A moderator will review it ASAP',   commit: 'Continue!', cancel: 'Revert'}%>
         </div>
       <% end %>
     </div>

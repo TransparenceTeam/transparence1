@@ -13,6 +13,7 @@ require("select2")
 // require ("packs/post.js")
 import 'bootstrap';
 //import swal from 'sweetalert';
+require ("data-confirm-modal")
 
 
 
