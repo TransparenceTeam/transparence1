@@ -4,7 +4,7 @@ class Tweet < ApplicationRecord
   belongs_to :politician
   has_one :post, dependent: :destroy
   # has_one :match, :through => :post
-  # has_many :matches, :through => :post
+  # has_many :matches, :through => :post #hidden by Victor (13.03.21)
   # validates :tweet_id, presence: true, uniqueness: true
   #before_save :fetch_translated_tweet
 

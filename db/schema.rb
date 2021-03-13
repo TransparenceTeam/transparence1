@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_11_113212) do
+ActiveRecord::Schema.define(version: 2021_03_13_010931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,11 +49,9 @@ ActiveRecord::Schema.define(version: 2021_03_11_113212) do
     t.bigint "project_law_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
     t.index ["policy_area_id"], name: "index_matches_on_policy_area_id"
     t.index ["post_id"], name: "index_matches_on_post_id"
     t.index ["project_law_id"], name: "index_matches_on_project_law_id"
-    t.index ["user_id"], name: "index_matches_on_user_id"
   end
 
   create_table "policy_areas", force: :cascade do |t|
@@ -223,7 +221,6 @@ ActiveRecord::Schema.define(version: 2021_03_11_113212) do
   add_foreign_key "matches", "policy_areas"
   add_foreign_key "matches", "posts"
   add_foreign_key "matches", "project_laws"
-  add_foreign_key "matches", "users"
   add_foreign_key "political_parties", "political_groups"
   add_foreign_key "politicians", "political_parties"
   add_foreign_key "posts", "policy_areas"
