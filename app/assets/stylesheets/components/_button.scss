@@ -209,7 +209,7 @@ a:link, a:visited {
 .btn-flat-green-home {
   color: white!important;
   padding: 8px 24px;
-  width: 100%;
+  width: 150px!important;
   border-radius: 28px;
   background: $green;
   transition: background 0.3s ease;
@@ -222,11 +222,10 @@ a:link, a:visited {
 }
 
 
-
 .btn-flat-red-home  {
-  color: $ivory!important;
+  color: $ivory;
   padding: 8px 24px;
-  width: 100%;
+  width: 150px;
   border-radius: 28px;
   background: $red;
   transition: background 0.3s ease;
