@@ -19,7 +19,7 @@ input {
 }
 
 .form-inline .form-control {
-  width: 500px;
+  width: 630px;
 }
 
 .input-90 {
@@ -27,5 +27,7 @@ input {
 }
 
 .searchbar {
-  width: 55%;
+  position: absolute;
+  width: 50%;
+  left: 25%;
 }

@@ -1,34 +1,37 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex">
-  <div class="title-search d-flex w-100">
-    <a class="navbar-brand d-flex justify-content-between" href="#">
-      <h2 class="title">Transparence</h2>
-    </a>
+  <div class="title-search d-flex w-100 justify-content-between">
+    <div class="justify-content-center">
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <a class="navbar-brand d-flex justify-content-between" href="#">
+        <h2 class="title">Transparence</h2>
+      </a>
 
-      <div class="searchbar d-flex justify-content-between"> <%= render 'components/search_bar_posts'%></div>
+
     </div>
 
-  <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
-    <div class="links w-100">
-      <div class="login d-flex vertical-align">
-          <% if current_user %>
 
-            <div class="nav-item dropdown d-flex">
-              <i class="fas fa-user dropdown" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <div class="dropdown-item"><%= link_to "Profile", user_path(current_user.id) %></div>
-              <div class="dropdown-item"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
-            </div>
-            </div>
+    <div class="searchbar d-flex justify-content-between"> <%= render 'components/search_bar_posts'%></div>
 
-          <% else %>
-            <div class="nav-item d-flex">
-              <a class="text-decoration-none"><%=link_to "Login", new_user_session_path, class: "my-btn btn btn-link" %></a>
-            </div>
-          <% end %>
+
+    <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+      <div class="links w-100">
+        <div class="login d-flex vertical-align">
+            <% if current_user %>
+
+              <div class="nav-item dropdown d-flex">
+                <i class="fas fa-user dropdown" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <div class="dropdown-item"><%= link_to "Profile", user_path(current_user.id) %></div>
+                <div class="dropdown-item"><%= link_to "Logout", destroy_user_session_path, method: :delete %></div>
+              </div>
+              </div>
+
+            <% else %>
+              <div class="nav-item d-flex">
+                <a class="text-decoration-none"><%=link_to "Login", new_user_session_path, class: "my-btn btn btn-link" %></a>
+              </div>
+            <% end %>
+        </div>
       </div>
     </div>
   </div>
