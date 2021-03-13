@@ -93,7 +93,11 @@
             </div>
 
             <div class="ml-1">
-              <div>Result: <%= law.position_law  %></div>
+               <% if law.position_law == 'Adopté' %>
+              <div>Result: Adopted </div>
+                <% else %>
+              <div>Result: Rejected </div>
+              <% end %>
             </div>
 
           </div>
