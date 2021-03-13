@@ -214,7 +214,7 @@ a:link, a:visited {
   background: $green;
   transition: background 0.3s ease;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  font-size: 24px;
+  font-size: 20px;
 }
 .btn-flat-green-home:hover {
   background: #1BCB7F;
@@ -231,10 +231,12 @@ a:link, a:visited {
   background: $red;
   transition: background 0.3s ease;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  font-size: 24px;
+  font-size: 20px;
 }
 .btn-flat-red-home:hover {
   background: #B497D6;
   color: white;
 }
+
+
 
