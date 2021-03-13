@@ -3,7 +3,7 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(match_params)
-    #@match.user = current_user #hidden by Victor (13.03.21)
+    @match.user = current_user
     authorize @match
 
     @match.save
