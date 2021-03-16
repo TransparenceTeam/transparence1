@@ -37,3 +37,5 @@ View this code in production: [Transparence](http://www.transparence.community)
 ## Project Development 
 This project is a work in progress.
 
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=hulow&repo=transparence&theme=radical)](https://github.com/hulow/transparence)
+
