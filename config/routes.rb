@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :posts, only: [:index, :show, :new, :create, :update] do
+    member do
+      post 'toggle_favorite', to: "posts#toggle_favorite"
+    end
     resources :user_posts, only: [:index] do
     end
     resources :tweets, only: [:index] do
@@ -18,5 +21,4 @@ Rails.application.routes.draw do
 
   resources :tweets, only: [:index, :update, :edit]
   resources :matches, only: [:new, :create]
-
 end
