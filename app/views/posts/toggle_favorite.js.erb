@@ -1,14 +1,7 @@
 var postId = '<%= @post.id%>'
 
-function toggleLikeButton(postId, favoritedPost) {
+function toggleLikeButton(postId, innerHTML) {
   let likeButton = document.querySelector(`.like-icon[data-id='${postId}']`)
   likeButton.classList.toggle('red');
-  if (likeButton.classList.contains('red')) {
-    const favoriteList = document.querySelector('.favorites');
-    favoriteList.insertAdjacentHTML('beforeend', favoritedPost)
-  }
-  else {
-    document.querySelector(`.favorite[data-id='${postId}']`).remove()
-  }
 }
-toggleLikeButton(postId, '<%= j render "cocktails/cocktail", cocktail: @cocktail %>');
+toggleLikeButton(postId);

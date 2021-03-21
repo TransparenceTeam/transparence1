@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       @posts = policy_scope(Post.joins(:matches).where.not(matches: nil).order(id: "DESC"))
     end
 
-    @favorite_posts = current_user.favorited_by_type('Post')
+    # @favorite_posts = current_user.favorited_by_type('Post')
 
   end
 
