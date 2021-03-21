@@ -309,7 +309,7 @@
         <div class="p-2"><i class="fas fa-star fa-lg"></i></div>
         <% if current_user %>
           <div>
-            <%= link_to toggle_favorite_post_path(post.id), remote: true, method: :post do %>
+            <%= link_to toggle_favorite_post_path(post), remote: true,  method: :post do %>
               <%= render 'posts/like_button', post: post %>
             <% end %>
           </div>
@@ -337,6 +337,7 @@
 
   </div>
 </div>
+
 
 
 

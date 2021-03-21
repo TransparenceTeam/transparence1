@@ -54,6 +54,7 @@ class PostsController < ApplicationController
   end
 
   def toggle_favorite
+    skip_authorization
     @post = Post.find(params[:id])
     current_user.favorited?(@post) ? current_user.unfavorite(@post) : current_user.favorite(@post)
   end
