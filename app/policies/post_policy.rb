@@ -16,4 +16,8 @@ class PostPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def toggle_favorite?
+    true
+  end
 end
