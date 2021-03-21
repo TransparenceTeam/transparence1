@@ -35,7 +35,6 @@ political_party3 = PoliticalParty.create!(
 )
 puts "political party #{political_party3.id} has been created"
 
-
 politician1 = Politician.create!(
   name: 'Jean-Luc Mélenchon',
   role: 'President of the LFI Group at the National Assembly, Member for the 4th constituency of Bouches-du-Rhône',
