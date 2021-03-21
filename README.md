@@ -22,13 +22,14 @@ Project created with:
 - See the relevant laws connected to the tweets 
 - Sign-up to become a user or a contributor 
 - Search for politicians or tweets 
+- Like and save posts for later if you're a user 
 
 As a contributor: 
 - Connect tweets with relevant french laws 
 - Mark tweets as political in nature or dismiss them 
 - Select a policy area relevant to the tweet 
 - Create new posts to display 
-- View your profile to check your progress pie 
+- View your profile to check your progress bar 
 - Become a moderator after creating 10 posts
 
 ## Production
