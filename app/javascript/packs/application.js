@@ -15,7 +15,8 @@ import 'bootstrap';
 //import swal from 'sweetalert';
 require ("data-confirm-modal")
 
-
+// require jquery
+// require jquery_ujs
 
 console.log("Hello from app/javascript/packs/application.js!");
 

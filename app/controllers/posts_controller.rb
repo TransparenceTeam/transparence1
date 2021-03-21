@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index], raise: false
+  skip_before_action :authenticate_user!, only: [:index, :toggle_favorite], raise: false
   before_action :set_post, only: [:new, :create, :edit, :update, :destroy]
+  respond_to :js, :json, :html
 
   def index
-
     @tweets = policy_scope(Tweet.all)
     @politicians = policy_scope(Politician.all)
     @political_parties = policy_scope(PoliticalParty.all)
@@ -17,6 +17,9 @@ class PostsController < ApplicationController
     else
       @posts = policy_scope(Post.joins(:matches).where.not(matches: nil).order(id: "DESC"))
     end
+
+    @favorite_posts = current_user.favorited_by_type('Post')
+
   end
 
   def new
@@ -48,6 +51,11 @@ class PostsController < ApplicationController
     @post.destroy
     authorize @post
     redirect_to posts_path
+  end
+
+  def toggle_favorite
+    @post = Post.find(params[:id])
+    current_user.favorited?(@post) ? current_user.unfavorite(@post) : current_user.favorite(@post)
   end
 
   private
