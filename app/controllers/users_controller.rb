@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @policy_areas = policy_scope(PolicyArea.all)
     @project_laws = policy_scope(ProjectLaw.all)
     @political_groups = policy_scope(PoliticalGroup.all)
+    @favorite_posts = current_user.favorited_by_type('Post')
     authorize @user
     gon.posts = @posts.count
   end
