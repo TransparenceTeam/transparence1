@@ -23,6 +23,7 @@ Project created with:
 - Sign-up to become a user or a contributor 
 - Search for politicians or tweets 
 - Like and save posts for later if you're a user 
+- Review your saved posts in your profile
 
 As a contributor: 
 - Connect tweets with relevant french laws 
@@ -30,6 +31,7 @@ As a contributor:
 - Select a policy area relevant to the tweet 
 - Create new posts to display 
 - View your profile to check your progress bar 
+- Review your posts and saved posts in your profile
 - Become a moderator after creating 10 posts
 
 ## Production
