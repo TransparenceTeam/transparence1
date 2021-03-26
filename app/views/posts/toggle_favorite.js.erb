@@ -3,5 +3,8 @@ var postId = '<%= @post.id%>'
 function toggleLikeButton(postId, innerHTML) {
    let likeButton = document.querySelector(`.like-icon[data-id='${postId}']`)
    likeButton.classList.toggle('red');
+   if (!likeButton.classList.contains('red')) {
+    document.querySelector(`.favorite[data-id='${postId}']`).remove()
+  }
  }
- toggleLikeButton(postId);
+toggleLikeButton(postId);

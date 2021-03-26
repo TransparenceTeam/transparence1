@@ -45,7 +45,12 @@
     </div>
   </div>
 
-
-
+  <% if !@favorite_posts.nil? %>
+    <div class="favorites">
+      <% @favorite_posts.each do |post| %>
+        <%= render 'favorite', post: post %>
+      <% end %>
+    </div>
+<% end %>
 
 </div>
